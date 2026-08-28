@@ -1,0 +1,1050 @@
+<!DOCTYPE html>
+<html lang="es">
+<!--- # Gecko-Streaming-Plus.3L.html # --->
+<!--- # Monkey Python Coding Circus by Alan.RG Systemas & Team Cangurera c.2026 # --->
+
+<!--- Encabezados a la Cabeza (¿obvio no?) [Incluye EStilos Geckónicos] --->
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#000000">
+<title>GECKO STREAMING PLUS - Tree Edition</title>
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+<!-- Estilos Globales Geckónicos -->
+<style>
+:root{
+  --gecko:#00ff88;
+  --gecko-rgb:0,255,136;
+}
+@import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#000;color:var(--gecko);font-family:'Share Tech Mono',monospace;height:100vh;height:100dvh;display:flex;flex-direction:column;overflow:hidden}
+header{padding:12px 20px;border-bottom:2px solid var(--gecko);background:#0a0a0a;display:flex;justify-content:space-between;align-items:center}
+header h1{font-size:1.1em;letter-spacing:0.2px}
+header span{font-size:0.73em;opacity:0.7}
+#main{display:flex;flex:1;overflow:hidden}
+/* GTVSCV30 - Tele Clásica Viajera del Tiempo - Pantalla a la izquierda */
+#playerWrap{order:1;}
+#sidebar{order:2;width:371px;background:#0a0a0a;border:2px solid var(--gecko);display:flex;flex-direction:column}
+#tree{flex:1;overflow-y:auto;padding:8px}
+
+.folder{border:1px solid #222;border-radius:6px;margin-bottom:6px;background:#111;overflow:hidden}
+.folder-header{padding:10px 12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#151515;transition:all 0.2s}
+.folder-header:hover{background:#1a1a1a;border-color:var(--gecko)}
+.folder.active .folder-header{background:var(--gecko);color:#000;font-weight:bold}
+.folder-title{display:flex;gap:8px;align-items:center}
+.folder-count{font-size:0.7em;opacity:0.6;background:#222;padding:2px 6px;border-radius:10px;color:var(--gecko)}
+.folder.active .folder-count{background:#000;color:var(--gecko)}
+.folder-body{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
+.folder.open .folder-body{max-height:2000px;overflow-y:auto}
+
+/* 1. GLOW ORIGINAL EN CANAL SELECCIONADO */
+.channel{padding:7px 12px 7px 28px;border-top:1px solid #1a1a1a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.8em;transition:all 0.15s}
+.channel:hover{background:#111;color:#fff;transform:translateX(3px)}
+.channel.active{border-color:var(--gecko);background:var(--gecko);color:#000;font-weight:bold;box-shadow:0 0 10px var(--gecko), 0 0 5px var(--gecko);text-shadow:0 0 2px #000}
+.channel small{opacity:0.6;font-size:0.75em}
+
+/* 3. PESTAÑAS ABAJO */
+#tabContainer{border-top:2px solid var(--gecko);background:#0f0f0f;display:flex;flex-direction:column}
+.tab-headers{display:flex;border-bottom:1px solid #222;background:#050505}
+.tab-btn{flex:1;padding:8px;background:none;border:none;color:var(--gecko);font-family:inherit;font-size:0.75em;cursor:pointer;opacity:0.6;transition:all 0.2s;}
+.tab-btn.active{opacity:1;background:#0f0f0f;font-weight:bold;border-top:2px solid var(--gecko)}
+.tab-content{display:none;padding:10px}
+.tab-content.active{display:block}
+
+/* 5. FORMULARIO ADMINISTRAR CHANNELS */
+.form-group{margin-bottom:6px}
+.form-group label{display:block;font-size:0.65em;opacity:0.7;margin-bottom:2px}
+.form-group input, .form-group select{width:100%;padding:6px;background:#000;border:1px solid #333;color:var(--gecko);border-radius:4px;font-family:inherit;font-size:0.75em}
+.form-group input:focus, .form-group select:focus{border-color:var(--gecko);outline:none}
+.row{display:flex;gap:6px;margin-top:6px}
+.row button{flex:1;padding:7px;background:var(--gecko);color:#000;border:none;border-radius:4px;font-weight:bold;cursor:pointer;font-family:inherit;font-size:0.75em}
+.row button:hover{background:#00cc66}
+.row button.secondary{background:#222;color:var(--gecko);border:1px solid #333}
+.row button.danger{background:#ff3344;color:#fff}
+
+/* 4. HARDWARE CONTROLS (DIALES) // Redesign by Llamita Encendida for v.3T */
+#dialPanel{display:grid;grid-template-columns:90px 90px 1fr;gap:10px;align-items:start;padding:0 17px;box-sizing:border-box}
+#dialPanel>div:nth-child(1),#dialPanel>div:nth-child(2){width:90px;min-width:90px}
+#dialPanel>div:nth-child(3){min-width:146px}
+#volVal,#fineVal{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#channelVal{white-space:normal;word-break:break-word;min-height:2.2em}
+.dial-group{display:flex;flex-direction:column;align-items:center;gap:4px}
+.dial-label{font-size:0.6em;opacity:0.7}
+/*.dial{width:65px;height:65px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #333, #000);border:3px solid #222;position:relative;cursor:grab;box-shadow:inset 0 2px 5px rgba(255,255,136,0.2), 0 0 10px rgba(0,0,0,0.8);touch-action:none}*/
+.dial{width:65px;height:65px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #444, #000);border:3px solid #222;position:relative;cursor:grab;box-shadow:inset 0 2px 5px rgba(255,255,136,0.2), 0 0 10px rgba(0,0,0,0.8);touch-action:none}
+.dial:active{cursor:grabbing;border-color:var(--gecko)}
+.dial-marker{position:absolute;width:4px;height:18px;background:var(--gecko);left:50%;top:4px;transform:translateX(-50%);border-radius:2px;box-shadow:0 0 5px var(--gecko)}
+.dial-center{position:absolute;width:10px;height:10px;background:#111;border:2px solid #333;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
+.dial-values{font-size:0.6em;opacity:0.6;margin-top:2px;text-align:center}
+#fineDial{border:3px dashed #333}
+#fineDial.active{border-color:#ffaa00;box-shadow:0 0 10px rgba(255,170,0,0.3)}
+
+/* PLAYER & EFECTOS SINTONIA FINA */
+#playerWrap{flex:1;background:#000;display:flex;flex-direction:column;position:relative}
+#videoContainer{flex:1;position:relative;overflow:hidden;background:#000}
+video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
+#noiseCanvas{position:absolute;inset:0;pointer-events:none;opacity:0;mix-blend-mode:screen;width:100%;height:100%}
+#bar{position:absolute;left:0;width:100%;height:2px;background:var(--gecko);opacity:0;pointer-events:none;box-shadow:0 0 10px var(--gecko), 0 0 20px var(--gecko);z-index:5}
+@keyframes scanDown{0%{top:0%}100%{top:100%}}
+@keyframes scanUp{0%{top:100%}100%{top:0%}}
+#vhold{position:absolute;inset:0;background:repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,255,136,0.03) 2px, rgba(0,255,136,0.03) 4px);pointer-events:none;opacity:0}
+#info{padding:8px 12px;background:#0a0a0a;border-top:1px solid #222;display:flex;justify-content:space-between;align-items:center;font-size:0.75em}
+#status{color:#ffaa00;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+#log{font-size:0.65em;color:#555;background:#080808;padding:6px 10px;max-height:60px;overflow-y:auto}
+/* =============================================================================================
+   New for v.2.9e NOva [26/08/2026 01:20]
+   CodeName: GECKO TV STREAM COMMANDER VAINILLA 3.0 [🖥️ GTVSCV30]
+   Panel de instrumentación TeleVisionScopica™ & Fluke True TeleVisivo™
+   MODO PANTALLA 16:9 [Tele clásica viajera del tiempo]
+   MODO PORTÁTIL 9:16 [Monitor portátil del Agente del HiperEspionaje]
+   Instrumento televisivo portátil para exploración de señales del multiverso.
+   For Civilizations with “Extraordinaria tolerancia al minimalismo.”
+   🖖 Spok - Señor Zulu, estoy recibiendo una transmisión desconocida desde el planeta Tierra... -
+   ============================================================================================= */
+@media (orientation: portrait){
+    /* PANTALLA ARRIBA / LISTA ABAJO */
+    #main{flex-direction:column;min-height:0;}
+    /* Tele portátil - ahora en % del main, no en dvh, así no suma con el header */
+    #playerWrap{order:1;flex:0 0 42%;width:100%;height:auto;}
+    /* Lista + controles */
+    #sidebar{order:2;flex:1 1 58%;width:100%;height:auto;min-height:0;border-right:none;border-left:2px solid var(--gecko);border-bottom:2px solid var(--gecko);padding-bottom: env(safe-area-inset-bottom);}
+    /* La tele queda limpia: sin log */
+    #info,
+    #log{display:none;}
+    /* Solapas: solo iconos */
+    .tab-btn{font-size:0;padding:8px 4px;justify-content:center;}
+    .tab-btn::before{content:attr(data-icon);font-size:1.5rem;}
+}
+</style>
+</head>
+
+<!--- EL Cuerpo de la Web (... no, no del delito, no hay delito!!!, hay Header, Main y Scripts) --->
+<body>
+
+<!--- Los Títulos (no como las pelis pero si como los buenos libros) --->
+<header>
+  <h1><<< 🦎GECKO STREAMING PLUS📡 >>></h1>
+  <div style="display:flex;gap:8px;align-items:center">
+    <span>TREE EDITION 3L [Geckónico | Minimalista | Eficiente]</span>
+    <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ TV</button>
+  </div>
+</header>
+
+<!--- EL Famoso MAIN de la Web (El Oficial Principal Diseñador del Esqueleto Html) // New Design v.29 e NOva--->
+<div id="main">
+  <!-- REPRODUCTOR -->
+  <div id="playerWrap">
+    <div id="videoContainer">
+      <video id="video" controls autoplay muted playsinline></video>
+      <canvas id="noiseCanvas"></canvas>
+      <div id="bar"></div>
+      <div id="vhold"></div>
+    </div>
+    <div id="info">
+      <span id="status">🦎 Seleccioná un canal del árbol</span>
+      <span style="margin-left:auto;font-family:inherit;font-size:1em;font-weight:bold;opacity:0.7"><<<🦎Gecko Manda: lo pequeño sostiene lo inmenso>>></span>
+      <button onclick="document.getElementById('video').requestFullscreen()" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ Full</button>
+    </div>
+    <div id="log">Gecko Tree iniciado...</div>
+  </div>
+  <!-- Barra Lateral (Arbol-Listas/Controles) -->
+  <div id="sidebar">
+    <!-- ARBOL DE CANALES -->
+    <div id="tree"></div>
+    <!-- 3. SOLAPAS ABAJO (Controles) // new design on v.2.9D // Collapse by Chamán // ToolTips By Leo -->
+    <div id="tabContainer">
+      <div class="tab-headers">
+        <button class="tab-btn" onclick="switchTab('panelc', this)" data-icon="▾" title="Collapse All">▾</button>
+        <button class="tab-btn" onclick="switchTab('admin', this)" data-icon="📺" title="Manage Channels">📺 Admin. Channels</button>
+        <button class="tab-btn" onclick="switchTab('adminl', this)" data-icon="📂" title="Manage Lists">📂 Admin. Listas</button>
+        <button class="tab-btn" onclick="switchTab('config', this)" data-icon="⚙" title="GeckoSP Settings">⚙ Config's GeckoSP</button>
+        <button class="tab-btn" onclick="switchTab('backup', this)" data-icon="💾" title="Full Backup & Restore">💾 FBackup GeckoSP</button>
+        <button class="tab-btn active" onclick="switchTab('hardware', this)" data-icon="🎛" title="Hardware Controls">🎛 Hardware Ctrl.</button>
+      </div>
+      <!-- PANEL [▾] FOLD CONTROL -->
+      <div id="tab-panelc" class="tab-content">
+      </div>
+      <!-- 5. PANEL ADMINISTRAR CHANNELS -->
+      <div id="tab-admin" class="tab-content">
+        <div class="form-group">
+          <label>Nombre:</label>
+          <input type="text" id="editName" placeholder="Seleccioná un canal del árbol">
+        </div>
+        <div class="form-group">
+          <label>URL Stream (.m3u8 / .m3u):</label>
+          <input type="text" id="editUrl" placeholder="http://...">
+        </div>
+        <div class="form-group">
+          <label>Categoría / Tipo:</label>
+          <input type="text" id="editType" placeholder="ej: Noticias, General">
+        </div>
+        <!-- New Listas Personalizadas - Lienzo en blanco (Edición Tía Marta) by Ei2 [Chamán Design]-->
+        <div class="form-group">
+          <label for="editTargetList">Lista Destino:</label>
+          <select id="editTargetList" onchange="toggleNewListInput(this.value)">
+            <!-- Se rellena dinámicamente -->
+          </select>
+          <div id="newListContainer" style="display: none; margin-top: 6px;">
+            <input type="text" id="newListNameInput" placeholder="Nombre de la nueva lista..." />
+            <span id="newListError" style="color: #ff5555; font-size: 0.85em; display: block; margin-top: 3px;"></span>
+          </div>
+        </div>  
+        <div class="row">
+          <button onclick="saveSelectedChannel()">Guardar</button>
+          <button class="secondary" onclick="addNewChannel()">Agregar</button>
+          <button class="danger" onclick="deleteSelectedChannel()">Eliminar</button>
+        </div>
+      </div>
+      <!-- PANEL ADMINISTRAR LISTAS -->
+      <div id="tab-adminl" class="tab-content">
+      </div>
+      <!-- PANEL CONFIGURACIONES GECKO STREAMING PLUS -->
+      <div id="tab-config" class="tab-content">
+        <div class="form-group">
+          <label>🎨 Tema / Color Gecko (Monocromo Pro):</label>
+          <!-- SECUENCIA CHROMÁTICA ARMÓNICA (GTVSCV30 Calibrado) -->
+          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
+            <!-- 1. Los Verdes Clásicos (Estabilidad) -->
+            <button onclick="setTheme('#00ff00')" style="width:36px;height:36px;border-radius:50%;background:#00ff00;border:2px solid #fff" title="Matric"></button>
+            <button onclick="setTheme('#00ff88')" style="width:36px;height:36px;border-radius:50%;background:#00ff88;border:2px solid #fff" title="Gecko Original"></button>
+            <button onclick="setTheme('#ccff00')" style="width:36px;height:36px;border-radius:50%;background:#ccff00;border:2px solid #fff" title="Fósforo Radiactivo"></button>
+            <!-- 2. Los Fríos Vibrantes (Comunicación/Futuro) -->
+            <button onclick="setTheme('#00ffff')" style="width:36px;height:36px;border-radius:50%;background:#00ffff;border:2px solid #fff" title="Cyan"></button>
+            <button onclick="setTheme('#0088ff')" style="width:36px;height:36px;border-radius:50%;background:#0088ff;border:2px solid #fff" title="Azul"></button>
+            <button onclick="setTheme('#aa88ff')" style="width:36px;height:36px;border-radius:50%;background:#aa88ff;border:2px solid #fff" title="Lila"></button>
+            <!-- 3. Los Cyberpunk Profundos (Intensidad/Poder) -->
+            <button onclick="setTheme('#ff00ff')" style="width:36px;height:36px;border-radius:50%;background:#ff00ff;border:2px solid #fff" title="Fuxia Cyberpunk"></button>
+            <button onclick="setTheme('#ff1493')" style="width:36px;height:36px;border-radius:50%;background:#ff1493;border:2px solid #fff" title="Rosa Neón Deep"></button>
+            <!-- 4. Los Cálidos Incandescentes (Energía Analógica) -->
+            <button onclick="setTheme('#ff3300')" style="width:36px;height:36px;border-radius:50%;background:#ff3300;border:2px solid #fff" title="Tubo Nixie / Plasma"></button>
+            <button onclick="setTheme('#ff8800')" style="width:36px;height:36px;border-radius:50%;background:#ff8800;border:2px solid #fff" title="Naranja"></button>
+            <button onclick="setTheme('#ffaa00')" style="width:36px;height:36px;border-radius:50%;background:#ffaa00;border:2px solid #fff" title="Ambar OSciloscopio"></button>
+            <button onclick="setTheme('#ffcc00')" style="width:36px;height:36px;border-radius:50%;background:#ffcc00;border:2px solid #fff" title="Amarillo"></button>
+            <!-- 5. Monocromatismo Monocromático -->
+            <button onclick="setTheme('#ffffff')" style="width:36px;height:36px;border-radius:50%;background:#fff;border:2px solid #fff" title="Blanco"></button>
+            <!-- 6. Personalización Libre Albedrío Geckónico -->
+            <input type="color" id="customGecko" value="#00ff88" oninput="setTheme(this.value)" style="width:36px;height:36px;border-radius:50%;padding:0;border:2px solid #fff;background:none;cursor:pointer" title="Color libre">
+          </div>
+          <div style="margin-top:10px;font-size:0.65em;opacity:0.6">Un color tiñe toda la criatura. Puro monocromo pro.</div>
+          <!-- BANCAR AL GECKO - MODO NO INVASIVO -->
+          <div style="margin-top:20px;padding:12px;border:1px dashed var(--gecko);border-radius:10px;background:rgba(var(--gecko-rgb),0.06)">
+            <div style="font-size:0.7em;letter-spacing:1px;margin-bottom:10px">♥ BANCAR A 🦎GECKO - A VOLUNTAD</div>
+            <div style="font-size:0.6em;opacity:0.8;margin-bottom:4px">Telegram Channel</div>
+            <div style="display:flex;gap:6px;align-items:center;margin-bottom:12px">
+              <code id="gecko-bep20" style="flex:1;padding:6px 8px;background:#000;border:1px solid #222;border-radius:6px;font-size:0.9em;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">https://t.me/GeckoSP</code>
+              <button onclick="copyGecko('gecko-bep20')" style="padding:6px 10px;border:1px solid var(--gecko);background:transparent;color:var(--gecko);border-radius:6px;cursor:pointer;font-size:0.9em">📋</button>
+            </div>
+            <div style="font-size:0.6em;opacity:0.8;margin-bottom:4px"><<< Solicitar Datos por MP/DM al Creador>>></div>
+            <!--<div style="display:flex;gap:6px;align-items:center">
+              <code id="gecko-alias" style="flex:1;padding:6px 8px;background:#000;border:1px solid #222;border-radius:6px">Solicitar por MP/DM</code>
+              <button onclick="copyGecko('gecko-alias')" style="padding:6px 10px;border:1px solid var(--gecko);background:transparent;color:var(--gecko);border-radius:6px;cursor:pointer;font-size:0.9em">📋</button>-->
+            </div>
+            <div style="margin-top:8px;font-size:0.5em;opacity:0.5">Pegalo en tu navegador, o en tu Telegram directo a @GeckoSP</div>
+          </div>
+        </div>
+      </div>
+      <!-- PANEL FULL BACKUP GECKO STREAMING PLUS -->
+      <div id="tab-backup" class="tab-content">
+        <!-- 6. IMPORTAR / EXPORTAR -->
+        <div class="row" style="margin-top:10px">
+          <button class="secondary" onclick="exportarJSON()">Export Full BKuP</button>
+          <button class="secondary" onclick="document.getElementById('importFile').click()">Import Full BKuP</button>
+          <input type="file" id="importFile" style="display:none" onchange="importarJSON(event)" accept=".json,.gspf,.txt">
+        </div>
+        <!-- RESTABLECIMIENTO EXCLUSIVO DE GECKO -->
+        <div class="row" style="margin-top:10px">
+          <button class="secondary danger" onclick="resetGeckoStorage()">Factory Reset Geckónic</button>
+        </div>
+      </div>
+      <!-- 4. PANEL HARDWARE CONTROLS // new design on v.2.9e NOva // Redesign by Llamita Encendida for v.3T -->
+      <div id="tab-hardware" class="tab-content active">
+        <div id="dialPanel">
+          <div class="dial-group">
+            <div class="dial-label">UNMUTE/VOLUME</div>
+            <div class="dial" id="volDial">
+              <div class="dial-marker" id="volMarker" style="background:var(--gecko)"></div>
+              <div class="dial-center"></div>
+            </div>
+            <div class="dial-values" id="volVal">🔇 CLACK MUTE</div>
+          </div>
+          <div class="dial-group">
+            <div class="dial-label">FINE-TUNING</div>
+            <div class="dial" id="fineDial">
+              <div class="dial-marker" style="background:#ffaa00"></div>
+              <div class="dial-center"></div>
+            </div>
+            <div class="dial-values" id="fineVal">■ ESTABLE</div>
+          </div>
+          <div class="dial-group">
+            <div class="dial-label">CLACK-CLACK[CHAN]</div>
+            <div class="dial" id="channelDial">
+              <div class="dial-marker"></div>
+              <div class="dial-center"></div>
+            </div>
+            <div class="dial-values" id="channelVal">---</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--- // La Lógica Vulkana Irreductible (Aquí sucede la verdadera Magia!!!) --->
+<script>
+const DB_KEY = 'gecko_tree_plus_v1';
+
+let data = {
+  favorites: [
+    { id: 'fav_1', nombre: "Red Bull TV", url: "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8", tipo: "Deportes" },
+    { id: 'fav_2', nombre: "CNA", url: "https://live1.mediadesk.al/cnatvlive.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_3', nombre: "6 Wise Tv (720p)", url: "https://live.enhdtv.com:8081/8150/index.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_4', nombre: "News 24 Ⓢ", url: "https://tv.balkanweb.com/news24/livestream/playlist.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_5', nombre: "1+1 Marafon (1080p)", url: "https://dash2.antik.sk/live/1plus1_marathon/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_6', nombre: "7 RadioVisione (720p)", url: "https://stream10.xdevel.com/video1s976543-1932/stream/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_7', nombre: "DW English", url: "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8", tipo: "Noticias" },
+    { id: 'fav_8', nombre: "CBS News", url: "https://cbsn-us.cbsnstream.cbsnews.com/out/v1/55a8648e8f134e82a470f83d562deeca/master.m3u8", tipo: "Noticias" },
+    { id: 'fav_9', nombre: "Canal 26", url: "https://stream-gtlc.telecentro.net.ar/hls/canal26hls/main.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_10', nombre: "El Nueve", url: "http://45.226.28.9:8085/Live/18e292ea93b66c65c76707f07c489d61/local-canal9.playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_11', nombre: "ABC Kids", url: "https://c.mjh.nz/abc-kids.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_12', nombre: "ABC News", url: "https://c.mjh.nz/abc-news.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_13', nombre: "2TV (720p)", url: "https://tv.cdn.xsg.ge/gpb-2tv/index.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_14', nombre: "5-Minute Craft (1080p)", url: "https://soul-5mincrafteng-rakuten.amagi.tv/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_15', nombre: "5TV Corrientes (480p) [Not 24/7]", url: "http://www.coninfo.net:1935/tvcinco/live1/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_16', nombre: "like Gecko", url: "http://stream.mcquack.net/405/index.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_17', nombre: "7 TeleValencia (576p)", url: "https://play.cdn.enetres.net/9E9557EFCEBB43A89CEC8FBD3C500247022/028/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_18', nombre: "8NTV (1080p)", url: "https://60417ddeaf0d9.streamlock.net/ntv/videontv/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_19', nombre: "4 Kurd", url: "https://4kuhls.persiana.live/hls/stream.m3u8", tipo: "Música" },
+    { id: 'fav_20', nombre: "4 Fun TV (576i) [Not 24/7]", url: "https://stream.4fun.tv:8888/hls/4f_high/index.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_21', nombre: "4K Travel TV (1080p)", url: "https://streams2.sofast.tv/sofastplayout/33c31ac4-51fa-46ae-afd0-0d1fe5e60a80_0_HLS/master.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_22', nombre: "Telemax", url: "https://stream-gtlc.telecentro.net.ar/hls/telemaxhls/main.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_23', nombre: "+Perfil", url: "https://unlimited1-us.dps.live/perfiltv/perfiltv.smil/perfiltv/livestream2/chunks.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_24', nombre: "Net TV", url: "https://unlimited1-us.dps.live/nettv/nettv.smil/playlist.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_25', nombre: "TV Universidad", url: "https://stratus.stream.cespi.unlp.edu.ar/hls/tvunlp.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_26', nombre: "R9", url: "https://ms01.w24.at/R9/smil:liveeventR9.smil/playlist.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_27', nombre: "10 Bold", url: "https://dce3793146fef017.mediapackage.us-west-2.amazonaws.com/out/v1/55cdf73af7894775ba6de8f57482b66a/CMAF_HLS/index.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_28', nombre: "El Trece", url: "https://livetrx01.vodgc.net/eltrecetv/index.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_29', nombre: "Andorra TV", url: "https://livesg1.rtva.hiway.media/11a6d6f4-ee13-47c7-9c27-7313cf5424e2/manifest.m3u8", tipo: "De lista Free-TV HD" }
+  ],
+  /* Implementar BAndera tipo enable/disable para grisar y no permitir el despliege de listas, incluso con clave de usuario para privacidad */
+  lists: [
+    { id: 'list_0', nombre: "IPTV-Org Global", url:"https://iptv-org.github.io/iptv/index.m3u", canales:[], open:false },
+    { id: 'list_1', nombre: "Free-TV HD", url:"https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8", canales:[], open:false },
+    { id: 'list_2', nombre: "Animation", url:"https://iptv-org.github.io/iptv/categories/animation.m3u", canales:[], open:false },
+    { id: 'list_3', nombre: "Auto", url:"https://iptv-org.github.io/iptv/categories/auto.m3u", canales:[], open:false },
+    { id: 'list_4', nombre: "Business", url:"https://iptv-org.github.io/iptv/categories/business.m3u", canales:[], open:false },
+    { id: 'list_5', nombre: "Classic", url:"https://iptv-org.github.io/iptv/categories/classic.m3u", canales:[], open:false },
+    { id: 'list_6', nombre: "Comedy", url:"https://iptv-org.github.io/iptv/categories/comedy.m3u", canales:[], open:false },
+    { id: 'list_7', nombre: "Cooking", url:"https://iptv-org.github.io/iptv/categories/cooking.m3u", canales:[], open:false },
+    { id: 'list_8', nombre: "Culture", url:"https://iptv-org.github.io/iptv/categories/culture.m3u", canales:[], open:false },
+    { id: 'list_9', nombre: "Documentary", url:"https://iptv-org.github.io/iptv/categories/documentary.m3u", canales:[], open:false },
+    { id: 'list_10', nombre: "Education", url:"https://iptv-org.github.io/iptv/categories/education.m3u", canales:[], open:false },
+    { id: 'list_11', nombre: "Entertain", url:"https://iptv-org.github.io/iptv/categories/entertainment.m3u", canales:[], open:false },
+    { id: 'list_12', nombre: "Family", url:"https://iptv-org.github.io/iptv/categories/family.m3u", canales:[], open:false },
+    { id: 'list_13', nombre: "General", url:"https://iptv-org.github.io/iptv/categories/general.m3u", canales:[], open:false },
+    { id: 'list_14', nombre: "Kids", url:"https://iptv-org.github.io/iptv/categories/kids.m3u", canales:[], open:false },
+    { id: 'list_15', nombre: "Legislative", url:"https://iptv-org.github.io/iptv/categories/legislative.m3u", canales:[], open:false },
+    { id: 'list_16', nombre: "Lifestyle", url:"https://iptv-org.github.io/iptv/categories/lifestyle.m3u", canales:[], open:false },
+    { id: 'list_17', nombre: "Movies", url:"https://iptv-org.github.io/iptv/categories/movies.m3u", canales:[], open:false },
+    { id: 'list_18', nombre: "Music", url:"https://iptv-org.github.io/iptv/categories/music.m3u", canales:[], open:false },
+    { id: 'list_19', nombre: "News", url:"https://iptv-org.github.io/iptv/categories/news.m3u", canales:[], open:false },
+    { id: 'list_20', nombre: "Outdoor", url:"https://iptv-org.github.io/iptv/categories/outdoor.m3u", canales:[], open:false },
+    { id: 'list_21', nombre: "Public", url:"https://iptv-org.github.io/iptv/categories/public.m3u", canales:[], open:false },
+    { id: 'list_22', nombre: "Relax", url:"https://iptv-org.github.io/iptv/categories/relax.m3u", canales:[], open:false },
+    { id: 'list_23', nombre: "Religious", url:"https://iptv-org.github.io/iptv/categories/religious.m3u", canales:[], open:false },
+    { id: 'list_24', nombre: "Science", url:"https://iptv-org.github.io/iptv/categories/science.m3u", canales:[], open:false },
+    { id: 'list_25', nombre: "Series", url:"https://iptv-org.github.io/iptv/categories/series.m3u", canales:[], open:false },
+    { id: 'list_26', nombre: "Shop", url:"https://iptv-org.github.io/iptv/categories/shop.m3u", canales:[], open:false },
+    { id: 'list_27', nombre: "Sports", url:"https://iptv-org.github.io/iptv/categories/sports.m3u", canales:[], open:false },
+    { id: 'list_28', nombre: "Travel", url:"https://iptv-org.github.io/iptv/categories/travel.m3u", canales:[], open:false },
+    { id: 'list_29', nombre: "Weather", url:"https://iptv-org.github.io/iptv/categories/weather.m3u", canales:[], open:false },
+    { id: 'list_30', nombre: "Undefined", url:"https://iptv-org.github.io/iptv/categories/undefined.m3u", canales:[], open:false }
+  ]
+};
+
+// Carga Persistencia
+try {
+  const saved = localStorage.getItem(DB_KEY);
+  if(saved){ data = JSON.parse(saved); }
+} catch(e){}
+// Variables 
+const video = document.getElementById('video');
+const statusEl = document.getElementById('status');
+const logEl = document.getElementById('log');
+const treeEl = document.getElementById('tree');
+const noiseCanvas = document.getElementById('noiseCanvas');
+const bar = document.getElementById('bar');
+const vhold = document.getElementById('vhold');
+const ctx = noiseCanvas.getContext('2d');
+let hls = null;
+let activeChannelEl = null;
+let currentSelected = { type: null, listIdx: null, chIdx: null, data: null };
+let favoritesOpen = true; // New v.2.5 Para el Dial Clack-Clack
+let currentDialIdx = 0;
+
+function save(){ localStorage.setItem(DB_KEY, JSON.stringify(data)); }
+function log(m){ logEl.innerHTML += `<br>[${new Date().toLocaleTimeString()}] ${m}`; logEl.scrollTop = logEl.scrollHeight; }
+
+// Renderizado del árbol
+function renderTree(){
+  treeEl.innerHTML = '';
+  // Favoritos
+  const favFolder = document.createElement('div');
+  favFolder.className = `folder ${favoritesOpen ? 'open active' : ''}`;
+  favFolder.innerHTML = `
+    <div class="folder-header" onclick="toggleFolder(this)">
+      <div class="folder-title">⭐ Gecko Favorite Channels <span class="folder-count">${data.favorites.length}</span></div>
+      <span>${favoritesOpen ? '▼' : '▶'}</span>
+    </div>
+    <div class="folder-body">
+      ${data.favorites.map((c,i)=>{
+        c.id = c.id || 'fav_' + i;
+        const isActive = currentSelected.type === 'fav' && currentSelected.chIdx === i;
+        return `
+          <div class="channel ${isActive ? 'active' : ''}" onclick="selectAndPlay('fav', null, ${i}, this)">
+            <span>${c.nombre}<br><small>${c.tipo||'Custom'}</small></span><span>▶</span>
+          </div>
+        `;
+      }).join('')}
+    </div>
+  `;
+  treeEl.appendChild(favFolder);
+  // Listas Dinámicas
+  data.lists.forEach((lista, lIdx)=>{
+    lista.id = lista.id || 'list_' + lIdx;
+    const folder = document.createElement('div');
+    folder.className = `folder ${lista.open ? 'open' : ''}`;
+    folder.innerHTML = `
+      <div class="folder-header" onclick="toggleFolder(this, ${lIdx})">
+        <div class="folder-title">📂 ${lista.nombre} <span class="folder-count">${lista.canales.length || '...'}</span></div>
+        <span>${lista.open ? '▼' : '▶'}</span>
+      </div>
+      <div class="folder-body">
+        ${lista.canales.length===0 ? `<div style="padding:10px;font-size:0.7em;opacity:0.5">Click para cargar ${lista.url.substring(0,35)}...</div>` : ''}
+        ${lista.canales.map((ch, cIdx)=>{
+          ch.id = ch.id || `ch_${lIdx}_${cIdx}`;
+          const isActive = currentSelected.type === 'list' && currentSelected.listIdx === lIdx && currentSelected.chIdx === cIdx;
+          return `
+            <div class="channel ${isActive ? 'active' : ''}" onclick="selectAndPlay('list', ${lIdx}, ${cIdx}, this)">
+              <span>${ch.nombre}<br><small>${ch.tipo||'Stream'}</small></span><span>▶</span>
+            </div>
+          `;
+        }).join('')}
+        <div style="padding:6px"><button class="secondary" style="width:100%;font-size:0.7em;padding:5px" onclick="recargarLista(${lIdx})">🔄 Recargar lista</button></div>
+      </div>
+    `;
+    treeEl.appendChild(folder);
+  });
+  updateListSelectOptions();
+  setTimeout(()=>{ // --- parche centrado CLACK-CLACK[CHNL] by Llamita Encendida en la WWW ---
+    const a = treeEl.querySelector('.channel.active');
+    if(a && a.closest('.folder.open')) a.scrollIntoView({block:'center', inline:'nearest'});
+  },0);
+}
+
+// Limpieza de Huellas Personales
+function resetGeckoStorage() {
+  const confirmacion = confirm(
+    "⚠️ ¡ATENCIÓN GECKO SYSTEM!\n\n" +
+    "Esta acción restablecerá Gecko Streaming Plus a sus valores de fábrica.\n\n" +
+    "• 🦎Gecko Te RECOMIENDA Exportar un Full BKuP gecko_tree_backup.gspf antes de PROCEDER.\n" +
+    "• ÚNICAMENTE se borrará el almacenamiento local de esta aplicación (Clave: 'gecko_tree_plus_v1').\n" +
+    "• El resto de los datos y páginas en tu navegador PERMANECERÁN INTACTOS.\n\n" +
+    "¿Deseas proceder con el reinicio de fábrica?"
+  );
+  if (confirmacion) {
+    localStorage.removeItem(DB_KEY);
+    location.reload(); // Al recargar, reasigna el objeto 'data' por defecto
+  }
+}
+
+function toggleFolder(headerEl, listIdx = null) {
+  const folder = headerEl.parentElement;
+  const isOpen = folder.classList.contains('open');
+  data.lists.forEach(lista => { lista.open = false; });
+  favoritesOpen = false;
+  if (!isOpen) {
+    if (listIdx === null) favoritesOpen = true;
+    else data.lists[listIdx].open = true;
+  }
+  save();
+  renderTree();
+  if (!isOpen && listIdx !== null && data.lists[listIdx].canales.length === 0) {
+    parsearLista(listIdx);
+  }
+}
+
+async function parsearLista(idx){
+  const lista = data.lists[idx];
+  statusEl.textContent = `📂 Cargando ${lista.nombre}...`;
+  log(`Fetch lista: ${lista.url}`);
+  try{
+    let text = '';
+    try{
+      const r = await fetch(lista.url);
+      if(!r.ok) throw new Error(r.status);
+      text = await r.text();
+    }catch(e){
+      log(`CORS bloqueado, probando proxy...`);
+      const prox = `https://corsproxy.io/?${encodeURIComponent(lista.url)}`;
+      const r2 = await fetch(prox);
+      text = await r2.text();
+    }
+    const lines = text.split('\n');
+    let canales = [];
+    let currName = '';
+    for(let line of lines){
+      line=line.trim();
+      if(line.startsWith('#EXTINF')){ currName = line.split(',')[1] || 'Canal'; }
+      else if(line && !line.startsWith('#') && line.startsWith('http')){
+        canales.push({ nombre: currName || `Canal ${canales.length+1}`, url: line, tipo:'De lista' });
+        currName='';
+        if(canales.length>=137) break;
+      }
+    }
+    lista.canales = canales;
+    log(`✅ ${lista.nombre}: ${canales.length} canales`);
+    statusEl.textContent = `✅ ${lista.nombre}: ${canales.length} canales cargados`;
+    save();
+    renderTree();
+  }catch(e){
+    log(`❌ Error lista ${lista.nombre}: ${e.message}`);
+    statusEl.textContent = `❌ Error: ${lista.nombre} - ${e.message}`;
+  }
+}
+
+function recargarLista(idx){ data.lists[idx].canales=[]; parsearLista(idx); }
+
+// 2 y 5. SELECCIÓN, EDICIÓN Y REPRODUCCIÓN
+function selectAndPlay(type, listIdx, chIdx, el){
+  let chObj = null;
+  if(type==='fav') chObj = data.favorites[chIdx];
+  else chObj = data.lists[listIdx].canales[chIdx];
+  if(!chObj) return;
+  currentSelected = { type, listIdx, chIdx, data: chObj };
+  document.getElementById('editName').value = chObj.nombre || '';
+  document.getElementById('editUrl').value = chObj.url || '';
+  document.getElementById('editType').value = chObj.tipo || '';
+  toggleNewListInput('');
+  document.getElementById('channelVal').textContent = chObj.nombre;
+  currentDialIdx = chIdx;
+  renderTree();
+  document.getElementById('editTargetList').value = (type === 'fav') ? 'fav' : `list_${listIdx}`;
+  playChannel(chObj.url, chObj.nombre);
+}
+
+function playChannel(url, nombre){
+  statusEl.textContent = `📡 ${nombre}...`;
+  if(hls){ hls.destroy(); hls=null; }
+  video.removeAttribute('src'); video.load();
+  const play = ()=>{
+    video.play().then(()=>{ statusEl.textContent=`🟢 LIVE: ${nombre}`; log(`▶ ${nombre}`); }).catch(e=>{ statusEl.textContent=`❌ ${e.message}`; });
+  };
+  if(Hls.isSupported()){
+    hls = new Hls();
+    hls.loadSource(url);
+    hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED, play);
+    hls.on(Hls.Events.ERROR, (ev,d)=>{
+      if(d.details.includes('manifestLoadError') || d.response?.code===0){
+        statusEl.textContent=`❌ CORS bloqueado: ${nombre}`;
+        log(`❌ CORS: ${nombre}`);
+      } else {
+        statusEl.textContent=`❌ ${d.details}`;
+      }
+    });
+  } else if(video.canPlayType('application/vnd.apple.mpegurl')){
+    video.src=url; play();
+  }
+}
+
+
+// 5. GUARDAR / AGREGAR / ELIMINAR [GESTIÓN DE CANALES (LÓGICA VULKANA)] // UNDER TESTING V.3L
+function saveSelectedChannel(){
+  if(!currentSelected.data) return;
+
+  // Resolver destino (aborta si hay validación fallida o duplicado)
+  const targetVal = resolveTargetListIndex();
+  if (targetVal === null) return;
+
+  const newName = document.getElementById('editName').value.trim();
+  const newUrl = document.getElementById('editUrl').value.trim();
+  const newType = document.getElementById('editType').value.trim();
+
+  const origType = currentSelected.type;
+  const origListIdx = currentSelected.listIdx;
+  const origChIdx = currentSelected.chIdx;
+
+  // Determinar si es edición en el mismo lugar o transferencia de lista
+  const isSameTarget = (origType === 'fav' && targetVal === 'fav') || 
+                       (origType === 'list' && targetVal === origListIdx);
+
+  if (isSameTarget) {
+    // --- EDICIÓN IN-PLACE (No borra, no altera posición en el array) ---
+    const targetObj = (origType === 'fav') ? data.favorites[origChIdx] : data.lists[origListIdx].canales[origChIdx];
+    targetObj.nombre = newName;
+    targetObj.url = newUrl;
+    targetObj.tipo = newType;
+  } else {
+    // --- REUBICACIÓN (Transferencia a otra lista) ---
+    // 1. Quitar de la ubicación de origen
+    if (origType === 'fav') {
+      data.favorites.splice(origChIdx, 1);
+    } else {
+      data.lists[origListIdx].canales.splice(origChIdx, 1);
+    }
+
+    // 2. Insertar al final de la lista destino
+    const updatedObj = { nombre: newName, url: newUrl, tipo: newType };
+    if (targetVal === 'fav') {
+      data.favorites.push(updatedObj);
+      currentSelected = { type: 'fav', listIdx: null, chIdx: data.favorites.length - 1, data: updatedObj };
+    } else {
+      data.lists[targetVal].canales.push(updatedObj);
+      currentSelected = { type: 'list', listIdx: targetVal, chIdx: data.lists[targetVal].canales.length - 1, data: updatedObj };
+    }
+  }
+
+  save();
+  renderTree();
+
+  // Fijar foco en la lista destino y cerrar inputs auxiliares
+  document.getElementById('editTargetList').value = (targetVal === 'fav') ? 'fav' : `list_${targetVal}`;
+  toggleNewListInput('');
+  log(`💾 Canal guardado: ${newName}`);
+}
+
+function addNewChannel(){
+  const name = document.getElementById('editName').value.trim() || 'Nuevo Canal';
+  const url = document.getElementById('editUrl').value.trim();
+  const type = document.getElementById('editType').value.trim() || 'Custom';
+
+  if(!url){ alert('Ingresá una URL válida'); return; }
+
+  // Resolver destino (si es lista nueva la crea y devuelve su índice)
+  const targetVal = resolveTargetListIndex();
+  if (targetVal === null) return;
+
+  const newObj = { nombre: name, url: url, tipo: type };
+
+  if (targetVal === 'fav') {
+    data.favorites.push(newObj);
+    currentSelected = { type: 'fav', listIdx: null, chIdx: data.favorites.length - 1, data: newObj };
+  } else {
+    data.lists[targetVal].canales.push(newObj);
+    currentSelected = { type: 'list', listIdx: targetVal, chIdx: data.lists[targetVal].canales.length - 1, data: newObj };
+  }
+
+  save();
+  renderTree();
+
+  // Mantener el foco en la lista donde se acaba de agregar
+  document.getElementById('editTargetList').value = (targetVal === 'fav') ? 'fav' : `list_${targetVal}`;
+  toggleNewListInput('');
+  log(`➕ Canal agregado: ${name}`);
+}
+
+function deleteSelectedChannel(reRender=true){
+  if(!currentSelected.data) return;
+
+  if(currentSelected.type === 'fav'){
+    data.favorites.splice(currentSelected.chIdx, 1);
+  } else if(currentSelected.type === 'list'){
+    data.lists[currentSelected.listIdx].canales.splice(currentSelected.chIdx, 1);
+  }
+
+  if(reRender){
+    currentSelected = { type: null, listIdx: null, chIdx: null, data: null };
+    document.getElementById('editName').value = '';
+    document.getElementById('editUrl').value = '';
+    document.getElementById('editType').value = '';
+
+    save();
+    renderTree();
+    toggleNewListInput('');
+    log(`🗑️ Canal eliminado`);
+  }
+}
+
+function toggleNewListInput(val) {
+  const container = document.getElementById('newListContainer');
+  const errEl = document.getElementById('newListError');
+  if (errEl) errEl.innerText = '';
+  if (container) container.style.display = (val === '__new__') ? 'block' : 'none';
+}
+
+function updateListSelectOptions() {
+  const targetSel = document.getElementById('editTargetList');
+  if (!targetSel) return;
+  let html = '<option value="fav">⭐ Gecko Favorite Channels</option>';
+  data.lists.forEach((l, idx) => {
+    html += `<option value="list_${idx}">📂 ${l.nombre}</option>`;
+  });
+  html += '<option value="__new__">➕ Crear Lista Nueva...</option>';
+  targetSel.innerHTML = html;
+}
+
+function resolveTargetListIndex() {
+  const targetVal = document.getElementById('editTargetList').value;
+  const errEl = document.getElementById('newListError');
+  if (errEl) errEl.innerText = '';
+
+  if (targetVal === 'fav') return 'fav';
+
+  if (targetVal === '__new__') {
+    const input = document.getElementById('newListNameInput');
+    const nombreNuevo = input ? input.value.trim() : '';
+
+    if (!nombreNuevo) {
+      if (errEl) errEl.innerText = '⚠️ Ingrese un nombre para la lista';
+      return null;
+    }
+
+    const existe = data.lists.some(l => l.nombre.toLowerCase() === nombreNuevo.toLowerCase());
+    if (existe) {
+      if (errEl) errEl.innerText = '⚠️ Nombre de Lista Ya Existe, Elija Otro';
+      return null;
+    }
+
+    const newIdx = data.lists.length;
+    data.lists.push({
+      id: `list_${newIdx}`,
+      nombre: nombreNuevo,
+      url: '',
+      canales: [],
+      open: true
+    });
+
+    if (input) input.value = '';
+    return newIdx;
+  }
+
+  return parseInt(targetVal.replace('list_', ''), 10);
+}
+
+
+// 3. CAMBIO DE PESTAÑAS
+function switchTab(tabName, btn){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(`tab-${tabName}`).classList.add('active');
+  btn.classList.add('active');
+}
+
+// 6. EXPORTAR / IMPORTAR - Edición Chamán + Alpha Centauri (News on v.2.9C)
+async function exportarJSON(){
+  const dataStr = JSON.stringify(data, null, 2);
+  //const suggestedName = 'gecko_tree_backup.json'; // Clasico Original SheiSon
+  const suggestedName = 'gecko_tree_backup.gspf'; // default WhatsApp-friendly
+  // Si el navegador soporta File System Access API, mostramos el desplegable pro
+  if ('showSaveFilePicker' in window) {
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: suggestedName,
+        types: [
+          { description: 'GeckoSP Full (.gspf) - JSON Geckonizado Multiplataforma', accept: { 'application/json': ['.gspf'] } },
+          { description: 'GeckoSP JSON (.json) - SheiSon JSON', accept: { 'application/json': ['.json'] } },
+          { description: 'GeckoSP Texto plano (.txt) - JSON con máscara de .txt', accept: { 'application/json': ['.txt'] } },
+        ]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(dataStr);
+      await writable.close();
+      log('💾 Backup exportado: ' + handle.name);
+      return;
+    } catch (e) {
+      if (e.name === 'AbortError') return; // canceló
+      // si falla, cae al fallback clásico
+    }
+  }
+
+  // Fallback tostadora: funciona en todo, deja "Todos los archivos" a mano
+  const blob = new Blob([dataStr], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = suggestedName; // el usuario puede renombrarlo a.gspf /.txt /.kujw... antes de guardar
+  a.click();
+  log('💾 Backup Geckónico Exportado Exitosamente');
+}
+
+function importarJSON(event){
+  const file = event.target.files[0];
+  if(!file) return;
+  // Cartelito prudente porque pisa TODO - es FULL BACKUP
+  if(!confirm('⚠️ FULL BACKUP: Esto va a SOBREESCRIBIR todas tus listas y favoritos con el contenido de:\n\n' + file.name + '\n\n¿Seguro?')) {
+    event.target.value = '';
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = function(e){
+    try {
+      const importedData = JSON.parse(e.target.result); // no importa si era.json,.gspf o.txt, adentro es JSON
+      if(importedData && (importedData.favorites || importedData.lists)){
+        data = importedData;
+        save();
+        renderTree();
+        alert('¡Configuración FULL importada con éxito! - ' + file.name);
+        log('📥 Configuración importada desde ' + file.name);
+      }
+    } catch(err){
+      alert('Error al leer el archivo. ¿Es un backup válido de Gecko Streaming Plus?');
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = ''; // reset para poder cargar el mismo archivo 2 veces
+}
+
+// 4. HARDWARE CONTROLS (DIALES Y AUDIO SYNTH)
+let audioCtx = null;
+function initAudio(){ if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)(); }
+function clack(freq=137, dur=0.07){
+  initAudio();
+  const o=audioCtx.createOscillator(); const g=audioCtx.createGain();
+  o.frequency.value=freq; o.connect(g); g.connect(audioCtx.destination);
+  g.gain.setValueAtTime(0.3, audioCtx.currentTime);
+  g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime+dur);
+  o.start(); o.stop(audioCtx.currentTime+dur);
+}
+
+// new v.2.5
+function getDialChannels() {
+  if (currentSelected.type === 'fav') {
+    return data.favorites.map((ch, idx) => ({ channel: ch, type: 'fav', listIdx: null, chIdx: idx }));
+  }
+  if (currentSelected.type === 'list' && currentSelected.listIdx !== null) {
+    const list = data.lists[currentSelected.listIdx];
+    return (list && list.canales ? list.canales : []).map((ch, idx) => ({ channel: ch, type: 'list', listIdx: currentSelected.listIdx, chIdx: idx }));
+  }
+  return [];
+}
+
+// DIAL CLACK-CLACK
+let isDraggingChannel = false;
+let startAngleChannel = 0;
+const channelDial = document.getElementById('channelDial');
+
+channelDial.addEventListener('pointerdown', e=>{
+  isDraggingChannel=true;
+  channelDial.setPointerCapture(e.pointerId);
+  const rect=channelDial.getBoundingClientRect();
+  const cx=rect.left+rect.width/2; const cy=rect.top+rect.height/2;
+  startAngleChannel=Math.atan2(e.clientY-cy, e.clientX-cx)*180/Math.PI;
+});
+
+channelDial.addEventListener('pointermove', e => {
+  const channels = getDialChannels();
+  if (!isDraggingChannel || channels.length === 0) return;
+  const rect = channelDial.getBoundingClientRect();
+  const cx = rect.left + rect.width / 2;
+  const cy = rect.top + rect.height / 2;
+  const ang = Math.atan2(e.clientY - cy, e.clientX - cx) * 180 / Math.PI;
+  let diff = ang - startAngleChannel;
+  if (Math.abs(diff) > 25) {
+    if (diff > 0) currentDialIdx = (currentDialIdx + 1) % channels.length;
+    else currentDialIdx = (currentDialIdx - 1 + channels.length) % channels.length;
+    const item = channels[currentDialIdx];
+    selectAndPlay(item.type, item.listIdx, item.chIdx, null);
+    const angle = (currentDialIdx / channels.length) * 360;
+    channelDial.style.transform = `rotate(${angle}deg)`;
+    clack(850, 0.04);
+    startAngleChannel = ang;
+  }
+});
+
+channelDial.addEventListener('pointerup', ()=>isDraggingChannel=false);
+
+channelDial.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const channels = getDialChannels();
+  if (channels.length === 0) return;
+  if (e.deltaY > 0) {
+    currentDialIdx = (currentDialIdx - 1 + channels.length) % channels.length;
+  } else {
+    currentDialIdx = (currentDialIdx + 1) % channels.length;
+  }
+  const item = channels[currentDialIdx];
+  selectAndPlay(item.type, item.listIdx, item.chIdx, null);
+  const angle = (currentDialIdx / channels.length) * 360;
+  channelDial.style.transform = `rotate(${angle}deg)`;
+  clack(850, 0.04);
+}, { passive: false });
+
+// DIAL SINTONÍA FINA (LOGARÍTMICA)
+let fineValue = 0;
+let isDraggingFine = false;
+let startYFine = 0;
+const fineDial = document.getElementById('fineDial');
+
+fineDial.addEventListener('pointerdown', e=>{
+  isDraggingFine = true;
+  startYFine = e.clientY;
+  fineDial.setPointerCapture(e.pointerId);
+});
+
+fineDial.addEventListener('pointermove', e=>{
+  if(!isDraggingFine) return;
+  const dy = startYFine - e.clientY;
+  startYFine = e.clientY;
+  applyFine(fineValue + dy);
+});
+
+fineDial.addEventListener('pointerup', ()=>isDraggingFine=false);
+
+fineDial.addEventListener('wheel', (e) => {
+  e.preventDefault();
+  const step = e.deltaY > 0 ? -2 : 2;  // El multiplicador '2' define la sensibilidad de la rueda. Podés subirlo o bajarlo.
+  applyFine(fineValue + step);
+});
+
+function applyFine(val){
+  fineValue = Math.max(-100, Math.min(100, val));
+  const absVal = Math.abs(fineValue);
+  const stableZone = 10;
+  let effect = 0;
+
+  if(absVal > stableZone){
+    const norm = (absVal - stableZone)/(100-stableZone);
+    effect = Math.pow(norm, 2);
+  }
+
+  // Efectos visuales de canal sobre el reproductor
+  const blur = effect*8;
+  const contrast = 100 + effect*60;
+  video.style.filter = `blur(${blur}px) contrast(${contrast}%)`;
+
+  noiseCanvas.style.opacity = effect*0.8;
+  if(effect>0.05) drawNoise(effect);
+
+  if(effect>0.05){
+    const speed = (1.5 / effect).toFixed(2); // Más desintonizado = movimiento más rápido
+    const height = Math.floor(2 + effect * 8); // Grosor de 2px a 10px
+    const anim = fineValue > 0 ? 'scanDown' : 'scanUp'; // Sentido según giro del dial
+
+    bar.style.height = `${height}px`;
+    bar.style.opacity = 0.3 + effect * 0.7;
+    bar.style.animation = `${anim} ${speed}s linear infinite`;
+    vhold.style.opacity = effect * 0.5;
+  } else {
+    bar.style.opacity = 0;
+    bar.style.animation = 'none';
+    vhold.style.opacity = 0;
+  }
+
+  const fineText = document.getElementById('fineVal');
+  if(effect<0.02) fineText.textContent = '■ ESTABLE';
+  else fineText.textContent = `DESSINT: ${Math.round(fineValue)}`;
+
+  fineDial.style.transform = `rotate(${fineValue*1.8}deg)`;
+  fineDial.classList.toggle('active', effect>0.05);
+}
+
+function drawNoise(intensity){
+  noiseCanvas.width = video.clientWidth / 2;
+  noiseCanvas.height = video.clientHeight / 2;
+  const w = noiseCanvas.width, h = noiseCanvas.height;
+  if(w===0 || h===0) return;
+  const imgData = ctx.createImageData(w, h);
+  const buffer = new Uint32Array(imgData.data.buffer);
+  for(let i=0; i<buffer.length; i++){
+    if(Math.random() < intensity){
+      const v = Math.floor(Math.random()*255);
+      buffer[i] = (255<<24) | (v<<16) | (v<<8) | v;
+    }
+  }
+  ctx.putImageData(imgData, 0, 0);
+}
+
+// GeckoSP Volume Toaster Compatible Functions by Llamita Encendida for v.3T
+function getGeckoVideo(){ return document.querySelector('video'); }
+
+// Volume Geckonizado
+let volValue = 0, isDraggingVol = false, startYVol = 0;
+const volDial = document.getElementById('volDial');
+const volValText = document.getElementById('volVal');
+
+function setVolUI(p, isMuted){
+  const angle = -135 + p * 2.7;
+  volDial.style.transform = `rotate(${angle}deg)`;
+  volValText.textContent = isMuted ? '🔇 CLACK MUTE' : `${Math.round(p)}% 🔊`;
+}
+
+function applyVol(val){
+  volValue = Math.max(0, Math.min(100, val));
+  const v = getGeckoVideo(); if(!v) return;
+  const willMute = volValue < 5;
+  if(willMute !== v.muted){
+    log(willMute ? '🔇 CLACK! MUTE' : '🔊 CLACK! SONIDO');
+    if(navigator.vibrate) navigator.vibrate(30);
+  }
+  v.muted = willMute;
+  v.volume = willMute ? 0 : volValue/100;
+  setVolUI(willMute ? 0 : volValue, willMute);
+}
+
+function syncVolDialFromVideo(){
+  const v = getGeckoVideo(); if(!v || isDraggingVol) return;
+  const p = v.muted || v.volume===0 ? 0 : Math.round(v.volume*100);
+  volValue = p;
+  setVolUI(p, p===0);
+}
+
+volDial.addEventListener('pointerdown', e=>{
+  isDraggingVol=true; startYVol=e.clientY;
+  volDial.setPointerCapture(e.pointerId);
+});
+volDial.addEventListener('pointermove', e=>{
+  if(!isDraggingVol) return;
+  const dy = startYVol - e.clientY;
+  startYVol = e.clientY;
+  applyVol(volValue + dy);
+});
+volDial.addEventListener('pointerup', ()=>isDraggingVol=false);
+volDial.addEventListener('wheel', e=>{
+  e.preventDefault();
+  applyVol(volValue + (e.deltaY>0?-3:3));
+}, {passive:false});
+
+// enganche sync
+function attachGeckoVolSync(){
+  const v = getGeckoVideo(); if(!v || v._geckoSync) return;
+  v.addEventListener('volumechange', syncVolDialFromVideo);
+  v.addEventListener('loadedmetadata', syncVolDialFromVideo);
+  v._geckoSync=true; log('🔊 Sync perilla <-> video enganchado');
+  clearInterval(syncInt);
+}
+const syncInt = setInterval(attachGeckoVolSync, 1000);
+attachGeckoVolSync();
+applyVol(0);
+
+// GeckoSP Styles Chromatic Themes
+function setTheme(hex){
+  const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
+  document.documentElement.style.setProperty('--gecko', hex);
+  document.documentElement.style.setProperty('--gecko-rgb', `${r},${g},${b}`);
+  localStorage.setItem('gecko_theme', hex);
+  const picker = document.getElementById('customGecko');
+  if(picker) picker.value = hex;
+  log(`🎨 Tema: ${hex}`);
+}
+// Cargar tema guardado
+const savedTheme = localStorage.getItem('gecko_theme');
+if(savedTheme) setTheme(savedTheme);
+
+// GeckoSP Donations
+function copyGecko(id){
+  const txt = document.getElementById(id).innerText;
+  navigator.clipboard.writeText(txt).then(()=>log('📋 Copiado: '+txt));
+}
+
+// Inicialización
+renderTree();
+setTimeout(()=>{
+  if(data.favorites.length > 0){
+    selectAndPlay('fav', null, 0, null);
+  }
+}, 500);
+</script>
+</body>
+</html>
