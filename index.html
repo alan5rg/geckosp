@@ -622,6 +622,8 @@ function saveSelectedChannel(){
 }
 
 function addNewChannel(){
+  // New on 3ZE (Zero Eagle) [29/08/2026 16:40]
+  // Pasará a la historia del proyecto como el hito donde las marmotas sobrevivieron y la curaduría de la playa quedó totalmente a salvo de desvíos de foco.
   const name = document.getElementById('editName').value.trim() || 'Nuevo Canal';
   const url = document.getElementById('editUrl').value.trim();
   const type = document.getElementById('editType').value.trim() || 'Custom';
@@ -632,23 +634,43 @@ function addNewChannel(){
   const targetVal = resolveTargetListIndex();
   if (targetVal === null) return;
 
+  // Obtener referencia al array destino de canales para Validar y Evitar Canales Duplicados en una misma lista
+  const targetArray = (targetVal === 'fav') 
+    ? data.favorites 
+    : data.lists[targetVal].canales;
+  
+  // Validar si la URL ya existe en esa lista especifica
+  const isDuplicate = targetArray.some(ch => ch.url.trim().toLowerCase() === url.trim().toLowerCase());
+  if (isDuplicate) {
+    alert('⚠️ El Canal ya existe en la lista destino indicada!');
+    log(`⚠️ Operación omitida: El Canal ya existe en la lista destino indicada!`);
+    return;
+  }
+
   const newObj = { nombre: name, url: url, tipo: type };
 
+  // Obtener el nombre de la lista destino para la bitácora
+  const targetListName = (targetVal === 'fav') 
+    ? '⭐ Gecko Favorite Channels' 
+    : data.lists[targetVal].nombre;
+
+  // Guardar en destino (Mantiene la posición del explorador de caracolas en la playa sin irse adentro de su cangurera)
   if (targetVal === 'fav') {
     data.favorites.push(newObj);
-    currentSelected = { type: 'fav', listIdx: null, chIdx: data.favorites.length - 1, data: newObj };
   } else {
     data.lists[targetVal].canales.push(newObj);
-    currentSelected = { type: 'list', listIdx: targetVal, chIdx: data.lists[targetVal].canales.length - 1, data: newObj };
   }
 
   save();
   renderTree();
-
-  // Mantener el foco en la lista donde se acaba de agregar
-  document.getElementById('editTargetList').value = (targetVal === 'fav') ? 'fav' : `list_${targetVal}`;
   toggleNewListInput('');
-  log(`➕ Canal agregado: ${name}`);
+
+  // Re-sincronizar el desplegable con la lista de origen donde está parado el explorador de caracolas
+  if (currentSelected && currentSelected.type) {
+    document.getElementById('editTargetList').value = (currentSelected.type === 'fav') ? 'fav' : `list_${currentSelected.listIdx}`;
+  }
+
+  log(`➕ Canal "${name}" agregado a la lista destino: ${targetListName}`); // Best Log Message
 }
 
 function deleteSelectedChannel(reRender=true){
