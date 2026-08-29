@@ -129,7 +129,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 <header>
   <h1><<< 🦎GECKO STREAMING PLUS📡 >>></h1>
   <div style="display:flex;gap:8px;align-items:center">
-    <span>TREE EDITION 3L [Geckónico | Minimalista | Eficiente]</span>
+    <span>TREE EDITION 3LF [Geckónico | Minimalista | Eficiente]</span>
     <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ TV</button>
   </div>
 </header>
@@ -433,7 +433,11 @@ function renderTree(){
             </div>
           `;
         }).join('')}
-        <div style="padding:6px"><button class="secondary" style="width:100%;font-size:0.7em;padding:5px" onclick="recargarLista(${lIdx})">🔄 Recargar lista</button></div>
+        ${lista.url && lista.url.trim() !== '' ? `
+          <div style="padding:6px">
+            <button class="secondary" style="width:100%;font-size:0.7em;padding:5px" onclick="recargarLista(${lIdx})">🔄 Recargar lista</button>
+          </div>
+        ` : ''}
       </div>
     `;
     treeEl.appendChild(folder);
