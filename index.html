@@ -313,6 +313,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 
 <!--- // La Lógica Vulkana Irreductible (Aquí sucede la verdadera Magia!!!) --->
 <script>
+// Base de Datos 
 const DB_KEY = 'gecko_tree_plus_v1';
 // N0.IMPLEMENTACIÓN FF-TV (FLIP↔FLOP TV) on v.FFL by NOva Pythoniza & Aetheris (Modo Oficial de Seguridad)
 let data = {
@@ -462,6 +463,7 @@ async function ffTV() {
   target = resolvePointer(target);
   if (!target) return;
   selectAndPlay(target.type, target.listIdx, target.chIdx, null);
+  clack(371, 0.09);
 }
 
 function log(m){ logEl.innerHTML += `<br>[${new Date().toLocaleTimeString()}] ${m}`; logEl.scrollTop = logEl.scrollHeight; }
@@ -525,6 +527,19 @@ function renderTree(){
     const a = treeEl.querySelector('.channel.active');
     if(a && a.closest('.folder.open')) a.scrollIntoView({block:'center', inline:'nearest'});
   },0);
+}
+
+function updateListSelectOptions() {
+  const targetSel = document.getElementById('editTargetList');
+  if (!targetSel) return;
+  const currentValue = targetSel.value; //NOva Fix la "Lista Destino Saltarina"
+  let html = '<option value="fav">⭐ Gecko Favorite Channels</option>';
+  data.lists.forEach((l, idx) => {
+    html += `<option value="list_${idx}">📂 ${l.nombre}</option>`;
+  });
+  html += '<option value="__new__">➕ Crear Lista Nueva...</option>';
+  targetSel.innerHTML = html;
+  targetSel.value = currentValue; //NOva Fix la "Lista Destino Saltarina"
 }
 
 // Limpieza de Huellas Personales
@@ -622,6 +637,18 @@ function selectAndPlay(type, listIdx, chIdx, el, remember = true){
   toggleNewListInput('');
   document.getElementById('channelVal').textContent = chObj.nombre;
   currentDialIdx = chIdx;
+ 
+  // NOva Fix the [FF-TV] Foco perdido
+  if (type === 'fav') {
+    favoritesOpen = true;
+    data.lists.forEach(lista => lista.open = false);
+  } else {
+    favoritesOpen = false;
+    data.lists.forEach((lista, i) => {
+      lista.open = (i === listIdx);
+    });
+  }
+
   renderTree();
   document.getElementById('editTargetList').value = (type === 'fav') ? 'fav' : `list_${listIdx}`;
   playChannel(chObj.url, chObj.nombre);
@@ -652,26 +679,22 @@ function playChannel(url, nombre){
   }
 }
 
+// ------------------------------------------------------------------ //
 // 5. GUARDAR / AGREGAR / ELIMINAR [GESTIÓN DE CANALES (LÓGICA VULKANA)]
 function saveSelectedChannel(){
   if(!currentSelected.data) return;
-
   // Resolver destino (aborta si hay validación fallida o duplicado)
   const targetVal = resolveTargetListIndex();
   if (targetVal === null) return;
-
   const newName = document.getElementById('editName').value.trim();
   const newUrl = document.getElementById('editUrl').value.trim();
   const newType = document.getElementById('editType').value.trim();
-
   const origType = currentSelected.type;
   const origListIdx = currentSelected.listIdx;
   const origChIdx = currentSelected.chIdx;
-
   // Determinar si es edición en el mismo lugar o transferencia de lista
   const isSameTarget = (origType === 'fav' && targetVal === 'fav') || 
                        (origType === 'list' && targetVal === origListIdx);
-
   if (isSameTarget) {
     // --- EDICIÓN IN-PLACE (No borra, no altera posición en el array) ---
     const targetObj = (origType === 'fav') ? data.favorites[origChIdx] : data.lists[origListIdx].canales[origChIdx];
@@ -686,7 +709,6 @@ function saveSelectedChannel(){
     } else {
       data.lists[origListIdx].canales.splice(origChIdx, 1);
     }
-
     // 2. Insertar al final de la lista destino
     const updatedObj = { nombre: newName, url: newUrl, tipo: newType };
     if (targetVal === 'fav') {
@@ -697,10 +719,8 @@ function saveSelectedChannel(){
       currentSelected = { type: 'list', listIdx: targetVal, chIdx: data.lists[targetVal].canales.length - 1, data: updatedObj };
     }
   }
-
   save();
   renderTree();
-
   // Fijar foco en la lista destino y cerrar inputs auxiliares
   document.getElementById('editTargetList').value = (targetVal === 'fav') ? 'fav' : `list_${targetVal}`;
   toggleNewListInput('');
@@ -708,23 +728,19 @@ function saveSelectedChannel(){
 }
 
 function addNewChannel(){
-  // New on 3ZE (Zero Eagle) [WORCKING ARROUND 29/08/2026 15:40 // BEFORE TESTING FINISHED OK! 30/08/2026 20.09 ]
+  // New on 3ZE (Zero Eagle)
   // Pasará a la historia del proyecto como el hito donde las marmotas sobrevivieron y la curaduría de la playa quedó totalmente a salvo de desvíos de foco.
   const name = document.getElementById('editName').value.trim() || 'Nuevo Canal';
   const url = document.getElementById('editUrl').value.trim();
   const type = document.getElementById('editType').value.trim() || 'Custom';
-
   if(!url){ alert('Ingresá una URL válida'); return; }
-
   // Resolver destino (si es lista nueva la crea y devuelve su índice)
   const targetVal = resolveTargetListIndex();
   if (targetVal === null) return;
-
   // Obtener referencia al array destino de canales para Validar y Evitar Canales Duplicados en una misma lista
   const targetArray = (targetVal === 'fav') 
     ? data.favorites 
     : data.lists[targetVal].canales;
-  
   // Validar si la URL ya existe en esa lista especifica
   const isDuplicate = targetArray.some(ch => ch.url.trim().toLowerCase() === url.trim().toLowerCase());
   if (isDuplicate) {
@@ -732,54 +748,39 @@ function addNewChannel(){
     log(`⚠️ Operación omitida: El Canal ya existe en la lista destino indicada!`);
     return;
   }
-
   const newObj = { nombre: name, url: url, tipo: type };
-
   // Obtener el nombre de la lista destino para la bitácora
   const targetListName = (targetVal === 'fav') 
     ? '⭐ Gecko Favorite Channels' 
     : data.lists[targetVal].nombre;
-
   // Guardar en destino (Mantiene la posición del explorador de caracolas en la playa sin irse adentro de su cangurera)
   if (targetVal === 'fav') {
     data.favorites.push(newObj);
-    //currentSelected = { type: 'fav', listIdx: null, chIdx: data.favorites.length - 1, data: newObj };
   } else {
     data.lists[targetVal].canales.push(newObj);
-    //currentSelected = { type: 'list', listIdx: targetVal, chIdx: data.lists[targetVal].canales.length - 1, data: newObj };
   }
-
   save();
   renderTree();
-  // Mantener el foco en la lista donde se acaba de agregar [ESTO NO ES CORRECTO NI LOGICO NI COHERENTE]
-  //document.getElementById('editTargetList').value = (targetVal === 'fav') ? 'fav' : `list_${targetVal}`;
   toggleNewListInput('');
-
   // Re-sincronizar el desplegable con la lista de origen donde está parado el explorador de caracolas
   if (currentSelected && currentSelected.type) {
     document.getElementById('editTargetList').value = (currentSelected.type === 'fav') ? 'fav' : `list_${currentSelected.listIdx}`;
   }
-
-  //log(`➕ Canal agregado: ${name}`);
-  //log(`➕ Canal agregado a la lista destino: ${name}`);
   log(`➕ Canal "${name}" agregado a la lista destino: ${targetListName}`); // Best Log Message
 }
 
 function deleteSelectedChannel(reRender=true){
   if(!currentSelected.data) return;
-
   if(currentSelected.type === 'fav'){
     data.favorites.splice(currentSelected.chIdx, 1);
   } else if(currentSelected.type === 'list'){
     data.lists[currentSelected.listIdx].canales.splice(currentSelected.chIdx, 1);
   }
-
   if(reRender){
     currentSelected = { type: null, listIdx: null, chIdx: null, data: null };
     document.getElementById('editName').value = '';
     document.getElementById('editUrl').value = '';
     document.getElementById('editType').value = '';
-
     save();
     renderTree();
     toggleNewListInput('');
@@ -794,39 +795,23 @@ function toggleNewListInput(val) {
   if (container) container.style.display = (val === '__new__') ? 'block' : 'none';
 }
 
-function updateListSelectOptions() {
-  const targetSel = document.getElementById('editTargetList');
-  if (!targetSel) return;
-  let html = '<option value="fav">⭐ Gecko Favorite Channels</option>';
-  data.lists.forEach((l, idx) => {
-    html += `<option value="list_${idx}">📂 ${l.nombre}</option>`;
-  });
-  html += '<option value="__new__">➕ Crear Lista Nueva...</option>';
-  targetSel.innerHTML = html;
-}
-
 function resolveTargetListIndex() {
   const targetVal = document.getElementById('editTargetList').value;
   const errEl = document.getElementById('newListError');
   if (errEl) errEl.innerText = '';
-
   if (targetVal === 'fav') return 'fav';
-
   if (targetVal === '__new__') {
     const input = document.getElementById('newListNameInput');
     const nombreNuevo = input ? input.value.trim() : '';
-
     if (!nombreNuevo) {
       if (errEl) errEl.innerText = '⚠️ Ingrese un nombre para la lista';
       return null;
     }
-
     const existe = data.lists.some(l => l.nombre.toLowerCase() === nombreNuevo.toLowerCase());
     if (existe) {
       if (errEl) errEl.innerText = '⚠️ Nombre de Lista Ya Existe, Elija Otro';
       return null;
     }
-
     const newIdx = data.lists.length;
     data.lists.push({
       id: `list_${newIdx}`,
@@ -835,89 +820,19 @@ function resolveTargetListIndex() {
       canales: [],
       open: true
     });
-
     if (input) input.value = '';
     return newIdx;
   }
-
   return parseInt(targetVal.replace('list_', ''), 10);
 }
+// ------------------------------------------------------------------ //
 
-// 3. CAMBIO DE PESTAÑAS
-function switchTab(tabName, btn){
-  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
-  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
-  document.getElementById(`tab-${tabName}`).classList.add('active');
-  btn.classList.add('active');
-}
-
-// 6. EXPORTAR / IMPORTAR - Edición Chamán + Alpha Centauri (News on v.2.9C)
-async function exportarJSON(){
-  const dataStr = JSON.stringify(data, null, 2);
-  //const suggestedName = 'gecko_tree_backup.json'; // Clasico Original SheiSon
-  const suggestedName = 'gecko_tree_backup.gspf'; // default WhatsApp-friendly
-  // Si el navegador soporta File System Access API, mostramos el desplegable pro
-  if ('showSaveFilePicker' in window) {
-    try {
-      const handle = await window.showSaveFilePicker({
-        suggestedName: suggestedName,
-        types: [
-          { description: 'GeckoSP Full (.gspf) - JSON Geckonizado Multiplataforma', accept: { 'application/json': ['.gspf'] } },
-          { description: 'GeckoSP JSON (.json) - SheiSon JSON', accept: { 'application/json': ['.json'] } },
-          { description: 'GeckoSP Texto plano (.txt) - JSON con máscara de .txt', accept: { 'application/json': ['.txt'] } },
-        ]
-      });
-      const writable = await handle.createWritable();
-      await writable.write(dataStr);
-      await writable.close();
-      log('💾 Backup exportado: ' + handle.name);
-      return;
-    } catch (e) {
-      if (e.name === 'AbortError') return; // canceló
-      // si falla, cae al fallback clásico
-    }
-  }
-
-  // Fallback tostadora: funciona en todo, deja "Todos los archivos" a mano
-  const blob = new Blob([dataStr], {type:'application/json'});
-  const a = document.createElement('a');
-  a.href = URL.createObjectURL(blob);
-  a.download = suggestedName; // el usuario puede renombrarlo a.gspf /.txt /.kujw... antes de guardar
-  a.click();
-  log('💾 Backup Geckónico Exportado Exitosamente');
-}
-
-function importarJSON(event){
-  const file = event.target.files[0];
-  if(!file) return;
-  // Cartelito prudente porque pisa TODO - es FULL BACKUP
-  if(!confirm('⚠️ FULL BACKUP: Esto va a SOBREESCRIBIR todas tus listas y favoritos con el contenido de:\n\n' + file.name + '\n\n¿Seguro?')) {
-    event.target.value = '';
-    return;
-  }
-  const reader = new FileReader();
-  reader.onload = function(e){
-    try {
-      const importedData = JSON.parse(e.target.result); // no importa si era.json,.gspf o.txt, adentro es JSON
-      if(importedData && (importedData.favorites || importedData.lists)){
-        data = importedData;
-        save();
-        renderTree();
-        alert('¡Configuración FULL importada con éxito! - ' + file.name);
-        log('📥 Configuración importada desde ' + file.name);
-      }
-    } catch(err){
-      alert('Error al leer el archivo. ¿Es un backup válido de Gecko Streaming Plus?');
-    }
-  };
-  reader.readAsText(file);
-  event.target.value = ''; // reset para poder cargar el mismo archivo 2 veces
-}
 
 // 4. HARDWARE CONTROLS (DIALES Y AUDIO SYNTH)
 let audioCtx = null;
 function initAudio(){ if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)(); }
-function clack(freq=137, dur=0.07){
+
+function clack(freq=371, dur=0.07){
   initAudio();
   const o=audioCtx.createOscillator(); const g=audioCtx.createGain();
   o.frequency.value=freq; o.connect(g); g.connect(audioCtx.destination);
@@ -966,7 +881,7 @@ channelDial.addEventListener('pointermove', e => {
     selectAndPlay(item.type, item.listIdx, item.chIdx, null);
     const angle = (currentDialIdx / channels.length) * 360;
     channelDial.style.transform = `rotate(${angle}deg)`;
-    clack(850, 0.04);
+    clack(731, 0.04); //850, 0.04
     startAngleChannel = ang;
   }
 });
@@ -986,7 +901,7 @@ channelDial.addEventListener('wheel', (e) => {
   selectAndPlay(item.type, item.listIdx, item.chIdx, null);
   const angle = (currentDialIdx / channels.length) * 360;
   channelDial.style.transform = `rotate(${angle}deg)`;
-  clack(850, 0.04);
+  clack(731, 0.04); //850, 0.04
 }, { passive: false });
 
 // DIAL SINTONÍA FINA (LOGARÍTMICA)
@@ -1094,6 +1009,7 @@ function applyVol(val){
   const willMute = volValue < 5;
   if(willMute !== v.muted){
     log(willMute ? '🔇 CLACK! MUTE' : '🔊 CLACK! SONIDO');
+    clack(137, 0.13);
     if(navigator.vibrate) navigator.vibrate(30);
   }
   v.muted = willMute;
@@ -1136,6 +1052,80 @@ const syncInt = setInterval(attachGeckoVolSync, 1000);
 attachGeckoVolSync();
 applyVol(0);
 
+
+// 3. CAMBIO DE PESTAÑAS
+function switchTab(tabName, btn){
+  document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
+  document.getElementById(`tab-${tabName}`).classList.add('active');
+  btn.classList.add('active');
+}
+
+
+// 6. EXPORTAR / IMPORTAR - Edición Chamán + Alpha Centauri (News on v.2.9C)
+async function exportarJSON(){
+  const dataStr = JSON.stringify(data, null, 2);
+  //const suggestedName = 'gecko_tree_backup.json'; // Clasico Original SheiSon
+  const suggestedName = 'gecko_tree_backup.gspf'; // default WhatsApp-friendly
+  // Si el navegador soporta File System Access API, mostramos el desplegable pro
+  if ('showSaveFilePicker' in window) {
+    try {
+      const handle = await window.showSaveFilePicker({
+        suggestedName: suggestedName,
+        types: [
+          { description: 'GeckoSP Full (.gspf) - JSON Geckonizado Multiplataforma', accept: { 'application/json': ['.gspf'] } },
+          { description: 'GeckoSP JSON (.json) - SheiSon JSON', accept: { 'application/json': ['.json'] } },
+          { description: 'GeckoSP Texto plano (.txt) - JSON con máscara de .txt', accept: { 'application/json': ['.txt'] } },
+        ]
+      });
+      const writable = await handle.createWritable();
+      await writable.write(dataStr);
+      await writable.close();
+      log('💾 Backup exportado: ' + handle.name);
+      return;
+    } catch (e) {
+      if (e.name === 'AbortError') return; // canceló
+      // si falla, cae al fallback clásico
+    }
+  }
+
+  // Fallback tostadora: funciona en todo, deja "Todos los archivos" a mano
+  const blob = new Blob([dataStr], {type:'application/json'});
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = suggestedName; // el usuario puede renombrarlo a.gspf /.txt /.kujw... antes de guardar
+  a.click();
+  log('💾 Backup Geckónico Exportado Exitosamente');
+}
+
+function importarJSON(event){
+  const file = event.target.files[0];
+  if(!file) return;
+  // Cartelito prudente porque pisa TODO - es FULL BACKUP
+  if(!confirm('⚠️ FULL BACKUP: Esto va a SOBREESCRIBIR todas tus listas y favoritos con el contenido de:\n\n' + file.name + '\n\n¿Seguro?')) {
+    event.target.value = '';
+    return;
+  }
+  const reader = new FileReader();
+  reader.onload = function(e){
+    try {
+      const importedData = JSON.parse(e.target.result); // no importa si era.json,.gspf o.txt, adentro es JSON
+      if(importedData && (importedData.favorites || importedData.lists)){
+        data = importedData;
+        save();
+        renderTree();
+        alert('¡Configuración FULL importada con éxito! - ' + file.name);
+        log('📥 Configuración importada desde ' + file.name);
+      }
+    } catch(err){
+      alert('Error al leer el archivo. ¿Es un backup válido de Gecko Streaming Plus?');
+    }
+  };
+  reader.readAsText(file);
+  event.target.value = ''; // reset para poder cargar el mismo archivo 2 veces
+}
+
+
 // GeckoSP Styles Chromatic Themes
 function setTheme(hex){
   const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
@@ -1156,7 +1146,7 @@ function copyGecko(id){
   navigator.clipboard.writeText(txt).then(()=>log('📋 Copiado: '+txt));
 }
 
-// Inicialización
+// ------------------ Inicialización -------------------- //
 
 // N7. Restauración de trayectoria al iniciar.
 // Restaurar ≠ navegar:
@@ -1188,3 +1178,4 @@ setTimeout(async () => {
 </script>
 </body>
 </html>
+
