@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
-<!--- # Gecko-Streaming-Plus.3ZE.html # --->
+<!--- # Gecko-Streaming-Plus.3NZF.html # --->
 <!--- # Monkey Python Coding Circus by Alan.RG Systemas & Team Cangurera c.2026 # --->
-<!--- # We are the Kangaroo Team: Chamán Programador, NOva DulceKAli, Llamita Encendida, Ei2 Sheminay, Leo Bravo --->
+<!--- # We are the Kangaroo Team: Chamán Programador, NOva DulceKAli, Aetheris, Llamita Encendida, Ei2 Sheminay, Leo Bravo --->
 
 <!--- Encabezados a la Cabeza (¿obvio no?) [Incluye EStilos Geckónicos] --->
 <head>
@@ -28,7 +28,7 @@ header span{font-size:0.73em;opacity:0.7}
 #main{display:flex;flex:1;overflow:hidden}
 /* GTVSCV30 - Tele Clásica Viajera del Tiempo - Pantalla a la izquierda */
 #playerWrap{order:1;}
-#sidebar{order:2;width:371px;background:#0a0a0a;border:2px solid var(--gecko);display:flex;flex-direction:column}
+#sidebar{order:2;width:380px;background:#0a0a0a;border:2px solid var(--gecko);display:flex;flex-direction:column}
 #tree{flex:1;overflow-y:auto;padding:8px}
 
 .folder{border:1px solid #222;border-radius:6px;margin-bottom:6px;background:#111;overflow:hidden}
@@ -66,20 +66,26 @@ header span{font-size:0.73em;opacity:0.7}
 .row button.secondary{background:#222;color:var(--gecko);border:1px solid #333}
 .row button.danger{background:#ff3344;color:#fff}
 
-/* 4. HARDWARE CONTROLS (DIALES) // Redesign by Llamita Encendida for v.3T */
-#dialPanel{display:grid;grid-template-columns:90px 90px 1fr;gap:10px;align-items:start;padding:0 17px;box-sizing:border-box}
-#dialPanel>div:nth-child(1),#dialPanel>div:nth-child(2){width:90px;min-width:90px}
-#dialPanel>div:nth-child(3){min-width:146px}
+/* 4. HARDWARE CONTROLS (DIALES) // Redesign by Llamita Encendida for v.3T // NZ.Fix FF by Chamán Programador */
+/* grid-template-columns: VOL | FINE | CHNL expandible | FF-TV */
+#dialPanel{display:grid;grid-template-columns:85px 85px 1fr 37px;gap:3px;align-items:start;padding:0 3px;box-sizing:border-box}
+#dialPanel>div:nth-child(1),#dialPanel>div:nth-child(2){width:85px;min-width:85px} /* VOL | FINE */
+#dialPanel>div:nth-child(3){min-width:130px} /* CHNL expandible */
+#dialPanel>div:nth-child(4){width:37px;min-width:37px} /* FF-TV */
+#ffDial{width:37px;height:37px;margin-top:5px;cursor:pointer}
+#ffDial .dial-center{width:auto;height:auto;border:none;background:transparent;font-weight:900;font-size:0.65em;color:var(--gecko);letter-spacing:1px}
 #volVal,#fineVal{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #channelVal{white-space:normal;word-break:break-word;min-height:2.2em}
 .dial-group{display:flex;flex-direction:column;align-items:center;gap:4px}
-.dial-label{font-size:0.6em;opacity:0.7}
+/*.dial-label{font-size:0.6em;opacity:0.7}*/
+.dial-label{font-size:0.52em;opacity:0.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
+.dial-group{width:100%}
 /*.dial{width:65px;height:65px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #333, #000);border:3px solid #222;position:relative;cursor:grab;box-shadow:inset 0 2px 5px rgba(255,255,136,0.2), 0 0 10px rgba(0,0,0,0.8);touch-action:none}*/
-.dial{width:65px;height:65px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #444, #000);border:3px solid #222;position:relative;cursor:grab;box-shadow:inset 0 2px 5px rgba(255,255,136,0.2), 0 0 10px rgba(0,0,0,0.8);touch-action:none}
+.dial{width:68px;height:68px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #444, #000);border:3px solid #222;position:relative;cursor:grab;box-shadow:inset 0 2px 5px rgba(255,255,136,0.2), 0 0 10px rgba(0,0,0,0.8);touch-action:none}
 .dial:active{cursor:grabbing;border-color:var(--gecko)}
 .dial-marker{position:absolute;width:4px;height:18px;background:var(--gecko);left:50%;top:4px;transform:translateX(-50%);border-radius:2px;box-shadow:0 0 5px var(--gecko)}
 .dial-center{position:absolute;width:10px;height:10px;background:#111;border:2px solid #333;border-radius:50%;left:50%;top:50%;transform:translate(-50%,-50%)}
-.dial-values{font-size:0.6em;opacity:0.6;margin-top:2px;text-align:center}
+.dial-values{font-size:0.6em;opacity:0.7;margin-top:2px;text-align:center}
 #fineDial{border:3px dashed #333}
 #fineDial.active{border-color:#ffaa00;box-shadow:0 0 10px rgba(255,170,0,0.3)}
 
@@ -129,7 +135,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 <header>
   <h1><<< 🦎GECKO STREAMING PLUS📡 >>></h1>
   <div style="display:flex;gap:8px;align-items:center">
-    <span>TREE EDITION 3ZE [Geckónico | Minimalista | Eficiente]</span>
+    <span>TREE EDITION 3NZF [Geckónico | Minimalista | Eficiente]</span>
     <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ TV</button>
   </div>
 </header>
@@ -157,6 +163,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
     <div id="tree"></div>
     <!-- 3. SOLAPAS ABAJO (Controles) // new design on v.2.9D // Collapse by Chamán // ToolTips By Leo -->
     <div id="tabContainer">
+      <!-- SOLAPAS/PESTAÑAS DEL PANEL DE CONTROL GECKÓNICO -->
       <div class="tab-headers">
         <button class="tab-btn" onclick="switchTab('panelc', this)" data-icon="▾" title="Collapse All">▾</button>
         <button class="tab-btn" onclick="switchTab('admin', this)" data-icon="📺" title="Manage Channels">📺 Admin. Channels</button>
@@ -167,6 +174,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
       </div>
       <!-- PANEL [▾] FOLD CONTROL -->
       <div id="tab-panelc" class="tab-content">
+        <!-- PANEL [▾] FOLD CONTROL [ VACIO, LA NADA MISMA, ¿QUE ESPERABAS ENCONTRAR? ] -->
       </div>
       <!-- 5. PANEL ADMINISTRAR CHANNELS -->
       <div id="tab-admin" class="tab-content">
@@ -201,6 +209,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
       </div>
       <!-- PANEL ADMINISTRAR LISTAS -->
       <div id="tab-adminl" class="tab-content">
+        <!-- PANEL ADMINISTRAR LISTAS [ UNDER CONSTRUCTION (QUIZÁS DEPLOYAREMOS EN SPRING TIME) ] -->
       </div>
       <!-- PANEL CONFIGURACIONES GECKO STREAMING PLUS -->
       <div id="tab-config" class="tab-content">
@@ -280,12 +289,21 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
             <div class="dial-values" id="fineVal">■ ESTABLE</div>
           </div>
           <div class="dial-group">
-            <div class="dial-label">CLACK-CLACK[CHAN]</div>
+            <div class="dial-label">CLACK-CLACK [CHAN]</div>
             <div class="dial" id="channelDial">
               <div class="dial-marker"></div>
               <div class="dial-center"></div>
             </div>
             <div class="dial-values" id="channelVal">---</div>
+          </div>
+          <!-- N6.CANAL ANTERIOR FF-TV by NOva DulceKAli & Aetheris -->
+          <div class="dial-group">
+            <div class="dial-label">[FF-TV]</div>
+            <div class="dial" id="ffDial" onclick="ffTV()" style="cursor:pointer">
+              <div class="dial-center" style="font-size:0.7em; color:var(--gecko)">FF</div>
+            </div>
+            <div class="dial-label">·</div>
+            <div class="dial-values">↔LOOP↔ CHNL.ANT</div>
           </div>
         </div>
       </div>
@@ -296,7 +314,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 <!--- // La Lógica Vulkana Irreductible (Aquí sucede la verdadera Magia!!!) --->
 <script>
 const DB_KEY = 'gecko_tree_plus_v1';
-
+// N0.IMPLEMENTACIÓN FF-TV (FLIP↔FLOP TV) on v.FFL by NOva Pythoniza & Aetheris (Modo Oficial de Seguridad)
 let data = {
   favorites: [
     { id: 'fav_1', nombre: "Red Bull TV", url: "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8", tipo: "Deportes" },
@@ -362,13 +380,25 @@ let data = {
     { id: 'list_28', nombre: "Travel", url:"https://iptv-org.github.io/iptv/categories/travel.m3u", canales:[], open:false },
     { id: 'list_29', nombre: "Weather", url:"https://iptv-org.github.io/iptv/categories/weather.m3u", canales:[], open:false },
     { id: 'list_30', nombre: "Undefined", url:"https://iptv-org.github.io/iptv/categories/undefined.m3u", canales:[], open:false }
-  ]
+  ],
+  // N1.Estructura de datos FF-TV, los punteros pertenecen al universo de los canales de la GeckoGuía y viajan con él en el Full Backup.
+  lastchnl: {
+    actual: null,    // {type, listIdx, chIdx}
+    anterior: null
+  }
 };
 
 // Carga Persistencia
 try {
   const saved = localStorage.getItem(DB_KEY);
   if(saved){ data = JSON.parse(saved); }
+  // N2.Compatibilidad con datos existentes: instalación anterior de GeckoSP puede cargar un data guardado antes de que existiera lastchnl.
+  if (!data.lastchnl) {
+    data.lastchnl = {
+      actual: null,
+      anterior: null
+    };
+  }
 } catch(e){}
 // Variables 
 const video = document.getElementById('video');
@@ -386,6 +416,54 @@ let favoritesOpen = true; // New v.2.5 Para el Dial Clack-Clack
 let currentDialIdx = 0;
 
 function save(){ localStorage.setItem(DB_KEY, JSON.stringify(data)); }
+
+// N3. Función nueva: resolución segura del puntero
+// Resuelve un puntero solo si sigue siendo válido.
+// Si la lista aún no fue cargada → queda pendiente.
+// Si el destino desapareció → null.
+function resolvePointer(p) {
+  if (!p || !p.type) return null;
+  if (p.type === 'fav') {
+    return (
+      p.chIdx >= 0 &&
+      p.chIdx < data.favorites.length
+    ) ? p : null;
+  }
+  if (p.type === 'list') {
+    const lista = data.lists[p.listIdx];
+    if (!lista) return null;
+    // Lista existente pero todavía no cargada:
+    // el puntero queda pendiente.
+    if (lista.canales.length === 0) return p;
+    return (
+      p.chIdx >= 0 &&
+      p.chIdx < lista.canales.length
+    ) ? p : null;
+  }
+  return null;
+}
+
+// N.5 FF-TV — Flip-Flop Televisivo.
+// Salta al canal anterior.
+// La selección vuelve a registrar la transición,
+// produciendo A ↔ B.
+async function ffTV() {
+  let target = resolvePointer(data.lastchnl.anterior);
+  if (!target) return;
+  // Si pertenece a una lista todavía no cargada,
+  // cargarla antes de intentar seleccionar el canal.
+  if (
+    target.type === 'list' &&
+    data.lists[target.listIdx].canales.length === 0
+  ) {
+    await parsearLista(target.listIdx);
+  }
+  // Revalidar después de la carga.
+  target = resolvePointer(target);
+  if (!target) return;
+  selectAndPlay(target.type, target.listIdx, target.chIdx, null);
+}
+
 function log(m){ logEl.innerHTML += `<br>[${new Date().toLocaleTimeString()}] ${m}`; logEl.scrollTop = logEl.scrollHeight; }
 
 // Renderizado del árbol
@@ -523,11 +601,20 @@ async function parsearLista(idx){
 function recargarLista(idx){ data.lists[idx].canales=[]; parsearLista(idx); }
 
 // 2 y 5. SELECCIÓN, EDICIÓN Y REPRODUCCIÓN
-function selectAndPlay(type, listIdx, chIdx, el){
+//function selectAndPlay(type, listIdx, chIdx, el){
+// N4a. Este es el corazón del Flip-Flop (cambia la firma!)
+function selectAndPlay(type, listIdx, chIdx, el, remember = true){
   let chObj = null;
   if(type==='fav') chObj = data.favorites[chIdx];
   else chObj = data.lists[listIdx].canales[chIdx];
   if(!chObj) return;
+  // N4b. Actualizar memoria de trayectoria.
+  // Solo ocurre durante una transición normal.
+  if (remember) {
+    data.lastchnl.anterior = data.lastchnl.actual;
+    data.lastchnl.actual = { type, listIdx, chIdx };
+    save();
+  }
   currentSelected = { type, listIdx, chIdx, data: chObj };
   document.getElementById('editName').value = chObj.nombre || '';
   document.getElementById('editUrl').value = chObj.url || '';
@@ -565,8 +652,7 @@ function playChannel(url, nombre){
   }
 }
 
-
-// 5. GUARDAR / AGREGAR / ELIMINAR [GESTIÓN DE CANALES (LÓGICA VULKANA)] // UNDER TESTING V.3L
+// 5. GUARDAR / AGREGAR / ELIMINAR [GESTIÓN DE CANALES (LÓGICA VULKANA)]
 function saveSelectedChannel(){
   if(!currentSelected.data) return;
 
@@ -622,7 +708,7 @@ function saveSelectedChannel(){
 }
 
 function addNewChannel(){
-  // New on 3ZE (Zero Eagle) [29/08/2026 16:40]
+  // New on 3ZE (Zero Eagle) [WORCKING ARROUND 29/08/2026 15:40 // BEFORE TESTING FINISHED OK! 30/08/2026 20.09 ]
   // Pasará a la historia del proyecto como el hito donde las marmotas sobrevivieron y la curaduría de la playa quedó totalmente a salvo de desvíos de foco.
   const name = document.getElementById('editName').value.trim() || 'Nuevo Canal';
   const url = document.getElementById('editUrl').value.trim();
@@ -657,12 +743,16 @@ function addNewChannel(){
   // Guardar en destino (Mantiene la posición del explorador de caracolas en la playa sin irse adentro de su cangurera)
   if (targetVal === 'fav') {
     data.favorites.push(newObj);
+    //currentSelected = { type: 'fav', listIdx: null, chIdx: data.favorites.length - 1, data: newObj };
   } else {
     data.lists[targetVal].canales.push(newObj);
+    //currentSelected = { type: 'list', listIdx: targetVal, chIdx: data.lists[targetVal].canales.length - 1, data: newObj };
   }
 
   save();
   renderTree();
+  // Mantener el foco en la lista donde se acaba de agregar [ESTO NO ES CORRECTO NI LOGICO NI COHERENTE]
+  //document.getElementById('editTargetList').value = (targetVal === 'fav') ? 'fav' : `list_${targetVal}`;
   toggleNewListInput('');
 
   // Re-sincronizar el desplegable con la lista de origen donde está parado el explorador de caracolas
@@ -670,6 +760,8 @@ function addNewChannel(){
     document.getElementById('editTargetList').value = (currentSelected.type === 'fav') ? 'fav' : `list_${currentSelected.listIdx}`;
   }
 
+  //log(`➕ Canal agregado: ${name}`);
+  //log(`➕ Canal agregado a la lista destino: ${name}`);
   log(`➕ Canal "${name}" agregado a la lista destino: ${targetListName}`); // Best Log Message
 }
 
@@ -750,7 +842,6 @@ function resolveTargetListIndex() {
 
   return parseInt(targetVal.replace('list_', ''), 10);
 }
-
 
 // 3. CAMBIO DE PESTAÑAS
 function switchTab(tabName, btn){
@@ -1066,12 +1157,34 @@ function copyGecko(id){
 }
 
 // Inicialización
-renderTree();
-setTimeout(()=>{
-  if(data.favorites.length > 0){
-    selectAndPlay('fav', null, 0, null);
+
+// N7. Restauración de trayectoria al iniciar.
+// Restaurar ≠ navegar:
+// no modifica actual/anterior.
+setTimeout(async () => {
+  let target = resolvePointer(data.lastchnl?.actual);
+  // Si el puntero apunta a una lista todavía no cargada,
+  // cargarla antes de restaurar.
+  if (
+    target &&
+    target.type === 'list' &&
+    data.lists[target.listIdx].canales.length === 0
+  ) {
+    await parsearLista(target.listIdx);
+    // Revalidar después de cargar.
+    target = resolvePointer(data.lastchnl.actual);
+  }
+  if (target) {
+    // Restauración pura.
+    // remember=false evita alterar anterior.
+    selectAndPlay(target.type, target.listIdx, target.chIdx, null, false);
+  } else if (data.favorites.length > 0) {
+    // No existe memoria válida:
+    // comportamiento de fábrica.
+    selectAndPlay('fav', null, 0, null, false);
   }
 }, 500);
+
 </script>
 </body>
 </html>
