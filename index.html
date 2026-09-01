@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<!--- # Gecko-Streaming-Plus.3ZLB.html # --->
+<!--- # Gecko-Streaming-Plus.3PFX.html # --->
 <!--- # Monkey Python Coding Circus by Alan.RG Systemas & Team Cangurera c.2026 # --->
 <!--- # We are the Kangaroo Team: Chamán Programador, NOva DulceKAli, Aetheris, Llamita Encendida, Ei2 Sheminay, Leo Bravo --->
 
@@ -135,7 +135,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 <header>
   <h1><<< 🦎GECKO STREAMING PLUS📡 >>></h1>
   <div style="display:flex;gap:8px;align-items:center">
-    <span>TREE EDITION 3ZLB Geckónico · Minimalista · Eficiente ·</span>
+    <span>TREE EDITION 3PFX Geckónico · Minimalista · Eficiente ·</span>
     <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ TV</button>
   </div>
 </header>
@@ -970,6 +970,8 @@ function drawNoise(intensity){
   }
   ctx.putImageData(imgData, 0, 0);
 }
+
+/*
 // --- 4b. HARDWARE CONTROLS (AUDIO SYNTH) ---
 let audioCtx = null;
 let lastClackTime = 0; // Guardián del tiempo para no saturar
@@ -1003,6 +1005,51 @@ function clack(freq = 371, dur = 0.07) {
   o.start(timeToPlay);
   o.stop(timeToPlay + dur);
 }
+*/
+
+// --- 4b. HARDWARE CONTROLS (AUDIO SYNTH) [PLAY COMPATIBLE] ---
+let audioCtx = null;
+let lastClackTime = 0;
+function initAudio() { 
+  if (!audioCtx) {
+    // Usamos la retrocompatibilidad total para consolas
+    const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+    if (AudioContextClass) {
+      audioCtx = new AudioContextClass();
+    }
+  }  
+  // Evitamos que la Play tire error si '.state' o '.resume' no existen
+  if (audioCtx && audioCtx.state === 'suspended' && typeof audioCtx.resume === 'function') {
+    audioCtx.resume().catch(e => console.log("Audio resume bloqueado:", e));
+  }
+}
+function clack(freq = 371, dur = 0.07) {
+  initAudio();  
+  // Si la consola no soporta audio, salimos en silencio sin romper el resto de la app
+  if (!audioCtx) return;
+  // Filtro anti-saturación para PC y Celu (Seguro para consolas)
+  const now = audioCtx.currentTime || 0;
+  if (now - lastClackTime < 0.040) return; 
+  lastClackTime = now;
+  try {
+    const o = audioCtx.createOscillator();
+    const g = audioCtx.createGain();    
+    o.frequency.value = freq;
+    o.connect(g);
+    g.connect(audioCtx.destination);   
+    // Sintaxis súper compatible para el volumen del "clack"
+    g.gain.setValueAtTime(0.3, now);
+    g.gain.exponentialRampToValueAtTime(0.01, now + dur);   
+    // Arrancamos y paramos al instante
+    o.start(now);
+    o.stop(now + dur);
+  } catch (err) {
+    // Si la Play protesta por los osciladores, el catch atrapa el error
+    // e impide que se congelen las perillas o el cambio de canal
+    console.log("Audio WebKit omitido en consola", err);
+  }
+}
+  
 // ------------------------------------------------------------------ //
 
 // ---- Volume Toaster Compatible by Llamita Encendida for v.3T ----- //
