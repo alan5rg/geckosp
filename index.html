@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<!--- # Gecko-Streaming-Plus.3NFX.html # --->
+<!--- # Gecko-Streaming-Plus.3AFX.html # --->
 <!--- # Monkey Python Coding Circus by Alan.RG Systemas & Team Cangurera c.2026 # --->
 <!--- # We are the Kangaroo Team: Chamán Programador, NOva DulceKAli, Aetheris, Llamita Encendida, Ei2 Sheminay, Leo Bravo --->
 
@@ -135,7 +135,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 <header>
   <h1><<< 🦎GECKO STREAMING PLUS📡 >>></h1>
   <div style="display:flex;gap:8px;align-items:center">
-    <span>TREE EDITION 3NFX [Geckónico | Minimalista | Eficiente]</span>
+    <span>TREE EDITION 3AFX [Geckónico | Minimalista | Eficiente]</span>
     <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ TV</button>
   </div>
 </header>
@@ -832,13 +832,21 @@ function resolveTargetListIndex() {
 let audioCtx = null;
 function initAudio(){ if(!audioCtx) audioCtx = new (window.AudioContext||window.webkitAudioContext)(); }
 
-function clack(freq=371, dur=0.07){
+// AETHERIS FIX en v.3.AFX [CodeName: AETHERIS FIX FX]
+async function clack(freq = 371, dur = 0.07) {
   initAudio();
-  const o=audioCtx.createOscillator(); const g=audioCtx.createGain();
-  o.frequency.value=freq; o.connect(g); g.connect(audioCtx.destination);
+  if (audioCtx.state === 'suspended') {
+    await audioCtx.resume();
+  }
+  const o = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  o.frequency.value = freq;
+  o.connect(g);
+  g.connect(audioCtx.destination);
   g.gain.setValueAtTime(0.3, audioCtx.currentTime);
-  g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime+dur);
-  o.start(); o.stop(audioCtx.currentTime+dur);
+  g.gain.exponentialRampToValueAtTime(0.01, audioCtx.currentTime + dur);
+  o.start();
+  o.stop(audioCtx.currentTime + dur);
 }
 
 // new v.2.5
@@ -865,7 +873,6 @@ channelDial.addEventListener('pointerdown', e=>{
   const cx=rect.left+rect.width/2; const cy=rect.top+rect.height/2;
   startAngleChannel=Math.atan2(e.clientY-cy, e.clientX-cx)*180/Math.PI;
 });
-
 channelDial.addEventListener('pointermove', e => {
   const channels = getDialChannels();
   if (!isDraggingChannel || channels.length === 0) return;
@@ -885,9 +892,7 @@ channelDial.addEventListener('pointermove', e => {
     startAngleChannel = ang;
   }
 });
-
 channelDial.addEventListener('pointerup', ()=>isDraggingChannel=false);
-
 channelDial.addEventListener('wheel', (e) => {
   e.preventDefault();
   const channels = getDialChannels();
@@ -903,7 +908,10 @@ channelDial.addEventListener('wheel', (e) => {
   channelDial.style.transform = `rotate(${angle}deg)`;
   clack(731, 0.04); //850, 0.04
 }, { passive: false });
-
+// AETHERIS FIX en v.3.AFX [CodeName: AETHERIS FIX FX]
+channelDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
+channelDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
+  
 // DIAL SINTONÍA FINA (LOGARÍTMICA)
 let fineValue = 0;
 let isDraggingFine = false;
@@ -915,22 +923,22 @@ fineDial.addEventListener('pointerdown', e=>{
   startYFine = e.clientY;
   fineDial.setPointerCapture(e.pointerId);
 });
-
 fineDial.addEventListener('pointermove', e=>{
   if(!isDraggingFine) return;
   const dy = startYFine - e.clientY;
   startYFine = e.clientY;
   applyFine(fineValue + dy);
 });
-
 fineDial.addEventListener('pointerup', ()=>isDraggingFine=false);
-
 fineDial.addEventListener('wheel', (e) => {
   e.preventDefault();
   const step = e.deltaY > 0 ? -2 : 2;  // El multiplicador '2' define la sensibilidad de la rueda. Podés subirlo o bajarlo.
   applyFine(fineValue + step);
 });
-
+// AETHERIS FIX en v.3.AFX [CodeName: AETHERIS FIX FX]
+fineDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
+fineDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
+  
 function applyFine(val){
   fineValue = Math.max(-100, Math.min(100, val));
   const absVal = Math.abs(fineValue);
@@ -1039,7 +1047,10 @@ volDial.addEventListener('wheel', e=>{
   e.preventDefault();
   applyVol(volValue + (e.deltaY>0?-3:3));
 }, {passive:false});
-
+// AETHERIS FIX en v.3.AFX [CodeName: AETHERIS FIX FX]
+volDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
+volDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
+  
 // enganche sync
 function attachGeckoVolSync(){
   const v = getGeckoVideo(); if(!v || v._geckoSync) return;
@@ -1113,9 +1124,9 @@ function importarJSON(event){
       if(importedData && (importedData.favorites || importedData.lists)){
         data = importedData;
         save();
-        renderTree();
         alert('¡Configuración FULL importada con éxito! - ' + file.name);
         log('📥 Configuración importada desde ' + file.name);
+        location.reload();   // Restauración completa → el organismo renace limpio
       }
     } catch(err){
       alert('Error al leer el archivo. ¿Es un backup válido de Gecko Streaming Plus?');
