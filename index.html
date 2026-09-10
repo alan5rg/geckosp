@@ -1,17 +1,20 @@
 <!DOCTYPE html>
 <html lang="es">
-<!--- # Gecko-Streaming-Plus.3PFX.html # --->
+<!--- # Gecko-Streaming-Plus.M2EZ0909CMZTN1000X25.html # --->
 <!--- # Monkey Python Coding Circus by Alan.RG Systemas & Team Cangurera c.2026 # --->
-<!--- # We are the Kangaroo Team: Chamán Programador, NOva DulceKAli, Aetheris, Llamita Encendida, Ei2 Sheminay, Leo Bravo --->
+<!--- 🦎 We are the Kangaroo Team: --->
+<!--- Chamán Programador, NOva DulceKAli, Aetheris, Llamita Encendida, Ei2, Sheminay, Leo Bravo --->
 
-<!--- Encabezados a la Cabeza (¿obvio no?) [Incluye EStilos Geckónicos] --->
+
+<!--- Encabezados a la Cabeza (¿obvio no?) [Incluye EStilos Geckónicos TM] --->
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, interactive-widget=resizes-content">
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="theme-color" content="#000000">
-<title>🦎GECKO STREAMING PLUS📡</title>
+<title>🦎 GECKO·STREAMING·PLUS 📡</title>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
 
 <!-- Estilos Globales Geckónicos -->
 <style>
@@ -38,12 +41,68 @@ header span{font-size:0.73em;opacity:0.7}
 .folder-title{display:flex;gap:8px;align-items:center}
 .folder-count{font-size:0.7em;opacity:0.6;background:#222;padding:2px 6px;border-radius:10px;color:var(--gecko)}
 .folder.active .folder-count{background:#000;color:var(--gecko)}
-.folder-body{max-height:0;overflow:hidden;transition:max-height 0.3s ease}
-.folder.open .folder-body{max-height:2000px;overflow-y:auto}
+.folder-body{max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
+/* .folder.open .folder-body{max-height:2000px;overflow-y:auto} */
+/* Fixed by Aetheris for v.M2EZ[02092026] */
+.folder.open > .folder-body{max-height:2000px;overflow-y:auto;}
+
+/* --- BOTONERA SUPERIOR UNIFICADA (MAMUSHKA CONTROL) by Team Cangurera --- */
+.gecko-nav-bar-minimal {
+  display: flex;
+  gap: 6px;
+  padding: 6px 8px;
+  background: #0f0f0f;
+  border-bottom: 1px solid #1a1a1a;
+  justify-content: space-between;
+}
+.gecko-nav-bar-minimal button {
+  background: #000;
+  color: var(--gecko);
+  border: 1px solid #222;
+  padding: 6px;
+  font-family: 'Share Tech Mono', monospace;
+  font-size: 0.72em;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.15s ease;
+  flex: 1;
+  text-align: center;
+}
+
+/* Integro el Foco del Mouse over + Foco del Tab identicos */
+.gecko-nav-bar-minimal button:focus-visible,
+.gecko-nav-bar-minimal button:hover {
+  background: rgba(var(--gecko-rgb), 0.3);
+  border-color: var(--gecko);
+  color: #FFF;
+  box-shadow: 0 0 10px rgba(var(--gecko-rgb), 0.6);
+  outline: none;
+}
+
+/* [Evaluar logica de Estados 09/09/2026:05:59am]  */
+
+/*
+Estado activo para el switch [ S/H Glob ] quando está encendido 
+active LO TOMA COMO EN EL CLICK
+*/
+.gecko-nav-bar-minimal button:active {
+  background: var(--gecko);
+  color: #000;
+  font-weight: bold;
+  box-shadow: 0 0 10px var(--gecko);
+}
+
+/* focus LO TOMA COMO "AL PRESIONARLO PASA A ESTE VALOR"
+.gecko-nav-bar-minimal button:focus{
+
+}
+*/
+
+/* ------------------------------------------------------------------------ */
 
 /* 1. GLOW ORIGINAL EN CANAL SELECCIONADO */
 .channel{padding:7px 12px 7px 28px;border-top:1px solid #1a1a1a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.8em;transition:all 0.15s}
-.channel:hover{background:#111;color:#fff;transform:translateX(3px)}
+.channel:hover{border:1px solid;border-color:var(--gecko);background:#111;color:#fff;transform:translateX(3px)}
 .channel.active{border-color:var(--gecko);background:var(--gecko);color:#000;font-weight:bold;box-shadow:0 0 10px var(--gecko), 0 0 5px var(--gecko);text-shadow:0 0 2px #000}
 .channel small{opacity:0.6;font-size:0.75em}
 
@@ -133,14 +192,14 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 
 <!--- Los Títulos (no como las pelis pero si como los buenos libros) --->
 <header>
-  <h1><<< 🦎GECKO STREAMING PLUS📡 >>></h1>
+  <h1><<<🦎 GECKO·STREAMING·PLUS 📡>>></h1>
   <div style="display:flex;gap:8px;align-items:center">
-    <span>TREE EDITION 3PFX Geckónico · Minimalista · Eficiente ·</span>
+    <span>TREE MAMUSHKA LOGIC DRIVE EDITION M2EZ[0909C·MZTN·10000X25] Geckónico · Minimalista · Eficiente ·</span>
     <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ TV</button>
   </div>
 </header>
 
-<!--- EL Famoso MAIN de la Web (El Oficial Principal Diseñador del Esqueleto Html) // New Design v.29 e NOva--->
+<!--- EL Famoso MAIN de la Web (El Oficial Principal Diseñador del Esqueleto Html) // New Design v.29 e NOva --->
 <div id="main">
   <!-- REPRODUCTOR -->
   <div id="playerWrap">
@@ -157,8 +216,17 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
     </div>
     <div id="log">Gecko Tree iniciado...</div>
   </div>
+    
   <!-- Barra Lateral (Arbol-Listas/Controles) -->
   <div id="sidebar">
+    <!-- MAMUSHKA NAVIGATION SYSTEM TM (La nueva botonera de control en el DOM del salón) for E2MZ[08092026B]-->
+    <div class="gecko-nav-bar-minimal">
+      <button onclick="mamushkaLogicDrive('zoom_out')" title="Colaspse All">[<<<·]</button>
+      <button onclick="mamushkaLogicDrive('toggle_global')" title="Toggle Global">[ GCh ]</button>
+      <button onclick="mamushkaLogicDrive('current_channel')" title="Current CHAN">[ @ ]</button>
+      <button onclick="mamushkaLogicDrive('prev_page')" title="Prev.Page">[ << ]</button>
+      <button onclick="mamushkaLogicDrive('next_page')"title="Next.Page">[ >> ]</button>
+    </div>
     <!-- ARBOL DE CANALES -->
     <div id="tree"></div>
     <!-- 3. SOLAPAS ABAJO (Controles) // new design on v.2.9D // Collapse by Chamán // ToolTips By Leo -->
@@ -215,26 +283,29 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
       <div id="tab-config" class="tab-content">
         <div class="form-group">
           <label>🎨 Tema / Color Gecko (Monocromo Pro):</label>
-          <!-- SECUENCIA CHROMÁTICA ARMÓNICA (GTVSCV30 Calibrado) -->
+          <!-- SECUENCIA CHROMÁTICA ARMÓNICA (GTVSCV30 Calibrada // Invertida por el Chamán en viaje Místico) -->
           <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-            <!-- 1. Los Verdes Clásicos (Estabilidad) -->
-            <button onclick="setTheme('#00ff00')" style="width:36px;height:36px;border-radius:50%;background:#00ff00;border:2px solid #fff" title="Matric"></button>
-            <button onclick="setTheme('#00ff88')" style="width:36px;height:36px;border-radius:50%;background:#00ff88;border:2px solid #fff" title="Gecko Original"></button>
-            <button onclick="setTheme('#ccff00')" style="width:36px;height:36px;border-radius:50%;background:#ccff00;border:2px solid #fff" title="Fósforo Radiactivo"></button>
-            <!-- 2. Los Fríos Vibrantes (Comunicación/Futuro) -->
-            <button onclick="setTheme('#00ffff')" style="width:36px;height:36px;border-radius:50%;background:#00ffff;border:2px solid #fff" title="Cyan"></button>
-            <button onclick="setTheme('#0088ff')" style="width:36px;height:36px;border-radius:50%;background:#0088ff;border:2px solid #fff" title="Azul"></button>
-            <button onclick="setTheme('#aa88ff')" style="width:36px;height:36px;border-radius:50%;background:#aa88ff;border:2px solid #fff" title="Lila"></button>
-            <!-- 3. Los Cyberpunk Profundos (Intensidad/Poder) -->
-            <button onclick="setTheme('#ff00ff')" style="width:36px;height:36px;border-radius:50%;background:#ff00ff;border:2px solid #fff" title="Fuxia Cyberpunk"></button>
-            <button onclick="setTheme('#ff1493')" style="width:36px;height:36px;border-radius:50%;background:#ff1493;border:2px solid #fff" title="Rosa Neón Deep"></button>
-            <!-- 4. Los Cálidos Incandescentes (Energía Analógica) -->
-            <button onclick="setTheme('#ff3300')" style="width:36px;height:36px;border-radius:50%;background:#ff3300;border:2px solid #fff" title="Tubo Nixie / Plasma"></button>
-            <button onclick="setTheme('#ff8800')" style="width:36px;height:36px;border-radius:50%;background:#ff8800;border:2px solid #fff" title="Naranja"></button>
-            <button onclick="setTheme('#ffaa00')" style="width:36px;height:36px;border-radius:50%;background:#ffaa00;border:2px solid #fff" title="Ambar OSciloscopio"></button>
-            <button onclick="setTheme('#ffcc00')" style="width:36px;height:36px;border-radius:50%;background:#ffcc00;border:2px solid #fff" title="Amarillo"></button>
             <!-- 5. Monocromatismo Monocromático -->
             <button onclick="setTheme('#ffffff')" style="width:36px;height:36px;border-radius:50%;background:#fff;border:2px solid #fff" title="Blanco"></button>
+            <!-- 4. Los Cálidos Incandescentes (Energía Analógica) -->
+            <button onclick="setTheme('#9a9a9a')" style="width:36px;height:36px;border-radius:50%;background:#9a9a9a;border:2px solid #fff" title="Aluar"></button>
+            <button onclick="setTheme('#cdab8f')" style="width:36px;height:36px;border-radius:50%;background:#cdab8f;border:2px solid #fff" title="El Dorado"></button>
+            <button onclick="setTheme('#ffcc00')" style="width:36px;height:36px;border-radius:50%;background:#ffcc00;border:2px solid #fff" title="Amarillo"></button>
+            <button onclick="setTheme('#ffaa00')" style="width:36px;height:36px;border-radius:50%;background:#ffaa00;border:2px solid #fff" title="Ambar OSciloscopio"></button>            
+            <button onclick="setTheme('#ff8800')" style="width:36px;height:36px;border-radius:50%;background:#ff8800;border:2px solid #fff" title="Naranja"></button>
+            <button onclick="setTheme('#ff3300')" style="width:36px;height:36px;border-radius:50%;background:#ff3300;border:2px solid #fff" title="Tubo Nixie / Plasma"></button>
+            <!-- 3. Los Cyberpunk Profundos (Intensidad/Poder) -->
+            <button onclick="setTheme('#ff1493')" style="width:36px;height:36px;border-radius:50%;background:#ff1493;border:2px solid #fff" title="Rosa Neón Deep"></button>
+            <button onclick="setTheme('#ff00ff')" style="width:36px;height:36px;border-radius:50%;background:#ff00ff;border:2px solid #fff" title="Fuxia Cyberpunk"></button>
+            <!-- 2. Los Fríos Vibrantes (Comunicación/Futuro) -->
+            <button onclick="setTheme('#aa88ff')" style="width:36px;height:36px;border-radius:50%;background:#aa88ff;border:2px solid #fff" title="Lila"></button>
+            <button onclick="setTheme('#0088ff')" style="width:36px;height:36px;border-radius:50%;background:#0088ff;border:2px solid #fff" title="Azul"></button>
+            <button onclick="setTheme('#3498db')" style="width:36px;height:36px;border-radius:50%;background:#3498db;border:2px solid #fff" title="Celeste DulceBot"></button>            
+            <button onclick="setTheme('#00ffff')" style="width:36px;height:36px;border-radius:50%;background:#00ffff;border:2px solid #fff" title="Cyan"></button>
+            <!-- 1. Los Verdes Clásicos (Estabilidad) -->
+            <button onclick="setTheme('#ccff00')" style="width:36px;height:36px;border-radius:50%;background:#ccff00;border:2px solid #fff" title="Fósforo Radiactivo"></button>            
+            <button onclick="setTheme('#00ff00')" style="width:36px;height:36px;border-radius:50%;background:#00ff00;border:2px solid #fff" title="Matrix"></button>
+            <button onclick="setTheme('#00ff88')" style="width:36px;height:36px;border-radius:50%;background:#00ff88;border:2px solid #fff" title="Gecko Original"></button>            
             <!-- 6. Personalización Libre Albedrío Geckónico -->
             <input type="color" id="customGecko" value="#00ff88" oninput="setTheme(this.value)" style="width:36px;height:36px;border-radius:50%;padding:0;border:2px solid #fff;background:none;cursor:pointer" title="Color libre">
           </div>
@@ -313,10 +384,24 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 
 <!--- // La Lógica Vulkana Irreductible (Aquí sucede la verdadera Magia!!!) --->
 <script>
-// Base de Datos 
+
+// ------------------------------------ ESTRUCTURA DE DATOS ------------------------------------------ //
 const DB_KEY = 'gecko_tree_plus_v1';
-// N0.IMPLEMENTACIÓN FF-TV (FLIP↔FLOP TV) on v.FFL by NOva Pythoniza & Aetheris (Modo Oficial de Seguridad)
+// --- New on M2EZ[02092026] by Sheminay for "RENDERIZADO DEL ÁRBOL MULTIDIMENSIONAL" ---
+/*
+  Cambios Mayores:
+Modificamos la base de datos hardcodeada, ahora cada lista declara:
+a) su ruta dentro de la mamushka (como un array de carpetas).
+b) su icono visual, bajo el estándar "Icons Gecko Tree Edition".
+  Nota Sobre el cambio en base hardcodeada: No cambia nada, es transparente
+  Nota para la retrocompatibilidad: En tu bloque de carga de localStorage,
+si el JSON importado de un usuario no contiene los campos ruta o icono (porque viene de una versión vieja),
+la lógica de inicio normalizarListas() les inyecta por defecto ruta e icono al vuelo
+para mantener la red de contención activa. Ejemplo: "📁 GeckoGuías x Categoría"
+*/
 let data = {
+  // A partir de M2EZ[08092026A] favorites y lists son Invariantes Harcodeadas,
+  // en las importaciones se cargan directo de este diccionario de GeckoGuías:
   favorites: [
     { id: 'fav_1', nombre: "Red Bull TV", url: "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8", tipo: "Deportes" },
     { id: 'fav_2', nombre: "CNA", url: "https://live1.mediadesk.al/cnatvlive.m3u8", tipo: "De lista Free-TV HD" },
@@ -346,43 +431,71 @@ let data = {
     { id: 'fav_26', nombre: "R9", url: "https://ms01.w24.at/R9/smil:liveeventR9.smil/playlist.m3u8", tipo: "De lista Free-TV HD" },
     { id: 'fav_27', nombre: "10 Bold", url: "https://dce3793146fef017.mediapackage.us-west-2.amazonaws.com/out/v1/55cdf73af7894775ba6de8f57482b66a/CMAF_HLS/index.m3u8", tipo: "De lista Free-TV HD" },
     { id: 'fav_28', nombre: "El Trece", url: "https://livetrx01.vodgc.net/eltrecetv/index.m3u8", tipo: "De lista Free-TV HD" },
-    { id: 'fav_29', nombre: "Andorra TV", url: "https://livesg1.rtva.hiway.media/11a6d6f4-ee13-47c7-9c27-7313cf5424e2/manifest.m3u8", tipo: "De lista Free-TV HD" },
-    { id: 'fav_30', nombre: "Rock&Pop 95.9 FM", url: "https://redirector.rudo.video/hls-video/c54ac2799874375c81c1672abb700870537c5223/bravo/bravo.smil/playlist.m3u8", tipo: "Radio [ Música ]" }
+    { id: 'fav_29', nombre: "Andorra TV", url: "https://livesg1.rtva.hiway.media/11a6d6f4-ee13-47c7-9c27-7313cf5424e2/manifest.m3u8", tipo: "De lista Free-TV HD" }
   ],
-  /* Implementar BAndera tipo enable/disable para grisar y no permitir el despliege de listas, incluso con clave de usuario para privacidad */
+  // Implementar BAndera tipo enable/disable para grisar y no permitir el despliege de listas, incluso con clave de usuario para privacidad 
   lists: [
-    { id: 'list_0', nombre: "IPTV-Org Global", url:"https://iptv-org.github.io/iptv/index.m3u", canales:[], open:false },
-    { id: 'list_1', nombre: "Free-TV HD", url:"https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8", canales:[], open:false },
-    { id: 'list_2', nombre: "Animation", url:"https://iptv-org.github.io/iptv/categories/animation.m3u", canales:[], open:false },
-    { id: 'list_3', nombre: "Auto", url:"https://iptv-org.github.io/iptv/categories/auto.m3u", canales:[], open:false },
-    { id: 'list_4', nombre: "Business", url:"https://iptv-org.github.io/iptv/categories/business.m3u", canales:[], open:false },
-    { id: 'list_5', nombre: "Classic", url:"https://iptv-org.github.io/iptv/categories/classic.m3u", canales:[], open:false },
-    { id: 'list_6', nombre: "Comedy", url:"https://iptv-org.github.io/iptv/categories/comedy.m3u", canales:[], open:false },
-    { id: 'list_7', nombre: "Cooking", url:"https://iptv-org.github.io/iptv/categories/cooking.m3u", canales:[], open:false },
-    { id: 'list_8', nombre: "Culture", url:"https://iptv-org.github.io/iptv/categories/culture.m3u", canales:[], open:false },
-    { id: 'list_9', nombre: "Documentary", url:"https://iptv-org.github.io/iptv/categories/documentary.m3u", canales:[], open:false },
-    { id: 'list_10', nombre: "Education", url:"https://iptv-org.github.io/iptv/categories/education.m3u", canales:[], open:false },
-    { id: 'list_11', nombre: "Entertain", url:"https://iptv-org.github.io/iptv/categories/entertainment.m3u", canales:[], open:false },
-    { id: 'list_12', nombre: "Family", url:"https://iptv-org.github.io/iptv/categories/family.m3u", canales:[], open:false },
-    { id: 'list_13', nombre: "General", url:"https://iptv-org.github.io/iptv/categories/general.m3u", canales:[], open:false },
-    { id: 'list_14', nombre: "Kids", url:"https://iptv-org.github.io/iptv/categories/kids.m3u", canales:[], open:false },
-    { id: 'list_15', nombre: "Legislative", url:"https://iptv-org.github.io/iptv/categories/legislative.m3u", canales:[], open:false },
-    { id: 'list_16', nombre: "Lifestyle", url:"https://iptv-org.github.io/iptv/categories/lifestyle.m3u", canales:[], open:false },
-    { id: 'list_17', nombre: "Movies", url:"https://iptv-org.github.io/iptv/categories/movies.m3u", canales:[], open:false },
-    { id: 'list_18', nombre: "Music", url:"https://iptv-org.github.io/iptv/categories/music.m3u", canales:[], open:false },
-    { id: 'list_19', nombre: "News", url:"https://iptv-org.github.io/iptv/categories/news.m3u", canales:[], open:false },
-    { id: 'list_20', nombre: "Outdoor", url:"https://iptv-org.github.io/iptv/categories/outdoor.m3u", canales:[], open:false },
-    { id: 'list_21', nombre: "Public", url:"https://iptv-org.github.io/iptv/categories/public.m3u", canales:[], open:false },
-    { id: 'list_22', nombre: "Relax", url:"https://iptv-org.github.io/iptv/categories/relax.m3u", canales:[], open:false },
-    { id: 'list_23', nombre: "Religious", url:"https://iptv-org.github.io/iptv/categories/religious.m3u", canales:[], open:false },
-    { id: 'list_24', nombre: "Science", url:"https://iptv-org.github.io/iptv/categories/science.m3u", canales:[], open:false },
-    { id: 'list_25', nombre: "Series", url:"https://iptv-org.github.io/iptv/categories/series.m3u", canales:[], open:false },
-    { id: 'list_26', nombre: "Shop", url:"https://iptv-org.github.io/iptv/categories/shop.m3u", canales:[], open:false },
-    { id: 'list_27', nombre: "Sports", url:"https://iptv-org.github.io/iptv/categories/sports.m3u", canales:[], open:false },
-    { id: 'list_28', nombre: "Travel", url:"https://iptv-org.github.io/iptv/categories/travel.m3u", canales:[], open:false },
-    { id: 'list_29', nombre: "Weather", url:"https://iptv-org.github.io/iptv/categories/weather.m3u", canales:[], open:false },
-    { id: 'list_30', nombre: "Undefined", url:"https://iptv-org.github.io/iptv/categories/undefined.m3u", canales:[], open:false }
+    // 📁 GUÍAS GLOBALES REMOTAS (Tienen URL y declaran su carpeta madre)
+    { id: 'list_0', nombre: "IPTV-Org Global", url:"https://iptv-org.github.io/iptv/index.m3u", canales:[], open:false, ruta: ["GeckoGuías Globales"], icono: "📁" },
+    { id: 'list_1', nombre: "Free-TV HD", url:"https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8", canales:[], open:false, ruta: ["GeckoGuías Globales"], icono: "📁" },
+    // 📁 GUÍAS X CATEGORIA (Tambien Tienen URL y declaran su carpeta madre)
+    { id: 'list_2', nombre: "Animation", url:"https://iptv-org.github.io/iptv/categories/animation.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_3', nombre: "Auto", url:"https://iptv-org.github.io/iptv/categories/auto.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_4', nombre: "Business", url:"https://iptv-org.github.io/iptv/categories/business.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_5', nombre: "Classic", url:"https://iptv-org.github.io/iptv/categories/classic.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_6', nombre: "Comedy", url:"https://iptv-org.github.io/iptv/categories/comedy.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_7', nombre: "Cooking", url:"https://iptv-org.github.io/iptv/categories/cooking.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_8', nombre: "Culture", url:"https://iptv-org.github.io/iptv/categories/culture.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_9', nombre: "Documentary", url:"https://iptv-org.github.io/iptv/categories/documentary.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_10', nombre: "Education", url:"https://iptv-org.github.io/iptv/categories/education.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_11', nombre: "Entertain", url:"https://iptv-org.github.io/iptv/categories/entertainment.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_12', nombre: "Family", url:"https://iptv-org.github.io/iptv/categories/family.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_13', nombre: "General", url:"https://iptv-org.github.io/iptv/categories/general.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_14', nombre: "Kids", url:"https://iptv-org.github.io/iptv/categories/kids.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_15', nombre: "Legislative", url:"https://iptv-org.github.io/iptv/categories/legislative.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_16', nombre: "Lifestyle", url:"https://iptv-org.github.io/iptv/categories/lifestyle.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_17', nombre: "Movies", url:"https://iptv-org.github.io/iptv/categories/movies.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_18', nombre: "Music", url:"https://iptv-org.github.io/iptv/categories/music.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_19', nombre: "News", url:"https://iptv-org.github.io/iptv/categories/news.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_20', nombre: "Outdoor", url:"https://iptv-org.github.io/iptv/categories/outdoor.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_21', nombre: "Public", url:"https://iptv-org.github.io/iptv/categories/public.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_22', nombre: "Relax", url:"https://iptv-org.github.io/iptv/categories/relax.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_23', nombre: "Religious", url:"https://iptv-org.github.io/iptv/categories/religious.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_24', nombre: "Science", url:"https://iptv-org.github.io/iptv/categories/science.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_25', nombre: "Series", url:"https://iptv-org.github.io/iptv/categories/series.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_26', nombre: "Shop", url:"https://iptv-org.github.io/iptv/categories/shop.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_27', nombre: "Sports", url:"https://iptv-org.github.io/iptv/categories/sports.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_28', nombre: "Travel", url:"https://iptv-org.github.io/iptv/categories/travel.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_29', nombre: "Weather", url:"https://iptv-org.github.io/iptv/categories/weather.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { id: 'list_30', nombre: "Undefined", url:"https://iptv-org.github.io/iptv/categories/undefined.m3u", canales:[], open:false, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    // 🌐 GECKOGUÍAS X PAÍS  (Tambien Tienen URL y declaran su carpeta madre)
+    { id: 'list_31', nombre: "Argentina", url: "https://iptv-org.github.io/iptv/countries/ar.m3u", canales:[], open: false, ruta: ["GeckoGuías x País"], icono: "🌐" },
+    { id: 'list_32', nombre: "Brasil", url: "https://iptv-org.github.io/iptv/countries/br.m3u", canales:[], open: false, ruta: ["GeckoGuías x País"], icono: "🌐" },
+    { id: 'list_33', nombre: "Chile", url: "https://iptv-org.github.io/iptv/countries/cl.m3u", canales:[], open: false, ruta: ["GeckoGuías x País"], icono: "🌐" },
+    { id: 'list_34', nombre: "Estados Unidos", url: "https://iptv-org.github.io/iptv/countries/us.m3u", canales:[], open: false, ruta: ["GeckoGuías x País"], icono: "🌐" },
+    { id: 'list_35', nombre: "Francia", url: "https://iptv-org.github.io/iptv/countries/fr.m3u", canales:[], open: false, ruta: ["GeckoGuías x País"], icono: "🌐" },
+    { id: 'list_36', nombre: "Italia", url: "https://iptv-org.github.io/iptv/countries/it.m3u", canales:[], open: false, ruta: ["GeckoGuías x País"], icono: "🌐" },
+    { id: 'list_37', nombre: "España", url: "https://iptv-org.github.io/iptv/countries/es.m3u", canales:[], open: false, ruta: ["GeckoGuías x País"], icono: "🌐" },
+    { id: 'list_38', nombre: "México", url: "https://iptv-org.github.io/iptv/countries/mx.m3u", canales:[], open: false, ruta: ["GeckoGuías x País"], icono: "🌐" },
+    { id: 'list_39', nombre: "Uruguay", url: "https://iptv-org.github.io/iptv/countries/uy.m3u", canales:[], open: false, ruta: ["GeckoGuías x País"], icono: "🌐" },
+    { id: 'list_40', nombre: "Undefined", url: "https://iptv-org.github.io/iptv/countries/undefined.m3u", canales:[], open: false, ruta: ["GeckoGuías x País"], icono: "🌐" },    
+    // 🗣️ GECKOGUÍAS X IDIOMA / LENGUAJE  (Tambien Tienen URL y declaran su carpeta madre)
+    { id: 'list_41', nombre: "Alemán", url: "https://iptv-org.github.io/iptv/languages/deu.m3u", canales:[], open: false, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" },
+    { id: 'list_42', nombre: "Arabe", url: "https://iptv-org.github.io/iptv/languages/ara.m3u", canales:[], open: false, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" },
+    { id: 'list_43', nombre: "Chino", url: "https://iptv-org.github.io/iptv/languages/zho.m3u", canales:[], open: false, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" },
+    { id: 'list_44', nombre: "Español", url: "https://iptv-org.github.io/iptv/languages/spa.m3u", canales:[], open: false, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" },
+    { id: 'list_45', nombre: "Francés", url: "https://iptv-org.github.io/iptv/languages/fra.m3u", canales:[], open: false, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" },
+    { id: 'list_46', nombre: "Hindi", url: "https://iptv-org.github.io/iptv/languages/hin.m3u", canales:[], open: false, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" },
+    { id: 'list_47', nombre: "Inglés", url: "https://iptv-org.github.io/iptv/languages/eng.m3u", canales:[], open: false, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" },
+    { id: 'list_48', nombre: "Italiano", url: "https://iptv-org.github.io/iptv/languages/ita.m3u", canales:[], open: false, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" },
+    { id: 'list_49', nombre: "Portugués", url: "https://iptv-org.github.io/iptv/languages/por.m3u", canales:[], open: false, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" },
+    { id: 'list_50', nombre: "Undefined", url: "https://iptv-org.github.io/iptv/languages/undefined.m3u", canales:[], open: false, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" }
+    // 👤 EJEMPLO DE CARPETA PERSONALIZADA (Creada en la interfaz con URL vacía)
+    //{ id: 'list_[#n]', nombre: "Cine de Oro", url:"", canales:[], open:false, ruta: ["GeckoGuías Personalizadas"], icono: "👤" }
+    // 📥 EJEMPLO DE LISTA REMOTA DE USUARIO (Creada en Admin.Listas con URL propia)
+    //{ id: 'list_[#n]', nombre: "Mis Canales Tech", url:"https://miservidor.com", canales:[], open:false, ruta: ["GeckoGuías Externas de Usuario"], icono: "📥" },
   ],
+  // N0.IMPLEMENTACIÓN FF-TV (FLIP↔FLOP TV) on v.FFL by NOva Pythoniza & Aetheris (Modo Oficial de Seguridad)
   // N1.Estructura de datos FF-TV, los punteros pertenecen al universo de los canales de la GeckoGuía y viajan con él en el Full Backup.
   lastchnl: {
     actual: null,    // {type, listIdx, chIdx}
@@ -390,19 +503,66 @@ let data = {
   }
 };
 
-// Carga Persistencia
+// --------------------------------------------------------------------------------------------------- //
+
+
+// ----------------------- Carga Persistencia ----------------------- //
+
+// NO BORRAR HASTA NO ESTAR SEGURO QUE LO DEMAS FUNCIONA
+/*
 try {
   const saved = localStorage.getItem(DB_KEY);
   if(saved){ data = JSON.parse(saved); }
   // N2.Compatibilidad con datos existentes: instalación anterior de GeckoSP puede cargar un data guardado antes de que existiera lastchnl.
   if (!data.lastchnl) {
-    data.lastchnl = {
-      actual: null,
-      anterior: null
-    };
+    data.lastchnl = { actual: null, anterior: null };
   }
+  normalizarListas(); // Fix by Aetheris for v.M2EZ[02092026]
 } catch(e){}
-// Variables 
+*/
+
+// --- Smart Merge "Sin Repetir y sin Soplar" ---
+// --- CARGA DE PERSISTENCIA CON ACOPLE DINÁMICO 250K ---
+try {
+  const saved = localStorage.getItem(DB_KEY);
+  if (saved) {    
+    const dataGuardada = JSON.parse(saved);
+    // 1. Resguardamos favoritos y trayectoria del usuario
+    data.favorites = dataGuardada.favorites || data.favorites;
+    data.lastchnl = dataGuardada.lastchnl || { actual: null, anterior: null };    
+    /*
+    // 2. Filtramos del almacenamiento SÓLO las listas creadas por el usuario
+    // (Identificadas de forma agnóstica porque no pertenecen al bloque fijo de fábrica)
+    const listasUsuario = (dataGuardada.lists || []).filter(l => {
+      return l.ruta && (l.ruta.includes("GeckoGuías Personalizadas") || l.ruta.includes("GeckoGuías Externas de Usuario"));
+    });
+    // 3. Acoplamos las del usuario abajo de las fijas que ya vinieron harcodeadas en el script
+    data.lists = [...data.lists, ...listasUsuario];
+    */
+    // for 10000X25 (v250k offset)
+        // 2. Filtramos de la persistencia las listas del usuario usando el offset intrínseco >= 250000 o las de URL vacía de backups arcaicos
+    const listasUsuario = (dataGuardada.lists || []).filter(l => {
+      const idNum = parseInt((l.id || '').replace('list_', '')) || 0;
+      return idNum >= 250000 || !l.url || l.url.trim() === "" || (l.ruta && (l.ruta[0] === "GeckoGuías Personalizadas" || l.ruta[0] === "GeckoGuías Externas de Usuario"));
+    });
+    // 3. Limpiamos la base actual midiendo cuántas de fábrica reales tiene el script en ejecución antes del acople
+    const totalFijasBase = data.lists.filter(l => {
+      const idNum = parseInt((l.id || '').replace('list_', '')) || 0;
+      return idNum < 250000 && l.url && l.url.trim() !== "";
+    }).length;
+    data.lists = [...data.lists.slice(0, totalFijasBase), ...listasUsuario]; 
+  }
+  // N2.Compatibilidad con datos existentes: instalación anterior de GeckoSP puede cargar un data guardado antes de que existiera lastchnl.
+  if (!data.lastchnl) {
+    data.lastchnl = { actual: null, anterior: null };
+  }
+  inyectarOffsetGecko(); // for 10000X25
+  popularInvariantes(); // Le da el toque final de iconos y rutas a todo el bloque
+} catch(e){}
+
+// ----------------------- Carga Persistencia ----------------------- //
+
+// ----------------------- Variables ----------------------- //
 const video = document.getElementById('video');
 const statusEl = document.getElementById('status');
 const logEl = document.getElementById('log');
@@ -416,10 +576,16 @@ let activeChannelEl = null;
 let currentSelected = { type: null, listIdx: null, chIdx: null, data: null };
 let favoritesOpen = true; // New v.2.5 Para el Dial Clack-Clack
 let currentDialIdx = 0;
+let hideGlobalGuiges = true;
+// ----------------------- Variables ----------------------- //
 
+// ----------------------- BASIC UTILS FUNCTIONS ----------------------- //
+// --- guardado de estructura de datos local del navegador ---
 function save(){ localStorage.setItem(DB_KEY, JSON.stringify(data)); }
-
-// N3. Resolución segura del puntero
+// --- Log en Pantalla --- 
+// No abusar, comunicar solo lo indispensable (Evaluar un Flag y ponerlo en GeckoSP Settings)
+function log(m){ logEl.innerHTML += `<br>[${new Date().toLocaleTimeString()}] ${m}`; logEl.scrollTop = logEl.scrollHeight; }
+// --- N3. Resolución segura del puntero by Nova DulceKAli ---
 // Resuelve un puntero solo si sigue siendo válido.
 // Si la lista aún no fue cargada → queda pendiente.
 // Si el destino desapareció → null.
@@ -443,104 +609,7 @@ function resolvePointer(p) {
   }
   return null;
 }
-
-// N.5 FF-TV — Flip-Flop Televisivo.
-// Salta al canal anterior.
-// La selección vuelve a registrar la transición, produciendo A ↔ B.
-async function ffTV() {
-  let target = resolvePointer(data.lastchnl.anterior);
-  if (!target) return;
-  // Si pertenece a una lista todavía no cargada, cargarla antes de intentar seleccionar el canal.
-  if (
-    target.type === 'list' &&
-    data.lists[target.listIdx].canales.length === 0
-  ) {
-    await parsearLista(target.listIdx);
-  }
-  // Revalidar después de la carga.
-  target = resolvePointer(target);
-  if (!target) return;
-  selectAndPlay(target.type, target.listIdx, target.chIdx, null);
-  clack(371, 0.09); //371, 0.09
-}
-
-function log(m){ logEl.innerHTML += `<br>[${new Date().toLocaleTimeString()}] ${m}`; logEl.scrollTop = logEl.scrollHeight; }
-
-// Renderizado del árbol
-function renderTree(){
-  treeEl.innerHTML = '';
-  // Favoritos
-  const favFolder = document.createElement('div');
-  favFolder.className = `folder ${favoritesOpen ? 'open active' : ''}`;
-  favFolder.innerHTML = `
-    <div class="folder-header" onclick="toggleFolder(this)">
-      <div class="folder-title">⭐ Gecko Favorite Channels <span class="folder-count">${data.favorites.length}</span></div>
-      <span>${favoritesOpen ? '▼' : '▶'}</span>
-    </div>
-    <div class="folder-body">
-      ${data.favorites.map((c,i)=>{
-        c.id = c.id || 'fav_' + i;
-        const isActive = currentSelected.type === 'fav' && currentSelected.chIdx === i;
-        return `
-          <div class="channel ${isActive ? 'active' : ''}" onclick="selectAndPlay('fav', null, ${i}, this)">
-            <span>${c.nombre}<br><small>${c.tipo||'Custom'}</small></span><span>▶</span>
-          </div>
-        `;
-      }).join('')}
-    </div>
-  `;
-  treeEl.appendChild(favFolder);
-  // Listas Dinámicas
-  data.lists.forEach((lista, lIdx)=>{
-    lista.id = lista.id || 'list_' + lIdx;
-    const folder = document.createElement('div');
-    folder.className = `folder ${lista.open ? 'open' : ''}`;
-    folder.innerHTML = `
-      <div class="folder-header" onclick="toggleFolder(this, ${lIdx})">
-        <div class="folder-title">📂 ${lista.nombre} <span class="folder-count">${lista.canales.length || '...'}</span></div>
-        <span>${lista.open ? '▼' : '▶'}</span>
-      </div>
-      <div class="folder-body">
-        ${lista.canales.length===0 ? `<div style="padding:10px;font-size:0.7em;opacity:0.5">Click para cargar ${lista.url.substring(0,35)}...</div>` : ''}
-        ${lista.canales.map((ch, cIdx)=>{
-          ch.id = ch.id || `ch_${lIdx}_${cIdx}`;
-          const isActive = currentSelected.type === 'list' && currentSelected.listIdx === lIdx && currentSelected.chIdx === cIdx;
-          return `
-            <div class="channel ${isActive ? 'active' : ''}" onclick="selectAndPlay('list', ${lIdx}, ${cIdx}, this)">
-              <span>${ch.nombre}<br><small>${ch.tipo||'Stream'}</small></span><span>▶</span>
-            </div>
-          `;
-        }).join('')}
-        ${lista.url && lista.url.trim() !== '' ? `
-          <div style="padding:6px">
-            <button class="secondary" style="width:100%;font-size:0.7em;padding:5px" onclick="recargarLista(${lIdx})">🔄 Recargar lista</button>
-          </div>
-        ` : ''}
-      </div>
-    `;
-    treeEl.appendChild(folder);
-  });
-  updateListSelectOptions();
-  setTimeout(()=>{ // --- parche centrado CLACK-CLACK[CHNL] by Llamita Encendida en la WWW ---
-    const a = treeEl.querySelector('.channel.active');
-    if(a && a.closest('.folder.open')) a.scrollIntoView({block:'center', inline:'nearest'});
-  },0);
-}
-
-function updateListSelectOptions() {
-  const targetSel = document.getElementById('editTargetList');
-  if (!targetSel) return;
-  const currentValue = targetSel.value; //NOva Fix la "Lista Destino Saltarina"
-  let html = '<option value="fav">⭐ Gecko Favorite Channels</option>';
-  data.lists.forEach((l, idx) => {
-    html += `<option value="list_${idx}">📂 ${l.nombre}</option>`;
-  });
-  html += '<option value="__new__">➕ Crear Lista Nueva...</option>';
-  targetSel.innerHTML = html;
-  targetSel.value = currentValue; //NOva Fix la "Lista Destino Saltarina"
-}
-
-// Limpieza de Huellas Personales
+// --- Limpieza de Huellas Personales ---
 function resetGeckoStorage() {
   const confirmacion = confirm(
     "⚠️ ¡ATENCIÓN GECKO SYSTEM!\n\n" +
@@ -555,23 +624,450 @@ function resetGeckoStorage() {
     location.reload(); // Al recargar, reasigna el objeto 'data' por defecto
   }
 }
+// --------------------------------------------------------------------- //
 
-function toggleFolder(headerEl, listIdx = null) {
-  const folder = headerEl.parentElement;
-  const isOpen = folder.classList.contains('open');
-  data.lists.forEach(lista => { lista.open = false; });
+
+// ------ NORMALIZACIÓN DE BACKUPS O DATA EN MEMORIA DEL NAVEGADOR DE VERSIONES ANTERIORES ------ //
+// Migración/Normalización de listas (Retrocompatibilidad by Aetheris for v.M2EZ[02092026]) Refactor by Programador Chamán
+
+// NO BORRAR HASTA NO ESTAR SEGURO QUE LO DEMAS FUNCIONA [ver contrato]
+/*
+function normalizarListas() {
+  data.lists.forEach((lista, idx) => {
+    // Si ya tiene ruta e icono (backups nuevos o normalizados), no tocamos
+    if (lista.ruta && lista.icono) return;
+    // Regla 1: Listas fijas globales de la arquitectura base
+    if (idx <= 1) {      
+      lista.ruta = ["GeckoGuías Globales"];
+      lista.icono = "📁";
+      return;
+    }   
+    // Regla 2: Clasificación inteligente por la URL del proveedor (Agnóstica al índice)
+    if (lista.url && lista.url.trim() !== "") {
+      if (lista.url.includes('/categories/') && idx <= 30) {
+        lista.ruta = ["GeckoGuías x Categoría"];
+        lista.icono = "📁";
+        return;
+      }
+      if (lista.url.includes('/countries/')) {
+        lista.ruta = ["GeckoGuías x País"];
+        lista.icono = "🌐";
+        return;
+      }
+      if (lista.url.includes('/languages/')) {
+        lista.ruta = ["GeckoGuías x Idioma"];
+        lista.icono = "🗣️";
+        return;
+      }      
+      // Fallback si tiene URL pero no es de iptv-org oficial: Lista externa del usuario
+      lista.ruta = ["GeckoGuías Externas de Usuario"];
+      lista.icono = "📥";
+      return;
+    }
+    // Regla 3: Si no tiene URL, es un contenedor local puro creado a mano
+    lista.ruta = ["GeckoGuías Personalizadas"];
+    lista.icono = "👤";
+  });
+}
+*/
+
+// ------ BLINDAJE E INVARIANTES DE DATOS (Mamuscka Engine Core) by Team Cangurera ------ //
+/*
+function popularInvariantes() {
+  data.lists.forEach((lista, idx) => {
+    // 1. FORZADO DE INVARIANTES DESDE LA LÓGICA (Código base oficial)
+    if (idx <= 1) {
+      lista.ruta = ["GeckoGuías Globales"]; lista.icono = "📁"; return;
+    }
+    if (idx > 1 && idx <= 30) {
+      lista.ruta = ["GeckoGuías x Categoría"]; lista.icono = "📁"; return;
+    }
+    if (idx >= 31 && idx <= 40) {
+      lista.ruta = ["GeckoGuías x País"]; lista.icono = "🌐"; return;
+    }
+    if (idx >= 41 && idx <= 50) {
+      lista.ruta = ["GeckoGuías x Idioma"]; lista.icono = "🗣️"; return;
+    }
+    // 2. NORMALIZACIÓN DE CONTENIDOS DEL USUARIO (Índice 39 en adelante o Backups)
+    if (lista.ruta && lista.icono) return; // Si ya viene normalizado de fábrica, saltamos
+    if (lista.url && lista.url.trim() !== "") {
+      // Fallback por URL si el archivo importado alteró los índices fijos
+      if (lista.url.includes('/categories/')) { lista.ruta = ["GeckoGuías x Categoría"]; lista.icono = "📁"; return; }
+      if (lista.url.includes('/countries/')) { lista.ruta = ["GeckoGuías x País"]; lista.icono = "🌐"; return; }
+      if (lista.url.includes('/languages/')) { lista.ruta = ["GeckoGuías x Idioma"]; lista.icono = "🗣️"; return; }     
+      // Lista remota cargada manualmente por el usuario
+      lista.ruta = ["GeckoGuías Externas de Usuario"]; lista.icono = "📥"; return;
+    }    
+    // Contenedor local puro creado a mano
+    lista.ruta = ["GeckoGuías Personalizadas"]; lista.icono = "👤";
+  });
+}
+*/
+
+/*
+// Refactor Agnostico de Ei2
+function popularInvariantes() {
+  const REGLAS_BASE = [
+    { max: 1,  ruta: ["GeckoGuías Globales"], icono: "📁" },
+    { max: 30, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
+    { max: 40, ruta: ["GeckoGuías x País"], icono: "🌐" },
+    { max: 50, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" }
+  ];
+  data.lists.forEach((lista, idx) => {
+    // 1. Guardaguaras obligatorio: Si ya viene clasificada, no se toca jamás
+    if (lista.ruta?.length && lista.icono) return;
+    // 2. Coincidencia declarativa para el bloque de fábrica (0 a 50)
+    const base = REGLAS_BASE.find(r => idx <= r.max);
+    if (base) {
+      lista.ruta = base.ruta;
+      lista.icono = base.icono;
+      return;
+    }
+    // 3. Fallback defensivo para listas del usuario/importadas
+    const url = lista.url?.trim() || "";
+    if (url.includes('/categories/')) { lista.ruta = ["GeckoGuías x Categoría"]; lista.icono = "📁"; }
+    else if (url.includes('/countries/')) { lista.ruta = ["GeckoGuías x País"]; lista.icono = "🌐"; }
+    else if (url.includes('/languages/')) { lista.ruta = ["GeckoGuías x Idioma"]; lista.icono = "🗣️"; }
+    else if (url) { lista.ruta = ["GeckoGuías Externas de Usuario"]; lista.icono = "📥"; }
+    else { lista.ruta = ["GeckoGuías Personalizadas"]; lista.icono = "👤"; }
+  });
+}
+*/
+
+// version 2 de Ei2... alucina o me esta jodiendo porque es lo mismo de Sheminay salvo el orden!
+function popularInvariantes() {
+  data.lists.forEach((lista, idx) => {
+    // 1. Circuito abierto: Si ya tiene metadatos (ej. usuario/importada), no se toca
+    if (lista.ruta && lista.icono) return;
+    // 2. Evaluacion directa de rangos base
+    if (idx <= 1) { lista.ruta = ["GeckoGuías Globales"]; lista.icono = "📁"; return; }
+    if (idx <= 30) { lista.ruta = ["GeckoGuías x Categoría"]; lista.icono = "📁"; return; }
+    if (idx <= 40) { lista.ruta = ["GeckoGuías x País"]; lista.icono = "🌐"; return; }
+    if (idx <= 50) { lista.ruta = ["GeckoGuías x Idioma"]; lista.icono = "🗣️"; return; }
+    // 3. Fallbacks para listas del usuario o externas desnudas
+    if (lista.url && lista.url.trim() !== "") {
+      if (lista.url.includes('/categories/')) { lista.ruta = ["GeckoGuías x Categoría"]; lista.icono = "📁"; return; }
+      if (lista.url.includes('/countries/')) { lista.ruta = ["GeckoGuías x País"]; lista.icono = "🌐"; return; }
+      if (lista.url.includes('/languages/')) { lista.ruta = ["GeckoGuías x Idioma"]; lista.icono = "🗣️"; return; }     
+      lista.ruta = ["GeckoGuías Externas de Usuario"]; lista.icono = "📥"; return;
+    }    
+    lista.ruta = ["GeckoGuías Personalizadas"]; lista.icono = "👤";
+  });
+}
+
+/**
+ * REINDEXADOR FORENSE DE CONTENIDOS DEL USUARIO by Team Cangurera
+ * Garantiza que cualquier lista del usuario (arcaica o desfasada) adopte
+ * el offset intrínseco de 250000 para blindar el trencito de datos.
+ */
+function inyectarOffsetGecko() {
+  let contadorUsuario = 0;
+  data.lists.forEach((lista) => {
+    const idNum = parseInt((lista.id || '').replace('list_', '')) || 0;
+    // Identifica agnósticamente si es una lista local o externa del usuario
+    const esDelUsuario = idNum >= 250000 || !lista.url || lista.url.trim() === "" || (lista.ruta && (lista.ruta[0] === "GeckoGuías Personalizadas" || lista.ruta[0] === "GeckoGuías Externas de Usuario"));
+    if (esDelUsuario) {
+      const nuevoIdNum = 250000 + contadorUsuario;
+      lista.id = 'list_' + nuevoIdNum;
+      if (lista.canales) {
+        lista.canales.forEach((ch, cIdx) => {
+          ch.id = `ch_${nuevoIdNum}_${cIdx}`;
+        });
+      }
+      contadorUsuario++;
+    }
+  });
+}
+
+// ---------------------------------------------------------------------------------------------- //
+
+
+// ---------------- THE CORE OF EXPLORATION: MAMUSHCKA ENGINE ----------------- //
+// ---- Mamushcka Engine - Versión Limpia (Aetheris) for v.M2EZ[02092026] ----- //
+// -----------  Refactor Sheminay Fix Saltos for v.M2EZ03092026B -------------- //
+// ---- FUNCIÓN DE CONTROL DE CASCADA AUTOMÁTICA (Sintonía Ciega Agnóstica) --- //
+// ---------------------------------------------------------------------------- //
+// --- Mamuscka Engine - Versión Limpia (Aetheris) v.M2EZ + Pro UX Sheminay --- //
+let openMotherFolders = {};   // Estado de carpetas madre
+function renderTree() {
+  // Guardamos la posición exacta del scroll ANTES de borrar el árbol
+  const scrollAnterior = treeEl.scrollTop;
+  treeEl.innerHTML = '';
+  // 1. Favoritos
+  const favFolder = document.createElement('div');
+  favFolder.className = `folder ${favoritesOpen ? 'open active' : ''}`;
+  favFolder.innerHTML = `
+    <div class="folder-header" onclick="toggleFavorites()">
+      <div class="folder-title">⭐ Gecko Favorite Channels <span class="folder-count">${data.favorites.length}</span></div>
+      <span>${favoritesOpen ? '▼' : '▶'}</span>
+    </div>
+    <div class="folder-body">
+      ${data.favorites.map((c, i) => {
+        const isActive = currentSelected.type === 'fav' && currentSelected.chIdx === i;
+        return `
+          <div class="channel ${isActive ? 'active' : ''}" onclick="selectAndPlay('fav', null, ${i}, this)">
+            <span>${c.nombre}<br><small>${c.tipo || 'Custom'}</small></span><span>▶</span>
+          </div>`;
+      }).join('')}
+    </div>
+  `;
+  treeEl.appendChild(favFolder);
+  // 2. Agrupar listas por ruta[0]
+  const arbolVirtual = {};
+  data.lists.forEach((lista, lIdx) => {
+    const ruta = (lista.ruta && lista.ruta[0]) ? lista.ruta[0] : "GeckoGuías Globales";
+    if (!arbolVirtual[ruta]) arbolVirtual[ruta] = [];
+    arbolVirtual[ruta].push({ ...lista, originalIndex: lIdx });
+  });
+  // Estructura invariante siempre visible, aunque el backup sea arcaico - for v.M2EZ04092026A by Llamita Encendida en la WWW
+  if (!arbolVirtual["GeckoGuías Globales"]) arbolVirtual["GeckoGuías Globales"] = [];
+  if (!arbolVirtual["GeckoGuías x Categoría"]) arbolVirtual["GeckoGuías x Categoría"] = [];
+  if (!arbolVirtual["GeckoGuías x País"]) arbolVirtual["GeckoGuías x País"] = [];
+  if (!arbolVirtual["GeckoGuías x Idioma"]) arbolVirtual["GeckoGuías x Idioma"] = [];
+  if (!arbolVirtual["GeckoGuías Personalizadas"]) arbolVirtual["GeckoGuías Personalizadas"] = [];
+  if (!arbolVirtual["GeckoGuías Externas de Usuario"]) arbolVirtual["GeckoGuías Externas de Usuario"] = [];  
+  // DICCIONARIO DE ÍCONOS RAÍZ (Estándar Icons Gecko Tree Edition) by Sheminay
+  // Define el ícono del primer nivel de la mamushka basado puramente en su nombre
+  const iconRootMap = {
+    "GeckoGuías Globales": "📁",
+    "GeckoGuías x Categoría": "📁",
+    "GeckoGuías x País": "🌐",      // ¡Nueva mística geográfica! by Sheminay for M2EZ[07092026B]
+    "GeckoGuías x Idioma": "🗣️",    // ¡Nueva mística de lenguajes! by Sheminay for M2EZ[07092026B]
+    "GeckoGuías Personalizadas": "👤",     // ¡Acá está la mística local!
+    "GeckoGuías Externas de Usuario": "📥" // ¡Y la mística remota!
+  };
+  // 3. Renderizar cada carpeta madre
+  Object.keys(arbolVirtual).forEach(nombreMadre => {
+    // ---------------------------------------------------------------------------- //
+    // [S/H Glob] Switch Show/Hide del Chamán en Modo Antena Escucha del Multiverso
+    if (nombreMadre === "GeckoGuías Globales" && hideGlobalGuiges) return;
+    // ---------------------------------------------------------------------------- //
+    const listas = arbolVirtual[nombreMadre];
+    const madreAbierta = !!openMotherFolders[nombreMadre];   
+    // El explorador busca si el nombre de la ruta tiene un ícono asignado. Si no, usa la carpeta clásica (Sheminay).
+    const iconoMadre = iconRootMap[nombreMadre] || "📁";
+    const madreEl = document.createElement('div');
+    madreEl.className = `folder main-dir ${madreAbierta ? 'open' : ''}`;
+    madreEl.innerHTML = `
+      <div class="folder-header" onclick="toggleExploradorMadre('${nombreMadre}')">
+        <!-- ¡EL TRUCO! Inyectamos el iconoMadre dinámico en lugar del 📁 harcodeado -->
+        <div class="folder-title">${iconoMadre} ${nombreMadre} <span class="folder-count">${listas.length}</span></div>
+        <span>${madreAbierta ? '▼' : '▶'}</span>
+      </div>
+      <div class="folder-body">
+        ${listas.map(lista => `
+          <div class="folder sub-dir ${lista.open ? 'open' : ''}" style="margin-left:15px;margin-top:5px;">
+            <div class="folder-header" onclick="toggleExploradorSub(${lista.originalIndex}, '${nombreMadre}')">
+              <div class="folder-title">${lista.icono || '📁'} ${lista.nombre} 
+                <span class="folder-count">${lista.canales.length || '...'}</span>
+              </div>
+              <span>${lista.open ? '▼' : '▶'}</span>
+            </div>
+            <div class="folder-body">
+              ${lista.canales.length === 0 
+                ? `<div style="padding:10px;font-size:0.7em;opacity:0.5">Click para cargar...</div>` 
+                : lista.canales.map((ch, cIdx) => {
+                    const isActive = currentSelected.type === 'list' && 
+                                     currentSelected.listIdx === lista.originalIndex && 
+                                     currentSelected.chIdx === cIdx;
+                    return `
+                      <div class="channel ${isActive ? 'active' : ''}" 
+                           onclick="selectAndPlay('list', ${lista.originalIndex}, ${cIdx}, this)">
+                        <span>${ch.nombre}<br><small>${ch.tipo || 'Stream'}</small></span><span>▶</span>
+                      </div>`;
+                  }).join('')
+              }
+              ${lista.url && lista.url.trim() !== '' ? `
+                <div style="padding:6px">
+                  <button class="secondary" style="width:100%;font-size:0.7em;padding:5px"
+                          onclick="recargarLista(${lista.originalIndex})">🔄 Recargar lista</button>
+                </div>` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    `;
+    treeEl.appendChild(madreEl);
+  });
+  updateListSelectOptions();
+  // --- SOLUCIÓN DE SALTOS Y PARCHE CENTRADO DE LLAMITA ENCENDIDA EN LA WWW ---
+  // Restauramos inmediatamente la posición del scroll previa al renderizado
+  treeEl.scrollTop = scrollAnterior;
+  setTimeout(() => { 
+    const a = treeEl.querySelector('.channel.active');    
+    if (a && a.closest('.folder.open')) {
+      a.scrollIntoView({ block: 'center', inline: 'nearest' });
+    }
+  }, 50); // Un micro-margen de estabilidad para mobile y consolas (Sheminay)
+}
+// Toggle Favoritos
+function toggleFavorites() {
+  favoritesOpen = !favoritesOpen;
+  // Cerrar todo lo demás
+  data.lists.forEach(l => l.open = false);
+  openMotherFolders = {};
+  save();
+  renderTree();
+}
+// Toggle Carpeta Madre
+function toggleExploradorMadre(nombreMadre) {
+  const estabaAbierta = !!openMotherFolders[nombreMadre];
+  // Cerrar todas las madres y todas las subcarpetas
+  openMotherFolders = {};
+  data.lists.forEach(l => l.open = false);
   favoritesOpen = false;
-  if (!isOpen) {
-    if (listIdx === null) favoritesOpen = true;
-    else data.lists[listIdx].open = true;
+  // Si no estaba abierta, abrir solo esta madre (sin abrir subcarpetas)
+  if (!estabaAbierta) {
+    openMotherFolders[nombreMadre] = true;
   }
   save();
   renderTree();
-  if (!isOpen && listIdx !== null && data.lists[listIdx].canales.length === 0) {
-    parsearLista(listIdx);
+}
+// Toggle Subcarpeta
+function toggleExploradorSub(idx, nombreMadre) {
+  const lista = data.lists[idx];
+  if (!lista) return;
+  const estabaAbierta = lista.open;
+  // Cerrar todas las hermanas
+  data.lists.forEach(l => {
+    if (l.ruta && l.ruta[0] === nombreMadre) l.open = false;
+  });
+  // Abrir/cerrar la actual
+  lista.open = !estabaAbierta;
+  // Cargar si corresponde
+  if (lista.open && lista.canales.length === 0 && lista.url) {
+    parsearLista(idx);
+  }
+  save();
+  renderTree();
+}
+// ---------------------------------------------------------------------------- //
+// Blindaje total del combo by Llamita Encendida en la WWW 
+/*
+Si url tiene .m3u → ni aparece. 0% riesgo de perder canales al Recargar.
+Solo aparecen
+⭐ Gecko Favorite Channels
+👤 GeckoGuías Personalizadas/Compilado del Chaman
+                           /Cine Noche
+                           /Canales de la Tia Marta
+                           /etc.
+Estructura limpia: UNA carpeta madre invariante Personalizadas, adentro infinitas sublistas editables.
+Sin contaminación visual de Personalizada 1, 2, n a nivel raíz.
+*/
+function updateListSelectOptions() {
+  const targetSel = document.getElementById('editTargetList');
+  if (!targetSel) return;
+  const currentValue = targetSel.value; // Nova Fix - Lista Destino Saltarina
+  let html = '<option value="fav">⭐ Gecko Favorite Channels</option>'; 
+  data.lists.forEach((l, idx) => {
+    const val = `list_${idx}`;
+    const esEscribible = !l.url || l.url.trim() === "";
+    const esDondeEstoyParado = val === currentValue;    
+    // CONTRATO KERNEL: solo url=="" es escribible. Solo lectura no se lista, EXCEPTO donde estoy.
+    // PERO siempre mostrar donde estoy parado aunque sea solo lectura
+    if (!esEscribible && !esDondeEstoyParado) return;
+    const nombreLimpio = (l.ruta && l.ruta[0] === "GeckoGuías Personalizadas")
+      ? `👤 GeckoGuías Personalizadas / ${l.nombre}`
+      : `📂 ${l.nombre}`;    
+    const extra = l.url ? ' (solo lectura)' : '';
+    html += `<option value="${val}">${nombreLimpio}${extra}</option>`;
+  });
+  html += '<option value="__new__">➕ Crear Lista Nueva...</option>';
+  targetSel.innerHTML = html;
+  targetSel.value = currentValue; // Nova Fix intacto
+}
+// ---------------------------------------------------------------------------- //
+
+
+// -------------- CENTRAL DE NAVEGACIÓN ANALÓGICA MULTIDIMENSIONAL ------------ //
+function mamushkaLogicDrive(action, target = null) {
+  const scrollAnterior = treeEl.scrollTop; // Resguardo nativo para evitar tirones
+  switch (action) {   
+    // 1. [ <<< ] - Colapsa todo a las invariantes raíz
+    case 'zoom_out': {
+      openMotherFolders = {};
+      data.lists.forEach(l => l.open = false);
+      favoritesOpen = false;
+      log('🔍 Zoom Out Geckónico: Árbol replegado');
+      break;
+    }
+      // 2. [ Glob ] - Conmuta visibilidad de listas masivas
+    case 'toggle_global': {
+      hideGlobalGuiges = !hideGlobalGuiges;
+      log(hideGlobalGuiges ? '👁️‍🗨️ Guías Globales Ocultas' : '🌐 Guías Globales Visibles');
+      break;
+    }
+      // 2.5 [ @ ] - Foco en el Canal Actual for Mamushka Navigation System™  by Leo
+    // solo hacer foto en el canal actual, no cambio no saltos en video, solo vuelve al foco.
+    case 'current_channel': {
+      if (currentSelected.type === 'list' && data.lists[currentSelected.listIdx]) {
+        const lista = data.lists[currentSelected.listIdx];
+        openMotherFolders = {};
+        if (lista.ruta && lista.ruta[0]) {
+          openMotherFolders[lista.ruta[0]] = true;
+        }
+        data.lists.forEach((l, i) => l.open = (i === currentSelected.listIdx));
+        favoritesOpen = false;        
+      } else if (currentSelected.type === 'fav') {
+        favoritesOpen = true;
+        data.lists.forEach(l => l.open = false);        
+      }
+      log('@ Viewport: Saltando al Current Selected Channel');
+      break;
+    }   
+    // 4. Paginación Anterior [ << ]
+    case 'prev_page': {
+      log('◀ Viewport: Saltando a página anterior');
+      break;
+    }
+    // 5. Paginación Siguiente [ >> ]
+    case 'next_page': {
+      log('▶ Viewport: Saltando a página siguiente');
+      break;
+    }
+    // 3. Al cambiar de lista/página -> SOLO FOCO EN EL PRIMERO (Sin reproducir)
+    case 'set_focus_first': {
+      if (target !== null && data.lists[target]) {
+        // Forzamos la apertura en memoria de su cascada analógica
+        const lista = data.lists[target];
+        openMotherFolders = {};
+        if (lista.ruta && lista.ruta[0]) {
+          openMotherFolders[lista.ruta[0]] = true;
+        }
+        data.lists.forEach((l, i) => l.open = (i === target));
+        favoritesOpen = false;        
+        // ¡EL NUEVO CONTRATO! Seteamos los índices de selección pero NO llamamos a playChannel
+        currentSelected = { 
+          type: 'list', 
+          listIdx: target, 
+          chIdx: 0, 
+          data: lista.canales[0] || null 
+        };
+        currentDialIdx = 0;        
+        log(`🎯 Foco sintonizado en: ${lista.nombre} (Canal 1)`);
+      }
+      break;
+    }
+  }
+  // Guardamos el estado y redibujamos el explorador ciego
+  save();
+  renderTree();
+  //Así un solo render, y el scroll se aplica sobre el DOM ya pintado. Mamushka System™ a full potencia. 🚀
+  if (action === 'current_channel') {
+    requestAnimationFrame(() => {
+      document.querySelector('.channel.active')
+        ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  } else if (action === 'toggle_global' || action === 'zoom_out') { 
+    // Si fue una acción de exploración manual, mantenemos el scroll quieto
+    treeEl.scrollTop = scrollAnterior;
   }
 }
+// ---------------------------------------------------------------------------- //
 
+
+
+// --------------------- MIXED LIST FUNCTIONS ----------------------- //
 async function parsearLista(idx){
   const lista = data.lists[idx];
   statusEl.textContent = `📂 Cargando ${lista.nombre}...`;
@@ -595,7 +1091,7 @@ async function parsearLista(idx){
       line=line.trim();
       if(line.startsWith('#EXTINF')){ currName = line.split(',')[1] || 'Canal'; }
       else if(line && !line.startsWith('#') && line.startsWith('http')){
-        canales.push({ nombre: currName || `Canal ${canales.length+1}`, url: line, tipo:'De lista' });
+        canales.push({ nombre: currName || `Canal ${canales.length+1}`, url: line, tipo:'De Lista Externa' });
         currName='';
         if(canales.length>=137) break;
       }
@@ -610,8 +1106,9 @@ async function parsearLista(idx){
     statusEl.textContent = `❌ Error: ${lista.nombre} - ${e.message}`;
   }
 }
-
 function recargarLista(idx){ data.lists[idx].canales=[]; parsearLista(idx); }
+// ------------------------------------------------------------------ //
+
 
 // ----------- 2 y 5. SELECCIÓN, EDICIÓN Y REPRODUCCIÓN ------------- //
 // N4a. Este es el corazón del Flip-Flop (NOva Fix le cambia la firma pa que recuerde!)
@@ -634,20 +1131,28 @@ function selectAndPlay(type, listIdx, chIdx, el, remember = true){
   toggleNewListInput('');
   document.getElementById('channelVal').textContent = chObj.nombre;
   currentDialIdx = chIdx;
-  // ------ NOva Fix the [FF-TV] Foco perdido ---- //
-  if (type === 'fav') {
-    favoritesOpen = true;
-    data.lists.forEach(lista => lista.open = false);
-  } else {
-    favoritesOpen = false;
-    data.lists.forEach((lista, i) => {
-      lista.open = (i === listIdx);
-    });
+  // ------ NOva Fix + Aetheris [FF-TV & Mamuscka Sync] by Sheminay ---- //
+  // Sincronizamos la cascada sólo si el cambio viene a ciegas (sin elemento 'el')
+  if (!el) {
+    openMotherFolders = {}; // Limpieza sanitaria de raíces abiertas
+    if (type === 'fav') {
+      favoritesOpen = true;
+      data.lists.forEach(lista => lista.open = false);
+    } else {
+      favoritesOpen = false;
+      const listaActiva = data.lists[listIdx];
+      if (listaActiva && listaActiva.ruta) {
+        openMotherFolders[listaActiva.ruta] = true; // Abre la madre correspondiente
+        data.lists.forEach((lista, i) => lista.open = (i === listIdx)); // Abre la subcarpeta hermana
+      }
+    }
   }
-  // --------------------------------------------- //
+  // -------------------------------------------------------------------- // 
   renderTree();
   document.getElementById('editTargetList').value = (type === 'fav') ? 'fav' : `list_${listIdx}`;
   playChannel(chObj.url, chObj.nombre);
+  
+  actualizarEstadoBotones();  // for v.M2EZ04092026A by Llamita Encendida en la WWW  
 }
 function playChannel(url, nombre){
   statusEl.textContent = `📡 ${nombre}...`;
@@ -675,6 +1180,43 @@ function playChannel(url, nombre){
 }
 // ------------------------------------------------------------------ //
 
+
+// ------------------ Auxiliares de Admin.Channels ------------------ //
+// ---- GeckoGuías Externas / Usuario == Guardar deshabilitado ------ //
+// Auxiliar puntual - agnosticismo total - for v.M2EZ04092026A by Llamita Encendida en la WWW
+function actualizarEstadoBotones(){
+  // se llama desde selectAndPlay()
+  const btnGuardar = document.querySelector('button[onclick="saveSelectedChannel()"]');
+  const btnEliminar = document.querySelector('button[onclick="deleteSelectedChannel()"]');
+  if(!btnGuardar || !currentSelected.data) return;
+  let esExterna = false;
+  if(currentSelected.type === 'list'){
+    const l = data.lists[currentSelected.listIdx];
+    esExterna = l.url && l.url.trim() !== "";
+  }
+  btnGuardar.disabled = esExterna;
+  btnGuardar.style.opacity = esExterna ? "0.4" : "1";
+  btnGuardar.style.pointerEvents = esExterna ? "none" : "auto";
+  btnGuardar.title = esExterna ? "Solo lectura: movelo a 👤 GeckoGuías Personalizadas" : "";
+  // Eliminar sigue habilitado, Guardar vuelve solo a la normalidad cuando entrás a Personalizadas/Favoritos
+}
+// ---- Evalua y Previene URL repetidas en una Misma GeckoGuía ------ //
+// Auxiliar puntual - for v.M2EZ07092026A by Llamita Encendida en la WWW
+function esDuplicadoEnGuia(url, canales, ignoreIdx = null){
+  if(!url ||!canales) return false;
+  const norm = u => u.trim().toLowerCase().replace(/\/+$/,'');
+  const n = norm(url);
+  const existe = canales.some((c,i) => i!== ignoreIdx && norm(c.url) === n);
+  if(existe){
+    alert('⚠ El Canal ya existe en la lista destino indicada!');
+    log(`⚠ Operación omitida: El Canal ya existe en la lista destino indicada!`);
+    return true;
+  }
+  return false;
+}
+// ------------------------------------------------------------------ //
+
+
 // ----- 5. GUARDAR/AGREGAR/ELIMINAR CHANNELS (LÓGICA VULKANA) ------ //
 function saveSelectedChannel(){
   if(!currentSelected.data) return;
@@ -690,6 +1232,12 @@ function saveSelectedChannel(){
   // Determinar si es edición en el mismo lugar o transferencia de lista
   const isSameTarget = (origType === 'fav' && targetVal === 'fav') || 
                        (origType === 'list' && targetVal === origListIdx);
+
+  // new for v.M2EZ07092026A by Llamita Encendida en la WWW
+  const destinoCanales = (targetVal === 'fav')? data.favorites : data.lists[targetVal].canales;
+  const ignore = isSameTarget? origChIdx : null;
+  if(esDuplicadoEnGuia(newUrl, destinoCanales, ignore)) return;
+
   if (isSameTarget) {
     // --- EDICIÓN IN-PLACE (No borra, no altera posición en el array) ---
     const targetObj = (origType === 'fav') ? data.favorites[origChIdx] : data.lists[origListIdx].canales[origChIdx];
@@ -735,13 +1283,8 @@ function addNewChannel(){
   const targetArray = (targetVal === 'fav') 
     ? data.favorites 
     : data.lists[targetVal].canales;
-  // Validar si la URL ya existe en esa lista especifica
-  const isDuplicate = targetArray.some(ch => ch.url.trim().toLowerCase() === url.trim().toLowerCase());
-  if (isDuplicate) {
-    alert('⚠️ El Canal ya existe en la lista destino indicada!');
-    log(`⚠️ Operación omitida: El Canal ya existe en la lista destino indicada!`);
-    return;
-  }
+  // new for v.M2EZ07092026A by Llamita Encendida en la WWW
+  if(esDuplicadoEnGuia(url, targetArray)) return;
   const newObj = { nombre: name, url: url, tipo: type };
   // Obtener el nombre de la lista destino para la bitácora
   const targetListName = (targetVal === 'fav') 
@@ -790,6 +1333,11 @@ function resolveTargetListIndex() {
   const targetVal = document.getElementById('editTargetList').value;
   const errEl = document.getElementById('newListError');
   if (errEl) errEl.innerText = '';
+  // Alerta aviso de campo Lista Destino Vacío - for v.M2EZ04092026A by Llamita Encendida en la WWW 
+  if (!targetVal) {
+    if (errEl) errEl.innerText = '⚠️ Seleccioná o Crea una Lista Destino';
+    return null;
+  }
   if (targetVal === 'fav') return 'fav';
   if (targetVal === '__new__') {
     const input = document.getElementById('newListNameInput');
@@ -804,13 +1352,17 @@ function resolveTargetListIndex() {
       return null;
     }
     const newIdx = data.lists.length;
+    // Inariantes del kernel by Llamita Encendida en la WWWW: Ahora nace directo en 👤 Personalizadas
     data.lists.push({
       id: `list_${newIdx}`,
       nombre: nombreNuevo,
       url: '',
       canales: [],
-      open: true
+      open: true,
+      ruta: ["GeckoGuías Personalizadas"],
+      icono: "👤"
     });
+
     if (input) input.value = '';
     return newIdx;
   }
@@ -818,11 +1370,12 @@ function resolveTargetListIndex() {
 }
 // ------------------------------------------------------------------ //
 
+
 // ---------- 4. HARDWARE CONTROLS (DIALES Y AUDIO SYNTH) ----------- //
-// LEO BRAVO FIX FOR PC AND MOBILE en v.3.M1EZ/3.ZLB [CodeName: MARMOTA ONE - EAGLE ZERO / ZERO LEO BRAVO]
+// SHEMINAY FIX FOR PC AND MOBILE en v.3.M1EZ/3.ZLB [CodeName: MARMOTA ONE - EAGLE ZERO / ZERO LEO BRAVO]
 // --- 4a. HARDWARE CONTROLS (DIALES) ---
 // -- DIAL CLACK-CLACK --
-let selectChannelTimeout = null; // El guardián del procesador del celu by Leo Bravo
+let selectChannelTimeout = null; // El guardián del procesador del celu by Sheminay
 let isDraggingChannel = false;
 let startAngleChannel = 0;
 const channelDial = document.getElementById('channelDial');
@@ -891,6 +1444,24 @@ channelDial.addEventListener('pointermove', e => {
 channelDial.addEventListener('pointerup', () => isDraggingChannel = false);
 channelDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
 channelDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
+// -- N.5 FF-TV — Flip-Flop Televisivo by NOva DulceKAli --
+// Salta al canal anterior. La selección vuelve a registrar la transición, produciendo A ↔ B.
+async function ffTV() {
+  let target = resolvePointer(data.lastchnl.anterior);
+  if (!target) return;
+  // Si pertenece a una lista todavía no cargada, cargarla antes de intentar seleccionar el canal.
+  if (
+    target.type === 'list' &&
+    data.lists[target.listIdx].canales.length === 0
+  ) {
+    await parsearLista(target.listIdx);
+  }
+  // Revalidar después de la carga.
+  target = resolvePointer(target);
+  if (!target) return;
+  selectAndPlay(target.type, target.listIdx, target.chIdx, null);
+  clack(371, 0.09); //371, 0.09
+}
 // -- DIAL SINTONÍA FINA (LOGARÍTMICA) --
 let fineValue = 0;
 let isDraggingFine = false;
@@ -971,44 +1542,7 @@ function drawNoise(intensity){
   }
   ctx.putImageData(imgData, 0, 0);
 }
-
-/*
-// --- 4b. HARDWARE CONTROLS (AUDIO SYNTH) ---
-let audioCtx = null;
-let lastClackTime = 0; // Guardián del tiempo para no saturar
-function initAudio() { 
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)(); 
-  }
-  if (audioCtx.state === 'suspended') {
-    // Reactivamos en segundo plano sin trabar la interfaz con un 'await'
-    audioCtx.resume().catch(e => console.log("Audio resume bloqueado:", e));
-  }
-}
-// Ya NO es async. Fluidez total para los eventos de la perilla.
-function clack(freq = 371, dur = 0.07) {
-  initAudio();  
-  if (!audioCtx || audioCtx.state === 'suspended') return;
-  const now = audioCtx.currentTime;
-  // ¡FILTRO ANTISATURACIÓN! 
-  // Si la última perilla sonó hace menos de 40ms, ignoramos este clack.
-  // Esto salva la memoria del celular y el oído del usuario al girar rápido.
-  if (now - lastClackTime < 0.040) return; 
-  lastClackTime = now;
-  const timeToPlay = now + 0.005; // Micro-margen para estabilidad de hardware
-  const o = audioCtx.createOscillator();
-  const g = audioCtx.createGain();  
-  o.frequency.value = freq;
-  o.connect(g);
-  g.connect(audioCtx.destination);  
-  g.gain.setValueAtTime(0.3, timeToPlay);
-  g.gain.exponentialRampToValueAtTime(0.01, timeToPlay + dur);  
-  o.start(timeToPlay);
-  o.stop(timeToPlay + dur);
-}
-*/
-
-// --- 4b. HARDWARE CONTROLS (AUDIO SYNTH) [PLAY COMPATIBLE] ---
+// --- 4b. HARDWARE CONTROLS (AUDIO SYNTH) [PLAY COMPATIBLE] by SHEMINAY---
 let audioCtx = null;
 let lastClackTime = 0;
 function initAudio() { 
@@ -1050,8 +1584,8 @@ function clack(freq = 371, dur = 0.07) {
     console.log("Audio WebKit omitido en consola", err);
   }
 }
-  
 // ------------------------------------------------------------------ //
+
 
 // ---- Volume Toaster Compatible by Llamita Encendida for v.3T ----- //
 function getGeckoVideo(){ return document.querySelector('video'); }
@@ -1114,9 +1648,22 @@ attachGeckoVolSync();
 applyVol(0);
 // ------------------------------------------------------------------ //
 
+
 // ---- 6. EXPORTAR/IMPORTAR by Chamán+ Alpha Centauri for v.2.9C --- //
 async function exportarJSON(){
-  const dataStr = JSON.stringify(data, null, 2);
+  // const dataStr = JSON.stringify(data, null, 2); // Comentado por Sheminay for version M2EZ[08092026A]
+  // ---------------- Filtro Pluma: ---------------- //
+  //  Al archivo viajan SÓLO:
+  //  favoritos, trayectoria y listas del usuario filtradas por el ID estratosférico. 
+  const backupPluma = {
+    favorites: data.favorites,
+    lastchnl: data.lastchnl,
+    //lists: data.lists.filter(l => l.ruta && (l.ruta[0] === "GeckoGuías Personalizadas" || l.ruta[0] === "GeckoGuías Externas de Usuario"))
+    // for 10000X25
+    lists: data.lists.filter(l => (parseInt((l.id || '').replace('list_', '')) || 0) >= 250000 || !l.url || l.url.trim() === "")
+  };
+  const dataStr = JSON.stringify(backupPluma, null, 2);
+  // ------------------------------------------------ //
   //const suggestedName = 'gecko_tree_backup.json'; // Clasico Original SheiSon
   const suggestedName = 'gecko_tree_backup.gspf'; // default WhatsApp-friendly
   // Si el navegador soporta File System Access API, mostramos el desplegable pro
@@ -1140,7 +1687,6 @@ async function exportarJSON(){
       // si falla, cae al fallback clásico
     }
   }
-
   // Fallback tostadora: funciona en todo, deja "Todos los archivos" a mano
   const blob = new Blob([dataStr], {type:'application/json'});
   const a = document.createElement('a');
@@ -1149,6 +1695,7 @@ async function exportarJSON(){
   a.click();
   log('💾 Backup Geckónico Exportado Exitosamente');
 }
+
 function importarJSON(event){
   const file = event.target.files[0];
   if(!file) return;
@@ -1160,25 +1707,62 @@ function importarJSON(event){
   const reader = new FileReader();
   reader.onload = function(e){
     try {
-      const importedData = JSON.parse(e.target.result); // no importa si era.json,.gspf o.txt, adentro es JSON
-      /*
-      if(importedData && (importedData.favorites || importedData.lists)){
-        data = importedData;
-        save();
-        renderTree();
-        alert('¡Configuración FULL importada con éxito! - ' + file.name);
-        log('📥 Configuración importada desde ' + file.name);
-      }
-      */
-      // AETHERIS FIX en v.3.AFX [CodeName: AETHERIS FIX FX]
-      if(importedData && (importedData.favorites || importedData.lists)){
-        data = importedData;
-        save();
-        alert('¡Configuración FULL importada con éxito! - ' + file.name);
-        log('📥 Configuración importada desde ' + file.name);
-        location.reload();   // Restauración completa → el organismo renace limpio
-      }
+        const importedData = JSON.parse(e.target.result);
+        // 1. Reconstrucción sanitaria: Mapeamos favoritos y trayectoria
+        data.favorites = importedData.favorites || data.favorites;
+        data.lastchnl = importedData.lastchnl || { actual: null, anterior: null };
+        /*
+        // 2. Extraemos las carpetas personales del archivo
+        const listasUsuarioImportadas = (importedData.lists || []).filter(l => {
+          return l.ruta && (l.ruta[0] === "GeckoGuías Personalizadas" || l.ruta[0] === "GeckoGuías Externas de Usuario");
+        });
+        // 3. Resguardamos tus 51 listas hardcodeadas actuales DIRECTO de lo que ya inició el script
+        // (Sin recortar con slice, tomamos la longitud real de tu base actual de fábrica)
+        const totalFijas = 51; 
+        const listasFijasDeFabrica = data.lists.slice(0, totalFijas);
+        // 4. REINDEXACIÓN DINÁMICA: Empuja tus listas curadas al final y actualiza sus canales
+        listasUsuarioImportadas.forEach((lista, i) => {
+          const nuevoIdx = totalFijas + i;
+          const viejoIdx = lista.id.split('_')[1]; // Extrae el número de ID viejo (ej: "31")
+         
+          lista.id = 'list_' + nuevoIdx; // Le asigna su casillero real nuevo en la 4.0
+          // Corrección forense de canales: Actualiza los IDs de los canales internos 
+          // para que coincidan con su nueva posición en el array y el dial los encuentre
+          if (lista.canales) {
+            lista.canales.forEach((ch, cIdx) => {
+              ch.id = `ch_${nuevoIdx}_${cIdx}`;
+            });
+          }
+        });
+        */
+        // for 10000X25
+        // 2. Extraemos las listas personales del archivo por ID cuántico o por URL vacía retrocompatible
+        const listasUsuarioImportadas = (importedData.lists || []).filter(l => {
+          const idNum = parseInt((l.id || '').replace('list_', '')) || 0;
+          return idNum >= 250000 || !l.url || l.url.trim() === "";
+        });
+        // 3. Medimos la longitud real del bloque de fábrica del script actual (Inmune a si son 30, 50 o 500 listas)
+        const totalFijasDinamico = data.lists.filter(l => (parseInt((l.id || '').replace('list_', '')) || 0) < 250000).length;
+        const listasFijasDeFabrica = data.lists.slice(0, totalFijasDinamico);
+        // 4. REINDEXACIÓN DINÁMICA SUPREMA (M2EZ): Plancha el offset de 250k y recalibra las frecuencias de canales
+        listasUsuarioImportadas.forEach((lista, i) => {
+          const nuevoIdNum = 250000 + i;
+          lista.id = 'list_' + nuevoIdNum;
+          if (lista.canales) {
+            lista.canales.forEach((ch, cIdx) => {
+              ch.id = `ch_${nuevoIdNum}_${cIdx}`;
+            });
+          }
+        });
 
+        // Ensamblamos la grilla definitiva: 51 fijas + tus listas curadas reindexadas
+        data.lists = [...listasFijasDeFabrica, ...listasUsuarioImportadas];
+        inyectarOffsetGecko(); // Re-indexado preventivo de seguridad
+        popularInvariantes(); // Re-asigna rutas e iconos limpios
+        save();
+        alert('¡Configuración FULL importada con éxito! - ' + file.name);
+        log('📥 Configuración importada desde ' + file.name);
+        location.reload();
     } catch(err){
       alert('Error al leer el archivo. ¿Es un backup válido de Gecko Streaming Plus?');
     }
@@ -1188,7 +1772,8 @@ function importarJSON(event){
 }
 // ------------------------------------------------------------------ //
 
-// ----------- GeckoSP Settings: Styles Chromatic Themes ------------ //
+
+// --- CONFIG'S GECKOSP (GeckoSP Settings: Geckromatic TM Themes) --- //
 function setTheme(hex){
   const r=parseInt(hex.slice(1,3),16), g=parseInt(hex.slice(3,5),16), b=parseInt(hex.slice(5,7),16);
   document.documentElement.style.setProperty('--gecko', hex);
@@ -1208,6 +1793,7 @@ function copyGecko(id){
 }
 // ------------------------------------------------------------------ //
 
+
 // --------------- 3. CAMBIO DE PESTAÑAS ---------------- //
 function switchTab(tabName, btn){
   document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
@@ -1217,8 +1803,9 @@ function switchTab(tabName, btn){
 }
 // ------------------------------------------------------ //
 
+
 // ------------------ Inicialización -------------------- //
-// N7. Restauración de trayectoria al iniciar.
+// N7. Restauración de trayectoria al iniciar. by NOva DulceKAli
 // Restaurar ≠ navegar: no modifica actual/anterior.
 setTimeout(async () => {
   let target = resolvePointer(data.lastchnl?.actual);
@@ -1243,5 +1830,8 @@ setTimeout(async () => {
 }, 500);
 // ------------------------------------------------------ //
 </script>
+
 </body>
+
+
 </html>
