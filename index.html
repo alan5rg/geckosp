@@ -647,111 +647,7 @@ function resetGeckoStorage() {
 // ------ NORMALIZACIÓN DE BACKUPS O DATA EN MEMORIA DEL NAVEGADOR DE VERSIONES ANTERIORES ------ //
 // Migración/Normalización de listas (Retrocompatibilidad by Aetheris for v.M2EZ[02092026]) Refactor by Programador Chamán
 
-// NO BORRAR HASTA NO ESTAR SEGURO QUE LO DEMAS FUNCIONA [ver contrato]
-/*
-function normalizarListas() {
-  data.lists.forEach((lista, idx) => {
-    // Si ya tiene ruta e icono (backups nuevos o normalizados), no tocamos
-    if (lista.ruta && lista.icono) return;
-    // Regla 1: Listas fijas globales de la arquitectura base
-    if (idx <= 1) {      
-      lista.ruta = ["GeckoGuías Globales"];
-      lista.icono = "📁";
-      return;
-    }   
-    // Regla 2: Clasificación inteligente por la URL del proveedor (Agnóstica al índice)
-    if (lista.url && lista.url.trim() !== "") {
-      if (lista.url.includes('/categories/') && idx <= 30) {
-        lista.ruta = ["GeckoGuías x Categoría"];
-        lista.icono = "📁";
-        return;
-      }
-      if (lista.url.includes('/countries/')) {
-        lista.ruta = ["GeckoGuías x País"];
-        lista.icono = "🌐";
-        return;
-      }
-      if (lista.url.includes('/languages/')) {
-        lista.ruta = ["GeckoGuías x Idioma"];
-        lista.icono = "🗣️";
-        return;
-      }      
-      // Fallback si tiene URL pero no es de iptv-org oficial: Lista externa del usuario
-      lista.ruta = ["GeckoGuías Externas de Usuario"];
-      lista.icono = "📥";
-      return;
-    }
-    // Regla 3: Si no tiene URL, es un contenedor local puro creado a mano
-    lista.ruta = ["GeckoGuías Personalizadas"];
-    lista.icono = "👤";
-  });
-}
-*/
-
-// ------ BLINDAJE E INVARIANTES DE DATOS (Mamuscka Engine Core) by Team Cangurera ------ //
-/*
-function popularInvariantes() {
-  data.lists.forEach((lista, idx) => {
-    // 1. FORZADO DE INVARIANTES DESDE LA LÓGICA (Código base oficial)
-    if (idx <= 1) {
-      lista.ruta = ["GeckoGuías Globales"]; lista.icono = "📁"; return;
-    }
-    if (idx > 1 && idx <= 30) {
-      lista.ruta = ["GeckoGuías x Categoría"]; lista.icono = "📁"; return;
-    }
-    if (idx >= 31 && idx <= 40) {
-      lista.ruta = ["GeckoGuías x País"]; lista.icono = "🌐"; return;
-    }
-    if (idx >= 41 && idx <= 50) {
-      lista.ruta = ["GeckoGuías x Idioma"]; lista.icono = "🗣️"; return;
-    }
-    // 2. NORMALIZACIÓN DE CONTENIDOS DEL USUARIO (Índice 39 en adelante o Backups)
-    if (lista.ruta && lista.icono) return; // Si ya viene normalizado de fábrica, saltamos
-    if (lista.url && lista.url.trim() !== "") {
-      // Fallback por URL si el archivo importado alteró los índices fijos
-      if (lista.url.includes('/categories/')) { lista.ruta = ["GeckoGuías x Categoría"]; lista.icono = "📁"; return; }
-      if (lista.url.includes('/countries/')) { lista.ruta = ["GeckoGuías x País"]; lista.icono = "🌐"; return; }
-      if (lista.url.includes('/languages/')) { lista.ruta = ["GeckoGuías x Idioma"]; lista.icono = "🗣️"; return; }     
-      // Lista remota cargada manualmente por el usuario
-      lista.ruta = ["GeckoGuías Externas de Usuario"]; lista.icono = "📥"; return;
-    }    
-    // Contenedor local puro creado a mano
-    lista.ruta = ["GeckoGuías Personalizadas"]; lista.icono = "👤";
-  });
-}
-*/
-
-/*
-// Refactor Agnostico de Ei2
-function popularInvariantes() {
-  const REGLAS_BASE = [
-    { max: 1,  ruta: ["GeckoGuías Globales"], icono: "📁" },
-    { max: 30, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
-    { max: 40, ruta: ["GeckoGuías x País"], icono: "🌐" },
-    { max: 50, ruta: ["GeckoGuías x Idioma"], icono: "🗣️" }
-  ];
-  data.lists.forEach((lista, idx) => {
-    // 1. Guardaguaras obligatorio: Si ya viene clasificada, no se toca jamás
-    if (lista.ruta?.length && lista.icono) return;
-    // 2. Coincidencia declarativa para el bloque de fábrica (0 a 50)
-    const base = REGLAS_BASE.find(r => idx <= r.max);
-    if (base) {
-      lista.ruta = base.ruta;
-      lista.icono = base.icono;
-      return;
-    }
-    // 3. Fallback defensivo para listas del usuario/importadas
-    const url = lista.url?.trim() || "";
-    if (url.includes('/categories/')) { lista.ruta = ["GeckoGuías x Categoría"]; lista.icono = "📁"; }
-    else if (url.includes('/countries/')) { lista.ruta = ["GeckoGuías x País"]; lista.icono = "🌐"; }
-    else if (url.includes('/languages/')) { lista.ruta = ["GeckoGuías x Idioma"]; lista.icono = "🗣️"; }
-    else if (url) { lista.ruta = ["GeckoGuías Externas de Usuario"]; lista.icono = "📥"; }
-    else { lista.ruta = ["GeckoGuías Personalizadas"]; lista.icono = "👤"; }
-  });
-}
-*/
-
-// version 2 de Ei2... alucina o me esta jodiendo porque es lo mismo de Sheminay salvo el orden!
+// version 2 de Ei2... es lo mismo de Sheminay salvo el orden!
 function popularInvariantes() {
   data.lists.forEach((lista, idx) => {
     // 1. Circuito abierto: Si ya tiene metadatos (ej. usuario/importada), no se toca
@@ -795,7 +691,6 @@ function inyectarOffsetGecko() {
     }
   });
 }
-
 // ---------------------------------------------------------------------------------------------- //
 
 
@@ -907,6 +802,7 @@ function renderTree() {
     treeEl.appendChild(madreEl);
   });
   updateListSelectOptions();
+  /*
   // --- SOLUCIÓN DE SALTOS Y PARCHE CENTRADO DE LLAMITA ENCENDIDA EN LA WWW ---
   // Restauramos inmediatamente la posición del scroll previa al renderizado
   treeEl.scrollTop = scrollAnterior;
@@ -916,6 +812,7 @@ function renderTree() {
       a.scrollIntoView({ block: 'center', inline: 'nearest' });
     }
   }, 50); // Un micro-margen de estabilidad para mobile y consolas (Sheminay)
+  */
 }
 // Toggle Favoritos
 function toggleFavorites() {
@@ -939,6 +836,12 @@ function toggleExploradorMadre(nombreMadre) {
   }
   save();
   renderTree();
+  // Llamita Fix Exporación for v.M2EZ[1409A]  
+  // El frame posterior clava el inicio de la carpeta madre arriba de forma instantánea
+  requestAnimationFrame(() => {
+    const madre = [...document.querySelectorAll('.main-dir.open .folder-header')][0];
+    if (madre) madre.scrollIntoView({ block: 'start', behavior: 'smooth' }); //'instant'
+  });
 }
 // Toggle Subcarpeta
 function toggleExploradorSub(idx, nombreMadre) {
@@ -957,6 +860,15 @@ function toggleExploradorSub(idx, nombreMadre) {
   }
   save();
   renderTree();
+  // --- ENCUADRE DE VIEWPORT M2EZ PRO UX by Sheminay M2EZ[1409A] ---  
+  if (lista.open) {
+    requestAnimationFrame(() => {
+      // Buscamos el encabezado de la carpeta clickeada usando el texto de su propio onclick nativo
+      const subEl = treeEl.querySelector(`[onclick*="toggleExploradorSub(${idx},"]`);
+      // Si la Play4 o el celu lo encuentran, desliza el viewport para clavar el primer ítem arriba
+      if (subEl) subEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }  
 }
 // ---------------------------------------------------------------------------- //
 // Blindaje total del combo by Llamita Encendida en la WWW 
