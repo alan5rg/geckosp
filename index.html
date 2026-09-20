@@ -596,6 +596,21 @@ let currentDialIdx = 0;
 let hideGlobalGuiges = true;
 // ----------------------- Variables ----------------------- //
 
+// ------- NovaFix Quantum: MICROAUTOFOCO NOVA DULCEKALI ------- //
+var ultimaAlturaTree = 0;
+var treeResizeObserver = new ResizeObserver(entries => {
+  const h = entries[0].contentRect.height;
+  if (ultimaAlturaTree && Math.abs(h - ultimaAlturaTree) > 30) {
+    //const a = document.querySelector('.channel.active'); // Parche paranoico de Llamita dev que no vio el CSS.
+    //if (a?.closest('.folder.open')) { // solo si el activo está visible, no si está cerrado
+    centrameCanalActivo();
+    //}
+  }
+  ultimaAlturaTree = h;
+});
+treeResizeObserver.observe(treeEl);
+// ------------------------------------------------------------- //
+  
 // ----------------------- BASIC UTILS FUNCTIONS ----------------------- //
 // --- guardado de estructura de datos local del navegador ---
 function save(){ localStorage.setItem(DB_KEY, JSON.stringify(data)); }
@@ -1433,6 +1448,8 @@ channelDial.addEventListener('wheel', (e) => {
   const item = channels[currentDialIdx];
   selectChannelTimeout = setTimeout(() => {
     selectAndPlay(item.type, item.listIdx, item.chIdx, null);
+    // Centrado Agnostico del Salto Chamánico!!!
+    centrameCanalActivo();
   }, 150);
 }, { passive: false });
 channelDial.addEventListener('pointermove', e => {
@@ -1455,6 +1472,8 @@ channelDial.addEventListener('pointermove', e => {
     const item = channels[currentDialIdx];
     selectChannelTimeout = setTimeout(() => {
       selectAndPlay(item.type, item.listIdx, item.chIdx, null);
+      // Centrado Agnostico del Salto Chamánico!!!
+      centrameCanalActivo();
     }, 150);    
     startAngleChannel = ang;
   }
@@ -1478,6 +1497,8 @@ async function ffTV() {
   target = resolvePointer(target);
   if (!target) return;
   selectAndPlay(target.type, target.listIdx, target.chIdx, null);
+  // Centrado Agnostico del Salto Chamánico!!!
+  centrameCanalActivo();
   clack(371, 0.09); //371, 0.09
 }
 // -- DIAL SINTONÍA FINA (LOGARÍTMICA) --
@@ -1845,6 +1866,8 @@ setTimeout(async () => {
     // No existe memoria válida: comportamiento de fábrica.
     selectAndPlay('fav', null, 0, null, false);
   }
+  // Centrado Agnostico del Salto Chamánico!!!
+  centrameCanalActivo();
 }, 500);
 // ------------------------------------------------------ //
 </script>
