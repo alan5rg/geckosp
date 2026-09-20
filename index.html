@@ -211,7 +211,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 <header>
   <h1><<<🦎 GECKO·STREAMING·PLUS 📡>>></h1>
   <div style="display:flex;gap:8px;align-items:center">
-    <span>MAMUSHKA EDITION M2EZ v.0909C Geckónico · Minimalista · Eficiente ·</span>
+    <span>MAMUSHKA EDITION M2EZ[0909C] Geckónico · Minimalista · Eficiente ·</span>
     <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ TV</button>
   </div>
 </header>
@@ -907,7 +907,7 @@ function updateListSelectOptions() {
 }
 // ---------------------------------------------------------------------------- //
 
-
+/*
 // -------------- CENTRAL DE NAVEGACIÓN ANALÓGICA MULTIDIMENSIONAL ------------ //
 function mamushkaLogicDrive(action, target = null) {
   const scrollAnterior = treeEl.scrollTop; // Resguardo nativo para evitar tirones
@@ -993,7 +993,96 @@ function mamushkaLogicDrive(action, target = null) {
   }
 }
 // ---------------------------------------------------------------------------- //
-
+*/
+// -------------- CENTRAL DE NAVEGACIÓN ANALÓGICA MULTIDIMENSIONAL ------------ //
+function mamushkaLogicDrive(action, target = null) {
+  const scrollAnterior = treeEl.scrollTop; // Resguardo nativo para evitar tirones
+  switch (action) {   
+    // 1. [ <<< ] - Colapsa todo a las invariantes raíz
+    case 'zoom_out': {
+      openMotherFolders = {};
+      data.lists.forEach(l => l.open = false);
+      favoritesOpen = false;
+      log('🔍 Zoom Out Geckónico: Árbol replegado');
+      break;
+    }
+    // 2. [ Glob ] - Conmuta visibilidad de listas masivas
+    case 'toggle_global': {
+      hideGlobalGuiges = !hideGlobalGuiges;
+      log(hideGlobalGuiges ? '👁️‍🗨️ Guías Globales Ocultas' : '🌐 Guías Globales Visibles');
+      break;
+    }
+    // 2.5 [ @ ] - Foco en el Canal Actual for Mamushka Navigation System™  by Leo
+    // solo foco en canal activo, no cambio, no saltos en video, solo vuelve al foco desde cualquier lado.
+    case 'current_channel': {
+      if (currentSelected.type === 'list' && data.lists[currentSelected.listIdx]) {
+        const lista = data.lists[currentSelected.listIdx];
+        openMotherFolders = {};
+        if (lista.ruta && lista.ruta[0]) {
+          openMotherFolders[lista.ruta[0]] = true;
+        }
+        data.lists.forEach((l, i) => l.open = (i === currentSelected.listIdx));
+        favoritesOpen = false;        
+      } else if (currentSelected.type === 'fav') {
+        favoritesOpen = true;
+        data.lists.forEach(l => l.open = false);        
+      }
+      log('@ Viewport: Saltando al Current Selected Channel');
+      break;
+    }   
+    // 4. Paginación Anterior [ << ]
+    case 'prev_page': {
+      log('◀ Viewport: Saltando a página anterior');
+      break;
+    }
+    // 5. Paginación Siguiente [ >> ]
+    case 'next_page': {
+      log('▶ Viewport: Saltando a página siguiente');
+      break;
+    }
+    // 3. Al cambiar de lista/página -> SOLO FOCO EN EL PRIMERO (Sin reproducir)
+    case 'set_focus_first': {
+      if (target !== null && data.lists[target]) {
+        // Forzamos la apertura en memoria de su cascada analógica
+        const lista = data.lists[target];
+        openMotherFolders = {};
+        if (lista.ruta && lista.ruta[0]) {
+          openMotherFolders[lista.ruta[0]] = true;
+        }
+        data.lists.forEach((l, i) => l.open = (i === target));
+        favoritesOpen = false;        
+        // ¡EL NUEVO CONTRATO! Seteamos los índices de selección pero NO llamamos a playChannel
+        currentSelected = { 
+          type: 'list', 
+          listIdx: target, 
+          chIdx: 0, 
+          data: lista.canales[0] || null 
+        };
+        currentDialIdx = 0;        
+        log(`🎯 Foco sintonizado en: ${lista.nombre} (Canal 1)`);
+      }
+      break;
+    }
+  }
+  // Guardamos el estado y redibujamos el explorador ciego
+  save();
+  renderTree();
+  //Así un solo render, y el scroll se aplica sobre el DOM ya pintado. Mamushka System™ a full potencia. 🚀
+  if (action === 'current_channel') {    
+    centrameCanalActivo();
+  } else if (action === 'toggle_global' || action === 'zoom_out') { 
+    // Si fue una acción de exploración manual, mantenemos el scroll quieto
+    treeEl.scrollTop = scrollAnterior;
+  }
+}
+// Auxiliar Geckónica Agnóstica 
+function centrameCanalActivo() {
+  requestAnimationFrame(() => {
+    document.querySelector('.channel.active')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}
+// ---------------------------------------------------------------------------- //
 
 
 // --------------------- MIXED LIST FUNCTIONS ----------------------- //
