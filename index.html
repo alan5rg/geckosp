@@ -1124,7 +1124,14 @@ async function parsearLista(idx){
       line=line.trim();
       if(line.startsWith('#EXTINF')){ currName = line.split(',')[1] || 'Canal'; }
       else if(line && !line.startsWith('#') && line.startsWith('http')){
-        canales.push({ nombre: currName || `Canal ${canales.length+1}`, url: line, tipo:'De Lista Externa' });
+        //canales.push({ nombre: currName || `Canal ${canales.length+1}`, url: line, tipo:'De Lista Externa' });
+        // Opción Llamita Minimalista (Smart y Forense) for M3EZ[1809A]
+        // Así en el Admin.Channels ya sabés de qué cubil marmotero vino cada canal
+        canales.push({
+          nombre: currName || `Canal ${canales.length+1}`,
+          url: line,
+          tipo: `GeckoGuía Ext.: ${lista.nombre}`
+        });
         currName='';
         if(canales.length>=137) break;
       }
