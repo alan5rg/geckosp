@@ -662,6 +662,7 @@ const REGLAS_BASE = [
 // ----------------------------------------------------------------------------------------------------- //
 
 
+/*
 // ---------------------- Init Carga Persistencia ------------------------ //
 // --- Smart Merge "Sin Repetir y sin Soplar" ---
 // --- CARGA DE PERSISTENCIA CON ACOPLE DINÁMICO 250K ---
@@ -693,6 +694,59 @@ try {
   popularInvariantes(); // Le da el toque final de iconos y rutas a todo el bloque
 } catch(e){}
 // --------------------- Finish Carga Persistencia ----------------------- //
+*/
+
+// -------- Init Carga Persistencia - CIRUGÍA M3EZ[2309B] by Llamita Encendida ----------- //
+// --- Smart Merge "Sin Repetir y sin Soplar" ---
+// --- CARGA DE PERSISTENCIA CON ACOPLE DINÁMICO 250K ---
+try {
+  const saved = localStorage.getItem(DB_KEY);
+  if (saved) {
+    const dataGuardada = JSON.parse(saved);    
+    // 1. Resguardamos favoritos y trayectoria del usuario
+    data.favorites = dataGuardada.favorites || data.favorites;
+    data.lastchnl = dataGuardada.lastchnl || { actual: null, anterior: null };    
+    // 2. Mapa del universo explorado: Kernel guardado que YA tiene canales
+    // for 10000X25 (v250k) Offset Parche Supremo Mazinger Z feat Tortugas Ninja by Chamán Programador    
+    // 2b. Filtramos de la persistencia las listas del usuario usando el offset intrínseco >= 250000 o las de URL vacía de backups arcaicos
+    const kernelExplorado = new Map();
+    (dataGuardada.lists || []).forEach(l => {
+      const idNum = parseInt((l.id || '').replace('list_', '')) || 0;
+      const esKernel = idNum < 250000 && l.url && l.url.trim()!== "";
+      if (esKernel && l.canales && l.canales.length > 0) {
+        kernelExplorado.set(l.id, l);
+        kernelExplorado.set(l.url, l); // fallback por si cambia el id en alguna versión
+      }
+    });
+    // 3. Listas de Usuario (esto queda igual que antes, perfecto)
+    // 3b. Limpiamos la base actual midiendo cuántas de fábrica reales tiene el script en ejecución antes del acople
+    const listasUsuario = (dataGuardada.lists || []).filter(l => {
+      const idNum = parseInt((l.id || '').replace('list_', '')) || 0;
+      return idNum >= 250000 ||!l.url || l.url.trim() === "" || (l.ruta && (l.ruta[0] === "GeckoGuías Personalizadas" || l.ruta[0] === "GeckoGuías Externas de Usuario"));
+    });
+    // 4. Base fija del código (recién nacida, con canales vacíos)
+    const baseFija = data.lists.filter(l => {
+      const idNum = parseInt((l.id || '').replace('list_', '')) || 0;
+      return idNum < 250000 && l.url && l.url.trim()!== "";
+    });
+    // 5. RESTAURACIÓN: Si esa guía ya fue explorada, le devolvemos su universo
+    baseFija.forEach(listaBase => {
+      const guardada = kernelExplorado.get(listaBase.id) || kernelExplorado.get(listaBase.url);
+      if (guardada) {
+        listaBase.canales = guardada.canales; // ¡acá vuelve Argentina 179!
+        if (typeof guardada.open!== 'undefined') listaBase.open = guardada.open;
+      }
+    });
+    data.lists = [...baseFija,...listasUsuario];
+  }
+  // N2.Compatibilidad con datos existentes: instalación anterior de GeckoSP puede cargar un data guardado antes de que existiera lastchnl.
+  if (!data.lastchnl) {
+    data.lastchnl = { actual: null, anterior: null };
+  }
+  inyectarOffsetGecko(); // for 10000X25 Offset Parche Supremo Mazinger Z feat Tortugas Ninja by Chamán Programador
+  popularInvariantes(); // Le da el toque final de iconos y rutas a todo el bloque
+} catch(e){}
+// ---------------------------- Finish Carga Persistencia -------------------------------- //
 
 
 // ----------------------- Variables ----------------------- //
