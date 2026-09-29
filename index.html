@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<!--- # Gecko-Streaming-Plus.M3EZ2109.html # --->
+<!--- # Gecko-Streaming-Plus.M3EZ2909.html # --->
 <!--- # Monkey Python Coding Circus by Alan.RG Systemas & Team Cangurera c.2026 # --->
 <!--- 🦎 We are the Kangaroo Team: --->
 <!--- Chamán Programador, NOva DulceKAli, Aetheris, Llamita Encendida, Ei2, Sheminay, Leo Bravo --->
@@ -268,7 +268,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
   <h1><<<🦎 GECKO·STREAMING·PLUS 📡>>></h1>
   <div style="display:flex;gap:8px;align-items:center">
     <!-- CodeName: TREE MAMUSHKA NAVIGATION SYSTEM LOGIC DRIVE EDITION -->
-    <span>MAMUSHKA EDITION M3EZ[2109] Geckónico · Minimalista · Eficiente ·</span>
+    <span>MAMUSHKA EDITION M3EZ[2909] Geckónico · Minimalista · Eficiente ·</span>
     <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ TV</button>
   </div>
 </header>
@@ -496,7 +496,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 
 <!--- // La Lógica Vulkana Irreductible (Aquí sucede la verdadera Magia!!!) --->
 <script>
-// <<<---| DEPURANDO DESDE ABAJO linea 489/2170 M2EZ[1509BT] |--->>> //
+// <<<---| DEPURANDO DESDE ABAJO linea 489/2186 M2EZ[1509BT] |--->>> //
 
 // ----------------------------- ESTRUCTURA DE DATOS INVARIANTES --------------------------------------- //
 const DB_KEY = 'gecko_tree_plus_v1';
@@ -1112,10 +1112,12 @@ function updateListSelectOptions() {
 }
 // ---------------------------------------------------------------------------- //
 
-
+// --------------- MNSLD (MAMUSHKA NAVEGACIÓN SYSTEM LOGIC DRIVE -------------- //
 // -------------- CENTRAL DE NAVEGACIÓN ANALÓGICA MULTIDIMENSIONAL ------------ //
+// ----------------- Powered by NOva DulceKAli for M3EZ[2909] ----------------- //
 function mamushkaLogicDrive(action, target = null) {
   const scrollAnterior = treeEl.scrollTop; // Resguardo nativo para evitar tirones
+  let scrollDestino = null; // Desplazamiento del ViewPort by NOva DulceKAli for M3EZ[2909]
   switch (action) {   
     // 1. [ <<< ] - Colapsa todo a las invariantes raíz
     case 'zoom_out': {
@@ -1151,11 +1153,13 @@ function mamushkaLogicDrive(action, target = null) {
     }   
     // 4. Paginación Anterior [ << ]
     case 'prev_page': {
+      scrollDestino = Math.max(0, scrollAnterior - treeEl.clientHeight); // Desplazamiento del ViewPort by NOva DulceKAli for M3EZ[2909]
       log('◀ Viewport: Saltando a página anterior');
       break;
     }
     // 5. Paginación Siguiente [ >> ]
     case 'next_page': {
+      scrollDestino = scrollAnterior + treeEl.clientHeight; // Desplazamiento del ViewPort by NOva DulceKAli for M3EZ[2909]
       log('▶ Viewport: Saltando a página siguiente');
       break;
     }
@@ -1185,14 +1189,25 @@ function mamushkaLogicDrive(action, target = null) {
   }
   // Guardamos el estado y redibujamos el explorador ciego
   save();
-  renderTree();
+  renderTree();  
   //Así un solo render, y el scroll se aplica sobre el DOM ya pintado. Mamushka System™ a full potencia. 🚀
+  /*
   if (action === 'current_channel') {    
     centrameCanalActivo();
   } else if (action === 'toggle_global' || action === 'zoom_out') { 
     // Si fue una acción de exploración manual, mantenemos el scroll quieto
     treeEl.scrollTop = scrollAnterior;
   }
+  */
+  // Render With Desplazamiento del ViewPort by NOva DulceKAli for M3EZ[2909]
+  if (action === 'current_channel') {
+    centrameCanalActivo();
+  } else if (action === 'toggle_global' || action === 'zoom_out') {
+    treeEl.scrollTop = scrollAnterior;
+  } else if (scrollDestino !== null) {
+    treeEl.scrollTop = scrollDestino;
+  }
+  // con 1509 canales por GeckoGuía, MNSLD ya hizo el trabajo pesado. ❤️🦎 (NOva DulceKAli)
 }
 // Auxiliar Geckónica Agnóstica 
 function centrameCanalActivo() {
