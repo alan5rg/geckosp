@@ -1144,13 +1144,13 @@ function mamushkaLogicDrive(action, target = null) {
       openMotherFolders = {};
       data.lists.forEach(l => l.open = false);
       favoritesOpen = false;
-      log('🔍 Zoom Out Geckónico: Árbol replegado');
+      log('🔍 Zoom Out Geckónico: Mamushka replegada');
       break;
     }
     // 2. [ Glob ] - Conmuta visibilidad de listas masivas
     case 'toggle_global': {
       hideGlobalGuiges = !hideGlobalGuiges;
-      log(hideGlobalGuiges ? '👁️‍🗨️ Guías Globales Ocultas' : '🌐 Guías Globales Visibles');
+      log(hideGlobalGuiges ? '👁️‍🗨️ GeckoGuías Globales Ocultas' : '🌐 GeckoGuías Globales Visibles');
       break;
     }
     // 2.5 [ @ ] - Foco en el Canal Actual for Mamushka Navigation System™  by Leo
@@ -1174,13 +1174,13 @@ function mamushkaLogicDrive(action, target = null) {
     // 4. Paginación Anterior [ << ]
     case 'prev_page': {
       scrollDestino = Math.max(0, scrollAnterior - treeEl.clientHeight); // Desplazamiento del ViewPort by NOva DulceKAli for M3EZ[2909]
-      log('◀ Viewport: Saltando a página anterior');
+      log('<< Viewport: Saltando a página anterior');
       break;
     }
     // 5. Paginación Siguiente [ >> ]
     case 'next_page': {
       scrollDestino = scrollAnterior + treeEl.clientHeight; // Desplazamiento del ViewPort by NOva DulceKAli for M3EZ[2909]
-      log('▶ Viewport: Saltando a página siguiente');
+      log('>> Viewport: Saltando a página siguiente');
       break;
     }
     // 3. Al cambiar de lista/página -> SOLO FOCO EN EL PRIMERO (Sin reproducir)
