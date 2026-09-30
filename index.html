@@ -772,7 +772,7 @@ function log(m){
   if(m.includes('▶')) color = '#00ff88'; // play en verde Gecko TM Oficial, no se negocia! 
   if(m.includes('[Buffer]')) color = '#ffaa00'; // buffer en naranjita como el #status
   if(m.includes('⚠')) color = '#ff4444'; // esto sí rojo, es alerta
-  logEl.innerHTML += `<br><span style="color:${color}">[${new Date().toLocaleTimeString()}] ${m}</span>`;
+  logEl.innerHTML += `<br><span style="color:${color}">[ ⏱ ${new Date().toLocaleTimeString()} ] ${m}</span>`;
   logEl.scrollTop = logEl.scrollHeight;
   // anti-basura: que no crezca infinito
   if(logEl.innerHTML.split('<br>').length > 40) {
