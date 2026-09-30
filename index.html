@@ -299,8 +299,8 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
       <button onclick="mamushkaLogicDrive('zoom_out')" title="Colaspse All">[<<<·]</button>
       <button onclick="mamushkaLogicDrive('toggle_global')" title="Toggle Global">[ GCh ]</button>
       <button onclick="mamushkaLogicDrive('current_channel')" title="Current CHAN">[ <@> ]</button>
-      <button onclick="mamushkaLogicDrive('prev_page')" title="Prev.Page">[ << ]</button>
-      <button onclick="mamushkaLogicDrive('next_page')"title="Next.Page">[ >> ]</button>
+      <button onclick="mamushkaLogicDrive('prev_page')" title="ScanUp.MshK">[ << ]</button>
+      <button onclick="mamushkaLogicDrive('next_page')"title="ScanDown.MshK">[ >> ]</button>
     </div>
     <!-- ARBOL DE CANALES -->
     <div id="tree"></div>
@@ -662,40 +662,6 @@ const REGLAS_BASE = [
 // ----------------------------------------------------------------------------------------------------- //
 
 
-/*
-// ---------------------- Init Carga Persistencia ------------------------ //
-// --- Smart Merge "Sin Repetir y sin Soplar" ---
-// --- CARGA DE PERSISTENCIA CON ACOPLE DINÁMICO 250K ---
-try {
-  const saved = localStorage.getItem(DB_KEY);
-  if (saved) {    
-    const dataGuardada = JSON.parse(saved);
-    // 1. Resguardamos favoritos y trayectoria del usuario
-    data.favorites = dataGuardada.favorites || data.favorites;
-    data.lastchnl = dataGuardada.lastchnl || { actual: null, anterior: null };    
-    // for 10000X25 (v250k) Offset Parche Supremo Mazinger Z feat Tortugas Ninja by Chamán Programador
-    // 2. Filtramos de la persistencia las listas del usuario usando el offset intrínseco >= 250000 o las de URL vacía de backups arcaicos
-    const listasUsuario = (dataGuardada.lists || []).filter(l => {
-      const idNum = parseInt((l.id || '').replace('list_', '')) || 0;
-      return idNum >= 250000 || !l.url || l.url.trim() === "" || (l.ruta && (l.ruta[0] === "GeckoGuías Personalizadas" || l.ruta[0] === "GeckoGuías Externas de Usuario"));
-    });
-    // 3. Limpiamos la base actual midiendo cuántas de fábrica reales tiene el script en ejecución antes del acople
-    const totalFijasBase = data.lists.filter(l => {
-      const idNum = parseInt((l.id || '').replace('list_', '')) || 0;
-      return idNum < 250000 && l.url && l.url.trim() !== "";
-    }).length;
-    data.lists = [...data.lists.slice(0, totalFijasBase), ...listasUsuario]; 
-  }
-  // N2.Compatibilidad con datos existentes: instalación anterior de GeckoSP puede cargar un data guardado antes de que existiera lastchnl.
-  if (!data.lastchnl) {
-    data.lastchnl = { actual: null, anterior: null };
-  }
-  inyectarOffsetGecko(); // for 10000X25 Offset Parche Supremo Mazinger Z feat Tortugas Ninja by Chamán Programador
-  popularInvariantes(); // Le da el toque final de iconos y rutas a todo el bloque
-} catch(e){}
-// --------------------- Finish Carga Persistencia ----------------------- //
-*/
-
 // -------- Init Carga Persistencia - CIRUGÍA M3EZ[2309B] by Llamita Encendida ----------- //
 // --- Smart Merge "Sin Repetir y sin Soplar" ---
 // --- CARGA DE PERSISTENCIA CON ACOPLE DINÁMICO 250K ---
@@ -967,13 +933,13 @@ function inyectarOffsetGecko() {
 // -------------------------------------------------------------------------------------------------------- //
 
 
-// ---------------- THE CORE OF EXPLORATION: MAMUSHCKA ENGINE ----------------- //
-// ---- Mamushcka Engine - Versión Limpia (Aetheris) for v.M2EZ[02092026] ----- //
+// ---------------- THE CORE OF EXPLORATION: MAMUSHKA ENGINE ------------------ //
+// ----- Mamushka Engine - Versión Limpia (Aetheris) for v.M2EZ[02092026] ----- //
 // -----------  Refactor Sheminay Fix Saltos for v.M2EZ03092026B -------------- //
 // -----------  Refactor Llamita Fix Exporación for v.M2EZ[1409A] ------------- //
 // ---- FUNCIÓN DE CONTROL DE CASCADA AUTOMÁTICA (Sintonía Ciega Agnóstica) --- //
 // ---------------------------------------------------------------------------- //
-// --- Mamuscka Engine - Versión Limpia (Aetheris) v.M2EZ + Pro UX Sheminay --- //
+// --- Mamushka Engine - Versión Limpia (Aetheris) v.M2EZ + Pro UX Sheminay --- //
 let openMotherFolders = {};   // Estado de carpetas madre
 function renderTree() {
   treeEl.innerHTML = '';
@@ -1245,14 +1211,6 @@ function mamushkaLogicDrive(action, target = null) {
   save();
   renderTree();  
   //Así un solo render, y el scroll se aplica sobre el DOM ya pintado. Mamushka System™ a full potencia. 🚀
-  /*
-  if (action === 'current_channel') {    
-    centrameCanalActivo();
-  } else if (action === 'toggle_global' || action === 'zoom_out') { 
-    // Si fue una acción de exploración manual, mantenemos el scroll quieto
-    treeEl.scrollTop = scrollAnterior;
-  }
-  */
   // Render With Desplazamiento del ViewPort by NOva DulceKAli for M3EZ[2909]
   if (action === 'current_channel') {
     centrameCanalActivo();
