@@ -1809,8 +1809,12 @@ channelDial.addEventListener('pointermove', e => {
   }
 });
 channelDial.addEventListener('pointerup', () => isDraggingChannel = false);
-channelDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
-channelDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
+//channelDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
+//channelDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
+//Fix by Sheminay from Generic of Aetheris
+channelDial.addEventListener('pointercancel', () => { isDraggingChannel = false; });
+channelDial.addEventListener('lostpointercapture', () => { isDraggingChannel = false; });
+
 // -- N.5 FF-TV — Flip-Flop Televisivo by NOva DulceKAli --
 // Salta al canal anterior. La selección vuelve a registrar la transición, produciendo A ↔ B.
 async function ffTV() {
@@ -1853,8 +1857,12 @@ fineDial.addEventListener('wheel', (e) => {
   applyFine(fineValue + step);
 });
 fineDial.addEventListener('pointerup', ()=>isDraggingFine=false);
-fineDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
-fineDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
+//fineDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
+//fineDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
+//Fix by Sheminay from Generic of Aetheris
+fineDial.addEventListener('pointercancel', () => { isDraggingFine = false; });
+fineDial.addEventListener('lostpointercapture', () => { isDraggingFine = false; });
+
 function applyFine(val){
   fineValue = Math.max(-100, Math.min(100, val));
   const absVal = Math.abs(fineValue);
@@ -1995,8 +2003,13 @@ volDial.addEventListener('wheel', e=>{
 }, {passive:false});
 volDial.addEventListener('pointerup', ()=>isDraggingVol=false);
 // AETHERIS FIX en v.3.AFX [CodeName: AETHERIS FIX FX]
-volDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
-volDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
+//volDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
+//volDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
+//Fix by Sheminay from Generic of Aetheris
+// AETHERIS FIX en v.3.AFX [CodeName: AETHERIS FIX FX]
+volDial.addEventListener('pointercancel', () => { isDraggingVol = false; });
+volDial.addEventListener('lostpointercapture', () => { isDraggingVol = false; });
+
 // Enganche Sync Vol Tándem
 function attachGeckoVolSync(){
   const v = getGeckoVideo(); if(!v || v._geckoSync) return;
