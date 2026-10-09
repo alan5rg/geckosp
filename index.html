@@ -823,6 +823,17 @@ function resetGeckoStorage() {
     location.reload(); // Al recargar, reasigna el objeto 'data' por defecto
   }
 }
+// --- FUNCIÓN AGNÓSTICA DE PURGADO GECKÓNICO de GeckoGuías Externas CC4EZ[0310F) ---
+function limpiarLista(idx) {
+  const lista = data.lists[idx];
+  if (!lista) return;  
+  // 1. Vaciar canales de la mamushka en memoria
+  lista.canales = [];
+  lista.open = false; // Cierra la subcarpeta para volver un nivel arriba  
+  // 2. Persistir estado y refrescar el motor de render
+  save();
+  renderTree();
+}
 // --- Bloque GeckoTime TM ---
 // Actualiza GeckoTime
 function updateGeckoTime() {
@@ -1031,9 +1042,9 @@ function renderTree() {
                   }).join('')
               }
               ${lista.url && lista.url.trim() !== '' ? `
-                <div style="padding:6px">
-                  <button class="tester" style="width:100%;font-size:0.7em;padding:5px"
-                          onclick="recargarLista(${lista.originalIndex})">🔄 Recargar lista</button>
+                <div class="gecko-nav-bar-minimal" style="padding:4px 6px; background:transparent; border:none;">
+                  <button style="flex:1;" title="🔄 Recargar GeckoGuía Externa" onclick="recargarLista(${lista.originalIndex})">🔄 Recargar</button>
+                  <button style="flex:1;" title="🧹 Limpiar GeckoGuía Externa" onclick="limpiarLista(${lista.originalIndex})">🧹 Limpiar</button>
                 </div>` : ''}
             </div>
           </div>
