@@ -114,7 +114,8 @@ header span{font-size:0.73em;opacity:0.7}
 Estado activo para el switch [ S/H Glob ] quando está encendido 
 active LO TOMA COMO "EN EL CLICK"
 */
-.gecko-nav-bar-minimal button:active {
+.gecko-nav-bar-minimal button:active,
+.gecko-nav-bar-minimal button.active {
   background: var(--gecko);
   color: #000;
   font-weight: bold;
@@ -297,7 +298,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
     <!-- MAMUSHKA NAVIGATION SYSTEM TM (La nueva botonera de control en el DOM del salón) for E2MZ[08092026B]-->
     <div class="gecko-nav-bar-minimal">
       <button onclick="mamushkaLogicDrive('zoom_out')" title="Collapse All">[<<<·]</button>
-      <button onclick="mamushkaLogicDrive('toggle_global')" title="Toggle Global">[ GCh ]</button>
+      <button id="btnToggleGlobal" onclick="mamushkaLogicDrive('toggle_global')" title="Toggle Global">[ GCh ]</button>
       <button onclick="mamushkaLogicDrive('current_channel')" title="Current CHAN">[ <@> ]</button>
       <button onclick="mamushkaLogicDrive('prev_page')" title="ScanUp.MshK">[ << ]</button>
       <button onclick="mamushkaLogicDrive('next_page')"title="ScanDown.MshK">[ >> ]</button>
@@ -1152,6 +1153,9 @@ function mamushkaLogicDrive(action, target = null) {
     // 2. [ Glob ] - Conmuta visibilidad de listas masivas
     case 'toggle_global': {
       hideGlobalGuiges = !hideGlobalGuiges;
+      // Sincronización del LED del conmutador:
+      const btn = document.getElementById('btnToggleGlobal');
+      if (btn) {btn.classList.toggle('active', !hideGlobalGuiges);}
       log(hideGlobalGuiges ? '👁️‍🗨️ GeckoGuías Globales Ocultas' : '🌐 GeckoGuías Globales Visibles');
       break;
     }
