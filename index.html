@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<!--- # Gecko-Streaming-Plus.M3EZ4909B.html # --->
+<!--- # Gecko-Streaming-Plus.M3EZ4909C.html # --->
 <!--- # Monkey Python Coding Circus by Alan.RG Systemas & Team Cangurera c.2026 # --->
 <!--- 🦎 We are the Kangaroo Team: --->
 <!--- Chamán Programador, NOva DulceKAli, Aetheris, Llamita Encendida, Ei2, Sheminay, Leo Bravo --->
@@ -54,7 +54,17 @@ header span{font-size:0.73em;opacity:0.7}
 #main{display:flex;flex:1;overflow:hidden}
 /* GTVSCV30 - Tele Clásica Viajera del Tiempo: Pantalla a la izquierda/Controles a la derecha */
 #playerWrap{order:1;}
-#sidebar{order:2;width:380px;background:#0a0a0a;border:2px solid var(--gecko);display:flex;flex-direction:column}
+/*#sidebar{order:2;width:380px;background:#0a0a0a;border:2px solid var(--gecko);display:flex;flex-direction:column}*/
+/* Fix Leo Bravo Responsive Artifacts [equivalentemente: flex: 0 0 380px; (que reemplaza width + flex-shrink de una vez)]*/
+#sidebar{
+  order:2;
+  width:380px;
+  flex-shrink:0; /* ← esto. No se encoge jamás. */
+  background:#0a0a0a;
+  border:2px solid var(--gecko);
+  display:flex;
+  flex-direction:column;
+}  
 #tree{flex:1;overflow-y:auto;padding:8px}
 
 .folder{border:1px solid #222;border-radius:6px;margin-bottom:6px;background:#111;overflow:hidden}
@@ -234,6 +244,23 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 #geckoTime::before{content:"[ ⏱ "}
 #geckoTime::after{content:" ]"}
 
+/* 1º: ventana angosta → solo player */
+/* =============================================================================================
+   Fix de Responsividad Absoluta by Chamán and Leo Bravo for CC4EZ[1110]
+   Problema detectado en versiones anteriores: sidebar/player se comprime y/o recorta cuando la
+   ventana se achica manteniendo una proporción aprox.16:9
+   Solución ELegante del Chamán Programador: En cierto tamaño de ventana el sidebar se debe
+   ocultar al igual que la zona del log
+   ============================================================================================= */
+@media (max-width: 700px) and (orientation: landscape){
+    #sidebar, #log, #info{display:none;}
+    #playerWrap{
+        order:1;
+        flex:1 1 100%;
+        width:100%;
+        height:auto;        
+    }
+}
 /* =============================================================================================
    New Design for v.2.9e NOva [26/08/2026 01:20]
    CodeName: GECKO TV STREAM COMMANDER VAINILLA 3.0 [🖥️ GTVSCV30]
@@ -269,7 +296,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
   <h1><<<🦎 GECKO·STREAMING·PLUS 📡>>></h1>
   <div style="display:flex;gap:8px;align-items:center">
     <!-- CodeName: TREE MAMUSHKA NAVIGATION SYSTEM LOGIC DRIVE EDITION -->
-    <span>MAMUSHKA EDITION M3EZ[4909B] Geckónico · Minimalista · Eficiente ·</span>
+    <span>MAMUSHKA EDITION M3EZ[4909C] Geckónico · Minimalista · Eficiente ·</span>
     <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ TV</button>
   </div>
 </header>
