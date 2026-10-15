@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<!--- # Gecko-Streaming-Plus.M3EZ4909D.html # --->
+<!--- # Gecko-Streaming-Plus.M3EZ5909.html # --->
 <!--- # Monkey Python Coding Circus by Alan.RG Systemas & Team Cangurera c.2026 # --->
 <!--- 🦎 We are the Kangaroo Team: --->
 <!--- Chamán Programador, NOva DulceKAli, Aetheris, Llamita Encendida, Ei2, Sheminay, Leo Bravo, skynet --->
@@ -76,7 +76,8 @@ header span{font-size:0.73em;opacity:0.7}
 
 /* Clase botones Full */
 .full-button{background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer}
-  
+
+/*  
 .folder{border:1px solid #222;border-radius:6px;margin-bottom:6px;background:#111;overflow:hidden}
 .folder-header{padding:10px 12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#151515;transition:all 0.2s}
 .folder-header:hover{background:#1a1a1a;border-color:var(--gecko)}
@@ -84,7 +85,37 @@ header span{font-size:0.73em;opacity:0.7}
 .folder-title{display:flex;gap:8px;align-items:center}
 .folder-count{font-size:0.7em;opacity:0.6;background:#222;padding:2px 6px;border-radius:10px;color:var(--gecko)}
 .folder.active .folder-count{background:#000;color:var(--gecko)}
+*/
 
+/* Clases para GeckoGuías */
+.folder{border:1px solid #222;border-radius:6px;margin-bottom:6px;background:#111;overflow:hidden}
+.folder-header{padding:10px 12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#151515;transition:all 0.2s}
+/*.folder-header:hover{background:#1a1a1a;border-color:var(--gecko)}*/
+/* hover Chamanizado por el ebanista del código for CC4EZ[1510] */
+.folder-header:hover{
+  border:1px solid;
+  border-color:var(--gecko);
+  background:#111;
+  color:#fff;  
+  transform:translateX(3px);
+  font-weight:bold
+}
+.folder-header:hover .folder-count{background:#fff}   
+.folder.active .folder-header{background:var(--gecko);color:#000;font-weight:bold}
+.folder-title{display:flex;gap:8px;align-items:center}
+/*.folder-count{font-size:0.7em;opacity:0.7;background:#222;padding:2px 6px;border-radius:10px;color:var(--gecko)}*/
+/* Chamanizado por el ebanista del código for CC4EZ[1410] */
+.folder-count{
+  font-size:0.8em;
+  opacity:0.8;
+  background:var(--gecko);
+  padding:2px 6px;
+  border-radius:10px;
+  color:#000;
+  font-weight:bold
+}
+.folder.active .folder-count{background:#000;color:var(--gecko)}
+  
 /* ------ MNSLD (Mamushka Navegation System Logic Drive) no se negocia porque es Geckónico ------ */
 /* Fix de Saltos en el renderTree [BASE - siempre cerrado] */
 .folder-body{max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
@@ -99,6 +130,32 @@ header span{font-size:0.73em;opacity:0.7}
 #tree, #sidebar{overflow-y:auto;overflow-x:hidden;-webkit-overflow-scrolling:touch;}
 /* ---------------------------------------------------------------------------------------------- */
 
+/* Fix Leo Bravo a corte y salto en Indicador Glifo Gecko Ansi Emoticon Antique 
+.folder-header > span:last-child {
+  white-space: nowrap;
+  flex-shrink: 0;
+} ... o mejor con una clase explicita by Chamán Programador Ebanista del Código for CC4EZ[1410] */
+.sinsaltos {
+  white-space: nowrap;
+  flex-shrink: 0;
+}   
+/* Chamanicamente copiamos el glow para las GeckoGuías Abiertas for CC4EZ[1410] */
+.folder.open > .folder-header{background:var(--gecko);color:#000;font-weight:bold} /* pinta el header (fondo verde, texto negro) */
+.folder.open > .folder-header .folder-count{background:#000;color:var(--gecko)}   /* invierte la pastilla del count (fondo negro, texto verde) */ 
+
+/* 1. GLOW ORIGINAL EN CANAL SELECCIONADO */
+.channel{padding:7px 12px 7px 28px;border-top:1px solid #1a1a1a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.8em;transition:all 0.15s}
+.channel:hover{
+  border:1px solid;
+  border-color:var(--gecko);
+  background:#111;
+  color:#fff;
+  transform:translateX(3px);
+  font-weight:bold
+}
+.channel.active{border-color:var(--gecko);background:var(--gecko);color:#000;font-weight:bold;box-shadow:0 0 10px var(--gecko), 0 0 5px var(--gecko);text-shadow:0 0 2px #000}
+.channel small{opacity:0.6;font-size:0.75em}
+  
 /* --- BOTONERA SUPERIOR UNIFICADA (MAMUSHKA CONTROL) by Team Cangurera --- */
 .gecko-nav-bar-minimal {
   display: flex;
@@ -147,12 +204,13 @@ active LO TOMA COMO "EN EL CLICK"
 */
 /* ------------------------------------------------------------------------ */
 
-/* 1. GLOW ORIGINAL EN CANAL SELECCIONADO */
+/* 1. GLOW ORIGINAL EN CANAL SELECCIONADO 
 .channel{padding:7px 12px 7px 28px;border-top:1px solid #1a1a1a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.8em;transition:all 0.15s}
 .channel:hover{border:1px solid;border-color:var(--gecko);background:#111;color:#fff;transform:translateX(3px)}
 .channel.active{border-color:var(--gecko);background:var(--gecko);color:#000;font-weight:bold;box-shadow:0 0 10px var(--gecko), 0 0 5px var(--gecko);text-shadow:0 0 2px #000}
 .channel small{opacity:0.6;font-size:0.75em}
-
+*/
+  
 /* 3. PESTAÑAS ABAJO */
 #tabContainer{border-top:2px solid var(--gecko);background:#0f0f0f;display:flex;flex-direction:column}
 .tab-headers{display:flex;border-bottom:1px solid #222;background:#050505}
@@ -330,7 +388,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
   <h1><<<🦎 GECKO·STREAMING·PLUS 📡>>></h1>
   <div style="display:flex;gap:8px;align-items:center">
     <!-- CodeName: TREE MAMUSHKA NAVIGATION SYSTEM LOGIC DRIVE EDITION -->
-    <span>MAMUSHKA EDITION M3EZ[4909D] Geckónico · Minimalista · Eficiente ·</span>
+    <span>MAMUSHKA EDITION M3EZ[5909] Geckónico · Minimalista · Eficiente ·</span>
     <!--button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ TV</button-->
     <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" class="full-button" title="Full TV">⛶ TV</button>
   </div>
@@ -877,7 +935,7 @@ function resetGeckoStorage() {
   const confirmacion = confirm(
     "⚠️ ¡ATENCIÓN GECKO SYSTEM!\n\n" +
     "Esta acción restablecerá Gecko Streaming Plus a sus valores de fábrica.\n\n" +
-    "• 🦎Gecko Te RECOMIENDA Exportar un Full BKuP gecko_tree_backup.gspf antes de PROCEDER.\n" +
+    "• 🦎Gecko Te RECOMIENDA Exportar un Full BKuP gecko_mamushka_tree_backup.gspf antes de PROCEDER.\n" +
     "• ÚNICAMENTE se borrará el almacenamiento local de esta aplicación (Clave: 'gecko_tree_plus_v1').\n" +
     "• El resto de los datos y páginas en tu navegador PERMANECERÁN INTACTOS.\n\n" +
     "¿Deseas proceder con el reinicio de fábrica?"
@@ -1034,7 +1092,7 @@ function renderTree() {
   favFolder.innerHTML = `
     <div class="folder-header" onclick="toggleFavorites()">
       <div class="folder-title">⭐ Gecko Favorite Channels <span class="folder-count">${data.favorites.length}</span></div>
-      <span>${favoritesOpen ? '▼' : '▶'}</span>
+      <span class="sinsaltos">${favoritesOpen ? '|·|▼' : '||▶'}</span>
     </div>
     <div class="folder-body">
       ${data.favorites.map((c, i) => {
@@ -1087,7 +1145,7 @@ function renderTree() {
       <div class="folder-header" onclick="toggleExploradorMadre('${nombreMadre}')">
         <!-- ¡EL TRUCO! Inyectamos el iconoMadre dinámico en lugar del 📁 harcodeado -->
         <div class="folder-title">${iconoMadre} ${nombreMadre} <span class="folder-count">${listas.length}</span></div>
-        <span>${madreAbierta ? '▼' : '▶'}</span>
+        <span class="sinsaltos">${madreAbierta ? '|·|▼' : '||▶'}</span>
       </div>
       <div class="folder-body">
         ${listas.map(lista => `
@@ -1096,7 +1154,7 @@ function renderTree() {
               <div class="folder-title">${lista.icono || '📁'} ${lista.nombre} 
                 <span class="folder-count">${lista.canales.length || '...'}</span>
               </div>
-              <span>${lista.open ? '▼' : '▶'}</span>
+              <span class="sinsaltos">${lista.open ? '|·|▼' : '||▶'}</span>
             </div>
             <div class="folder-body">
               ${!lista.open ? '' : (
@@ -1115,8 +1173,8 @@ function renderTree() {
               )}              
               ${lista.url && lista.url.trim() !== '' ? `
                 <div class="gecko-nav-bar-minimal" style="padding:4px 6px; background:transparent; border:none;">
-                  <button style="flex:1;" title="🔄 Recargar GeckoGuía Externa" onclick="recargarLista(${lista.originalIndex})">🔄 Recargar</button>
-                  <button style="flex:1;" title="🧹 Limpiar GeckoGuía Externa" onclick="limpiarLista(${lista.originalIndex})">🧹 Limpiar</button>
+                  <button style="flex:1;" title="🔄 Recargar GeckoGuía Externa" onclick="recargarLista(${lista.originalIndex})">[ 🔄 Recargar ]</button>
+                  <button style="flex:1;" title="🧹 Limpiar GeckoGuía Externa" onclick="limpiarLista(${lista.originalIndex})">[ 🧹 Limpiar ]</button>
                 </div>` : ''}
             </div>
           </div>
@@ -2144,8 +2202,8 @@ async function exportarJSON(){
   };
   const dataStr = JSON.stringify(backupPluma, null, 2);
   // ------------------------------------------------------------------------------------- //
-  //const suggestedName = 'gecko_tree_backup.json'; // Clasico Original SheiSon
-  const suggestedName = 'gecko_tree_backup.gspf'; // default WhatsApp-friendly
+  //const suggestedName = 'gecko_mamushka_tree_backup.json'; // Clasico Original SheiSon
+  const suggestedName = 'gecko_mamushka_tree_backup.gspf'; // default WhatsApp-friendly
   // Si el navegador soporta File System Access API, mostramos el desplegable pro
   if ('showSaveFilePicker' in window) {
     try {
@@ -2180,7 +2238,7 @@ function importarJSON(event){
   const file = event.target.files[0];
   if(!file) return;
   // Cartelito prudente porque pisa TODO - es FULL BACKUP
-  if(!confirm('⚠️ FULL BACKUP: Esto va a SOBREESCRIBIR todas tus listas y favoritos con el contenido de:\n\n' + file.name + '\n\n¿Seguro?')) {
+  if(!confirm('⚠️ FULL BACKUP: Esto va a SOBREESCRIBIR todas tus GeckoGuías y favoritos con el contenido de:\n\n' + file.name + '\n\n¿Seguro?')) {
     event.target.value = '';
     return;
   }
