@@ -1099,7 +1099,7 @@ function renderTree() {
         const isActive = currentSelected.type === 'fav' && currentSelected.chIdx === i;
         return `
           <div class="channel ${isActive ? 'active' : ''}" onclick="selectAndPlay('fav', null, ${i}, this)">
-            <span>${c.nombre}<br><small>${c.tipo || 'Custom'}</small></span></span><span class="sinsaltos">${isActive ? '@·▶' : '❚❚'}</span>
+            <span>${c.nombre}<br><small>${c.tipo || 'Custom'}</small></span></span><span class="sinsaltos">${isActive ? '@·▶' : '||'}</span>
           </div>`;
       }).join('')}
     </div>
@@ -1167,7 +1167,7 @@ function renderTree() {
                       return `
                         <div class="channel ${isActive ? 'active' : ''}" 
                              onclick="selectAndPlay('list', ${lista.originalIndex}, ${cIdx}, this)">
-                          <span>${ch.nombre}<br><small>${ch.tipo || 'Stream'}</small></span></span><span class="sinsaltos">${isActive ? '@·▶' : '❚❚'}</span>
+                          <span>${ch.nombre}<br><small>${ch.tipo || 'Stream'}</small></span></span><span class="sinsaltos">${isActive ? '@·▶' : '||'}</span>
                         </div>`;
                     }).join('')
               )}              
