@@ -293,9 +293,22 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
   /*letter-spacing: 0.02em;*/
   box-shadow: inset 0 0 12px rgba(var(--gecko-rgb), 0.08); /* brillito geckónico sutil */
 }
-#log::-webkit-scrollbar{ width: 4px; }
-/*#log::-webkit-scrollbar-thumb{ background:#333; border-radius:2px; }*/
-#log::-webkit-scrollbar-thumb{ background: var(--gecko); opacity: 0.5; }
+
+/* Scrollbar Cross-Browser Unificación Avionica F-117 by Leo Bravo for B5EZ[1810] */
+#log, #tree {
+  scrollbar-width: auto; /*thin;*/
+  scrollbar-color: var(--gecko) transparent;
+}
+/* Fallback/override para WebKit/Blink (Chrome, Safari, Edge) */
+#log::-webkit-scrollbar,
+#tree::-webkit-scrollbar {
+  width: 10px; /*4px;*/
+}
+#log::-webkit-scrollbar-thumb,
+#tree::-webkit-scrollbar-thumb {
+  background: var(--gecko);
+  opacity: 0.5;
+}
 
 /* GeckoTime - overlay hora sobre video */
 #geckoTime{
