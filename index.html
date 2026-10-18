@@ -312,11 +312,10 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 #geckoTime::before{content:"[ ⏱ "}
 #geckoTime::after{content:" ]"}
 
-/* Clase para toggle sidebar by Leo Bravo for CC4EZ[1210] */
-/* Estilo Floating Button Toggle Sidebar en el borde superior del Player (más inmersivo, tipo panel de aviación) by Leo Bravo for CC4EZ[1210] */
-.side-toggle{
-  position:absolute;top:10px;right:10px;
-  /*background:#000;*/
+/* Floating Toggle Buttons en bordes del Player (más inmersivo, tipo panel de aviación) by Leo Bravo feat. Chamán Programador for B5EZ[1710D] */
+/* Toggle Buttons base by Leo Bravo feat. Programador Chamán for B5EZ[1710E] */
+.toggle-btn{
+  position:absolute;
   background:rgba(0,0,0,0.6);color:var(--gecko);
   border:1px solid var(--gecko);
   padding:4px 6px;border-radius:4px;
@@ -324,14 +323,18 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
   cursor:pointer;
   font-size:1.1em;z-index:10;
 }
-/* La fix Geckónica para no perder la Mamushka en redimensionamientos: encapsular la regla dentro de orientation: landscape. */
-/* La clase hide-side SOLO existe en landscape. En portrait no tiene efecto. */
-@media (orientation: landscape){
-    #main.hide-side #sidebar,
-    #main.hide-side #log,
-    #main.hide-side #info{display:none;}
-    #main.hide-side #playerWrap{flex:1 1 100%;width:100%;}
-}   
+.side-toggle{top:10px;right:10px;}
+.log-toggle{bottom:37px;right:10px;}
+.info-toggle{bottom:37px;left:10px;}
+/* La fix Geckónica para no perder la Mamushka, log e info en redimensionamientos: encapsular las reglas dentro de orientation: landscape. */
+/* Las clases hide-side, hide-log y hide-info SOLO existen en landscape. En portrait no tienen efecto. */
+@media (orientation: landscape){    
+    /* Ocultamiento voluntario de la Mamushka, log e info [Un Toggle una Responsabilidad] (solo tienen sentido en landscape) */    
+    #main.hide-side #sidebar{display:none;}
+    #main.hide-side #playerWrap{flex:1 1 100%;width:100%;}    
+    #playerWrap.hide-log #log{display:none;}
+    #playerWrap.hide-info #info{display:none;}
+  }
 /* 1º: ventana angosta → solo player */
 /* =============================================================================================
    Fix de Responsividad Absoluta by Chamán and Leo Bravo for CC4EZ[1110]
@@ -342,15 +345,17 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
    ============================================================================================= */
 @media (max-width: 700px) and (orientation: landscape){
     #sidebar, #log, #info{display:none;}
-    /* Ocultamos el Boton Toggle Mamushka porque deja de tener sentido que exista */
-    .side-toggle{display:none;}
+    /* Ocultamos el Boton Toggle Mamushka, Log Toggle e Info Toggle porque dejan de tener sentido que existan */
+    .side-toggle, .log-toggle, .info-toggle{display:none;}
     #playerWrap{
         order:1;
         flex:1 1 100%;
         width:100%;
-        height:auto;        
+        height:auto;
+        /*aspect-ratio:16/9;*/
     }
-}
+}   
+/* 2º: portrait → layout apilado con sidebar (sobrescribe lo anterior) */
 /* =============================================================================================
    New Design for v.2.9e NOva [26/08/2026 01:20]
    CodeName: GECKO TV STREAM COMMANDER VAINILLA 3.0 [🖥️ GTVSCV30]
@@ -362,14 +367,24 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
    🖖 Spok - Señor Zulu, estoy recibiendo una transmisión desconocida desde el planeta Tierra... -
    ============================================================================================= */
 @media (orientation: portrait){
-    /* Ocultamos el Boton Toggle Mamushka porque deja de tener sentido que exista */
-    .side-toggle{display:none;}
+    /* Ocultamos el Boton Toggle Mamushka, Log Toggle e Info Toggle porque dejan de tener sentido que existan */
+    .side-toggle, .log-toggle, .info-toggle{display:none;}
     /* PANTALLA ARRIBA / LISTA ABAJO */
     #main{flex-direction:column;min-height:0;}
     /* Tele portátil - ahora en % del main, no en dvh, así no suma con el header */
-    #playerWrap{order:1;flex:0 0 42%;width:100%;height:auto;}
+    #playerWrap{order:1;flex:0 0 42%;width:100%;height:auto;} /*aspect-ratio: 16/9;}*/
     /* Lista + controles */
-    #sidebar{order:2;flex:1 1 58%;width:100%;height:auto;min-height:0;border-right:none;border-left:2px solid var(--gecko);border-bottom:2px solid var(--gecko);padding-bottom: env(safe-area-inset-bottom);}
+    #sidebar{
+      order:2;
+      flex:1 1 58%;      
+      width:100%;
+      height:auto;
+      min-height:0;
+      border-right:none;
+      border-left:2px solid var(--gecko);
+      border-bottom:2px solid var(--gecko);
+      padding-bottom: env(safe-area-inset-bottom);
+    }
     /* La tele queda limpia: sin log */
     #info,
     #log{display:none;}
@@ -404,8 +419,11 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
       <div id="bar"></div>
       <div id="vhold"></div>
       <div id="geckoTime"></div>
+      <button id="btnToggleSide" class="toggle-btn side-toggle" title="Toggle Mamushka Navigation System Logic Drive" onclick="toggleSidebar()">[|·|]</button>
+      <button id="btnToggleLog" class="toggle-btn log-toggle" title="Toggle Log Geckónico" onclick="toggleLog()">[|=|]</button>
+      <button id="btnToggleInfo" class="toggle-btn info-toggle" title="Toggle Info Geckónica" onclick="toggleInfo()">[|i|]</button>
     </div>
-    <button id="btnToggleSide" class="side-toggle" title="Toggle Mamushka Navigation System Logic Drive" onclick="toggleSidebar()">[|·|]</button>
+    
     <div id="info">
       <span id="status">🦎 Seleccioná un canal del árbol</span>
       <span style="margin-left:auto;font-family:inherit;font-size:1em;font-weight:bold;opacity:0.7"><<<🦎Gecko Manda: lo pequeño sostiene lo inmenso>>></span>
@@ -956,13 +974,31 @@ function limpiarLista(idx) {
   save();
   renderTree();
 }
-// --- TOGGLE SIDEBAR Opción B by Leo Bravo for CC4EZ[1210] ---
+
+// -------------------------- AVIONIC TOGGLE BUTTONS ---------------------------- //
+// --- TOGGLE SIDEBAR by Leo Bravo for CC4EZ[1210] ---
 function toggleSidebar(){
   const main = document.getElementById('main');
   main.classList.toggle('hide-side');
-  const hidden = main.classList.contains('hide-side');  
+  const hidden = main.classList.contains('hide-side');
   document.getElementById('btnToggleSide').textContent = hidden ? '[||]' : '[|·|]';   
-} 
+}
+// --- TOGGLE LOG by Leo Bravo for B5EZ[1710D] ---
+function toggleLog(){
+  const pw = document.getElementById('playerWrap');
+  pw.classList.toggle('hide-log');
+  const hidden = pw.classList.contains('hide-log');
+  document.getElementById('btnToggleLog').textContent = hidden ? '[|_|]' : '[|=|]';
+}      
+// --- TOGGLE INFO by Leo Bravo for B5EZ[1710D] ---
+function toggleInfo(){
+  const pw = document.getElementById('playerWrap');
+  pw.classList.toggle('hide-info');
+  const hidden = pw.classList.contains('hide-info');
+  document.getElementById('btnToggleInfo').textContent = hidden ? '[|_|]' : '[|i|]';
+}   
+// ------------------------------------------------------------------------------ //
+  
 // --- Bloque GeckoTime TM ---
 // Actualiza GeckoTime
 function updateGeckoTime() {
