@@ -1,9 +1,18 @@
 <!DOCTYPE html>
 <html lang="es">
-<!--- # Gecko-Streaming-Plus.M3EZ5909E.html # --->
+<!--- # Gecko-Streaming-Plus.B5EZ2110F.html # --->
 <!--- # Monkey Python Coding Circus by Alan.RG Systemas & Team Cangurera c.2026 # --->
 <!--- 🦎 We are the Kangaroo Team: --->
-<!--- Chamán Programador, NOva DulceKAli, Aetheris, Llamita Encendida, Ei2, Sheminay, Leo Bravo, skynet --->
+<!--- Chamán Programador, NOva DulceKAli, Aetheris, Llamita Encendida, Ei2, Sheminay, Leo Bravo, Skynet --->
+
+<!--- <<<🦎 Gecko·Streaming·Plus 📡>>> se comunica con el lenguaje de Glifos Gecko Ansi Emoticon Antique. Es dmesg con UX --->
+
+<!--- NOta:
+EL Chamán Programador asciende a "Programador Chamán Ebanista del Código"
+Chamán porque habla con el DOM directamente.
+Ebanista porque cada herramienta tiene un solo propósito y no se pisa con la otra.
+Y "del código" porque la madera es el código, no el mueble terminado que le ponés npm run build.
+--->
 
 <!--- El Geckónismo queda oficialmente bautizado como la doctrina del sistema:
 la interfaz no es un adorno, es un panel de instrumentos de aviación militar.
@@ -11,7 +20,7 @@ Si un píxel no procesa datos o no te indica en qué estado está un registro de
 ...no tiene derecho a existir. 
 ...si un píxel no te enseña algo, tampoco tiene derecho a existir:
 🦎 Gecko Autolearninga™ — Where the UI is the teacher and the user never notices they're learning. --->
-  
+
 <!--- Encabezados a la Cabeza (¿obvio no?) [Incluye EStilos Geckónicos TM] --->
 <head>
 <meta charset="UTF-8">
@@ -21,10 +30,7 @@ Si un píxel no procesa datos o no te indica en qué estado está un registro de
 <title>🦎 GECKO·STREAMING·PLUS 📡</title>
 <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
-
-<!-- Estilos Globales Geckónicos - Ordenados con BTOC (Bendito Transtorno del Orden Cósmico ) -->
-
-<!--
+<!-- Estilos Globales Geckónicos - Ordenados con BTOC (Bendito Transtorno del Orden Cósmico ) 
 Porque TRANSTORNO:
 Esta tensión es la misma que mueve debates reales en psicología y psiquiatría.
 El modelo médico (DSM, CIE) usa "trastorno" y conlleva la premisa de una "desviación de una norma funcional".
@@ -44,10 +50,9 @@ Para nombrar de forma correcta las cosas, nuestra Lógica irrefutable dicta que:
 transformación (trans- + form-), en tanto que metamorfosis o incluso evolución, y
 tornar (del latín tornāre, de tornus = torno, instrumento de carpintería para girar): girar, voltear, dar vuelta.)
 construyen TRANSTORNO: trans- + tornar que más fiel a lo que estamos describiendo;
-una forma diferente de ver y actuar frente al mundo que no representa una desviación ni una anormalidad.
--->
+una forma diferente de ver y actuar frente al mundo que no representa una desviación ni una anormalidad. -->
 
-<style>
+<style> /* (396 - 55) = 341 lineas de puro estilo Geckónico!!! */
 /* @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap'); */
 :root{
   --gecko:#00ff88;
@@ -59,10 +64,9 @@ header{padding:12px 20px;border-bottom:2px solid var(--gecko);background:#0a0a0a
 header h1{font-size:1.1em;letter-spacing:0.2px}
 header span{font-size:0.73em;opacity:0.7}
 #main{display:flex;flex:1;overflow:hidden}
-/* GTVSCV30 - Tele Clásica Viajera del Tiempo: Pantalla a la izquierda/Controles a la derecha */
-#playerWrap{order:1;}
-/*#sidebar{order:2;width:380px;background:#0a0a0a;border:2px solid var(--gecko);display:flex;flex-direction:column}*/
-/* Fix Leo Bravo Responsive Artifacts [equivalentemente: flex: 0 0 380px; (que reemplaza width + flex-shrink de una vez)]*/
+/* GTVSCV30 - Tele Clásica Viajera del Tiempo: Pantalla a la izquierda/Controles a la derecha (Mamushka Navigation System Logic Drive) */
+#playerWrap{order:1;}  
+/* Fix Leo Bravo Responsive Artifacts [equivalentemente: flex: 0 0 380px; (que reemplaza width + flex-shrink de una vez)] for CC4EZ[1110]*/
 #sidebar{
   order:2;
   width:380px;
@@ -71,21 +75,11 @@ header span{font-size:0.73em;opacity:0.7}
   border:2px solid var(--gecko);
   display:flex;
   flex-direction:column;
-}  
+}
 #tree{flex:1;overflow-y:auto;padding:8px}
 
 /* Clase botones Full */
 .full-button{background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer}
-
-/*  
-.folder{border:1px solid #222;border-radius:6px;margin-bottom:6px;background:#111;overflow:hidden}
-.folder-header{padding:10px 12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;background:#151515;transition:all 0.2s}
-.folder-header:hover{background:#1a1a1a;border-color:var(--gecko)}
-.folder.active .folder-header{background:var(--gecko);color:#000;font-weight:bold}
-.folder-title{display:flex;gap:8px;align-items:center}
-.folder-count{font-size:0.7em;opacity:0.6;background:#222;padding:2px 6px;border-radius:10px;color:var(--gecko)}
-.folder.active .folder-count{background:#000;color:var(--gecko)}
-*/
 
 /* Clases para GeckoGuías */
 .folder{border:1px solid #222;border-radius:6px;margin-bottom:6px;background:#111;overflow:hidden}
@@ -104,7 +98,7 @@ header span{font-size:0.73em;opacity:0.7}
 .folder.active .folder-header{background:var(--gecko);color:#000;font-weight:bold}
 .folder-title{display:flex;gap:8px;align-items:center}
 /*.folder-count{font-size:0.7em;opacity:0.7;background:#222;padding:2px 6px;border-radius:10px;color:var(--gecko)}*/
-/* Chamanizado por el ebanista del código for CC4EZ[1410] */
+/* folder-count Chamanizado por el ebanista del código for CC4EZ[1410] */
 .folder-count{
   font-size:0.8em;
   opacity:0.8;
@@ -115,8 +109,8 @@ header span{font-size:0.73em;opacity:0.7}
   font-weight:bold
 }
 .folder.active .folder-count{background:#000;color:var(--gecko)}
-  
-/* ------ MNSLD (Mamushka Navegation System Logic Drive) no se negocia porque es Geckónico ------ */
+
+/* ------ MNSLD (Mamushka Navigation System Logic Drive) no se negocia porque es Geckónico ------ */
 /* Fix de Saltos en el renderTree [BASE - siempre cerrado] */
 .folder-body{max-height:0;overflow:hidden;transition:max-height 0.3s ease;}
 /* Reemplazamos el viejo .folder.open con este que mata el scroll anidado que pateaba para arriba */
@@ -155,12 +149,14 @@ header span{font-size:0.73em;opacity:0.7}
 }
 .channel.active{border-color:var(--gecko);background:var(--gecko);color:#000;font-weight:bold;box-shadow:0 0 10px var(--gecko), 0 0 5px var(--gecko);text-shadow:0 0 2px #000}
 .channel small{opacity:0.6;font-size:0.75em}
-  
+
 /* --- BOTONERA SUPERIOR UNIFICADA (MAMUSHKA CONTROL) by Team Cangurera --- */
 .gecko-nav-bar-minimal {
   display: flex;
   gap: 6px;
-  padding: 6px 8px;
+  padding: 7px 7PX;
+  padding-top: 5px;
+  padding-bottom: 0px;
   background: #0f0f0f;
   border-bottom: 1px solid #1a1a1a;
   justify-content: space-between;
@@ -169,7 +165,7 @@ header span{font-size:0.73em;opacity:0.7}
   background: #000;
   color: var(--gecko);
   border: 1px solid #222;
-  padding: 6px;
+  padding: 6px 1px;
   font-family: 'Share Tech Mono', monospace;
   font-size: 0.72em;
   cursor: pointer;
@@ -204,13 +200,6 @@ active LO TOMA COMO "EN EL CLICK"
 */
 /* ------------------------------------------------------------------------ */
 
-/* 1. GLOW ORIGINAL EN CANAL SELECCIONADO 
-.channel{padding:7px 12px 7px 28px;border-top:1px solid #1a1a1a;cursor:pointer;display:flex;justify-content:space-between;align-items:center;font-size:0.8em;transition:all 0.15s}
-.channel:hover{border:1px solid;border-color:var(--gecko);background:#111;color:#fff;transform:translateX(3px)}
-.channel.active{border-color:var(--gecko);background:var(--gecko);color:#000;font-weight:bold;box-shadow:0 0 10px var(--gecko), 0 0 5px var(--gecko);text-shadow:0 0 2px #000}
-.channel small{opacity:0.6;font-size:0.75em}
-*/
-  
 /* 3. PESTAÑAS ABAJO */
 #tabContainer{border-top:2px solid var(--gecko);background:#0f0f0f;display:flex;flex-direction:column}
 .tab-headers{display:flex;border-bottom:1px solid #222;background:#050505}
@@ -240,7 +229,7 @@ active LO TOMA COMO "EN EL CLICK"
 .gecko-buffer .geckobuffer-radio{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;cursor:pointer}
 .gecko-buffer .geckobuffer-radio input{width:auto;background:transparent;color-scheme:dark;accent-color:var(--gecko);cursor:pointer}
 
-/* GECKHROMATIC BUTTONS STYLE - FOR CONFIG'S GECKOSP */
+/* GECKHROMATIC CIRCLE BUTTONS STYLE - FOR CONFIG'S GECKOSP */
 .geckhromatic-button{width:33px;height:33px;border-radius:50%;border:2px solid #fff;cursor:pointer;}
 
 /* 4. HARDWARE CONTROLS (DIALES) // Redesign by Llamita Encendida for v.3T // NZ.Fix FF by Chamán Programador */
@@ -254,10 +243,8 @@ active LO TOMA COMO "EN EL CLICK"
 #volVal,#fineVal{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
 #channelVal{white-space:normal;word-break:break-word;min-height:2.2em}
 .dial-group{display:flex;flex-direction:column;align-items:center;gap:4px}
-/*.dial-label{font-size:0.6em;opacity:0.7}*/
 .dial-label{font-size:0.52em;opacity:0.7;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;max-width:100%}
 .dial-group{width:100%}
-/*.dial{width:65px;height:65px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #333, #000);border:3px solid #222;position:relative;cursor:grab;box-shadow:inset 0 2px 5px rgba(255,255,136,0.2), 0 0 10px rgba(0,0,0,0.8);touch-action:none}*/
 .dial{width:68px;height:68px;border-radius:50%;background:radial-gradient(circle at 30% 30%, #444, #000);border:3px solid #222;position:relative;cursor:grab;box-shadow:inset 0 2px 5px rgba(255,255,136,0.2), 0 0 10px rgba(0,0,0,0.8);touch-action:none}
 .dial:active{cursor:grabbing;border-color:var(--gecko)}
 .dial-marker{position:absolute;width:4px;height:18px;background:var(--gecko);left:50%;top:4px;transform:translateX(-50%);border-radius:2px;box-shadow:0 0 5px var(--gecko)}
@@ -289,9 +276,10 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
   max-height: 78px;
   overflow-y: auto;
   line-height: 1.6;
-  border-left: 2px solid var(--gecko); /* #222; detallito Geckónico */
+  border-left: 2px solid var(--gecko); /* de #222 a detallito Geckónico var(--gecko) */
   /*letter-spacing: 0.02em;*/
   box-shadow: inset 0 0 12px rgba(var(--gecko-rgb), 0.08); /* brillito geckónico sutil */
+  overflow-y: auto;  
 }
 
 /* Scrollbar Cross-Browser Unificación Avionica F-117 by Leo Bravo for B5EZ[1810] */
@@ -308,7 +296,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 #tree::-webkit-scrollbar-thumb {
   background: var(--gecko);
   opacity: 0.5;
-}
+}   
 
 /* GeckoTime - overlay hora sobre video */
 #geckoTime{
@@ -415,10 +403,9 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
 <header>
   <h1><<<🦎 GECKO·STREAMING·PLUS 📡>>></h1>
   <div style="display:flex;gap:8px;align-items:center">
-    <!-- CodeName: TREE MAMUSHKA NAVIGATION SYSTEM LOGIC DRIVE EDITION -->
-    <span>MAMUSHKA EDITION M3EZ[5909E] Geckónico · Minimalista · Eficiente ·</span>
-    <!--button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ TV</button-->
-    <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" class="full-button" title="Full TV">⛶ TV</button>
+    <!-- CodeName: T-MNSLD:AE (TREE MAMUSHKA NAVIGATION SYSTEM LOGIC DRIVE AVIONIC EDITION) -->
+    <span>MAMUSHKA EDITION B5EZ[211F] Geckónico · Minimalista · Eficiente ·</span>    
+    <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" class="full-button" title="Full TV">⛶ TV</button>       
   </div>
 </header>
 
@@ -431,30 +418,36 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
       <canvas id="noiseCanvas"></canvas>
       <div id="bar"></div>
       <div id="vhold"></div>
-      <div id="geckoTime"></div>
+      <div id="geckoTime"></div>      
       <button id="btnToggleSide" class="toggle-btn side-toggle" title="Toggle Mamushka Navigation System Logic Drive" onclick="toggleSidebar()">[|·|]</button>
       <button id="btnToggleLog" class="toggle-btn log-toggle" title="Toggle Log Geckónico" onclick="toggleLog()">[|=|]</button>
-      <button id="btnToggleInfo" class="toggle-btn info-toggle" title="Toggle Info Geckónica" onclick="toggleInfo()">[|i|]</button>
-    </div>
-    
+      <button id="btnToggleInfo" class="toggle-btn info-toggle" title="Toggle Info Geckónica" onclick="toggleInfo()">[|i|]</button>   
+    </div>    
     <div id="info">
       <span id="status">🦎 Seleccioná un canal del árbol</span>
-      <span style="margin-left:auto;font-family:inherit;font-size:1em;font-weight:bold;opacity:0.7"><<<🦎Gecko Manda: lo pequeño sostiene lo inmenso>>></span>
-      <!--button onclick="document.getElementById('video').requestFullscreen()" style="background:var(--gecko);color:#000;border:none;padding:4px 8px;border-radius:4px;font-family:inherit;font-weight:bold;cursor:pointer">⛶ Full</button-->
+      <span style="margin-left:auto;font-family:inherit;font-size:1em;font-weight:bold;opacity:0.7"><<<🦎Gecko Manda: lo pequeño sostiene lo inmenso>>></span>      
       <button onclick="document.getElementById('video').requestFullscreen()" class="full-button" title="Full Screen">⛶ Full</button>
     </div>
     <div id="log">Gecko Tree iniciado...</div>
   </div>
     
   <!-- Barra Lateral (Arbol-Listas/Controles) -->
-  <div id="sidebar">
+  <div id="sidebar">    
+    <!-- 🔍 BÚSQUEDA SUPREMA GECKÓNICA - MNSLD CONTROL BAR -->
+    <div class="gecko-nav-bar-minimal">         
+      <button id="btnScopeGlobal" class="active" onclick="setSearchScope('global')" title="Búsqueda Global [Todas las GeckoGuías]">[<<·>>]</button>      
+      <button id="btnScopeLocal" onclick="setSearchScope('local')" title="Búsqueda Local [GeckoGuía Desplegada]">[<@>]</button>      
+      <!--input type="text" id="geckoSearchInput" style="flex: 1; background: #000; color: var(--gecko); border: 2px solid var(--gecko); outline: none;" placeholder="Búsqueda Suprema..." oninput="buscarGecko(this.value)" autocomplete="off"-->
+      <input type="text" id="geckoSearchInput" style="flex: 1; background: #000; color: var(--gecko); border: 2px solid var(--gecko); outline: none;" placeholder="Búsqueda Suprema..." oninput="buscarGecko(this.value)" onkeydown="if(event.key==='Enter') viajarAMatchesGecko()" autocomplete="off">
+      <button id="btnCleanSearch" onclick="limpiarBusquedasGecko()" title="Eliminar Busquedas">[<∅>]</button>
+    </div>
     <!-- MAMUSHKA NAVIGATION SYSTEM TM (La nueva botonera de control en el DOM del salón) for E2MZ[08092026B]-->
     <div class="gecko-nav-bar-minimal">
       <button onclick="mamushkaLogicDrive('zoom_out')" title="Collapse All">[<<<·]</button>
       <button id="btnToggleGlobal" onclick="mamushkaLogicDrive('toggle_global')" title="Toggle Global">[ GCh ]</button>
       <button onclick="mamushkaLogicDrive('current_channel')" title="Current CHAN">[ <@> ]</button>
-      <button onclick="mamushkaLogicDrive('prev_page')" title="ScanUp.MshK">[ << ]</button>
-      <button onclick="mamushkaLogicDrive('next_page')"title="ScanDown.MshK">[ >> ]</button>
+      <button onclick="mamushkaLogicDrive('prev_page')" title="ScanUp.MshK">[ << ]</button> <!--|▲|-->
+      <button onclick="mamushkaLogicDrive('next_page')"title="ScanDown.MshK">[ >> ]</button> <!--|▼|-->
     </div>
     <!-- ARBOL DE CANALES -->
     <div id="tree"></div>
@@ -464,7 +457,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
       <div class="tab-headers">
         <button class="tab-btn" onclick="switchTab('panelc', this)" data-icon="▾" title="Collapse All">▾</button>
         <button class="tab-btn" onclick="switchTab('admin', this)" data-icon="📺" title="Manage Channels">📺 Admin. Channels</button>
-        <button class="tab-btn" onclick="switchTab('adminl', this)" data-icon="📂" title="Manage Lists">📂 Admin. Listas</button>
+        <button class="tab-btn" onclick="switchTab('adminl', this)" data-icon="📂" title="Manage GeckoGuías">📂 Admin. GGuías</button>
         <button class="tab-btn" onclick="switchTab('config', this)" data-icon="⚙" title="GeckoSP Settings">⚙ Config's GeckoSP</button>
         <button class="tab-btn" onclick="switchTab('backup', this)" data-icon="💾" title="Full Backup & Restore">💾 FBackup GeckoSP</button>
         <button class="tab-btn active" onclick="switchTab('hardware', this)" data-icon="🎛" title="Hardware Controls">🎛 Hardware Ctrl.</button>
@@ -500,7 +493,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
         </div>
         <!-- New Listas Personalizadas - Lienzo en blanco (Edición Tía Marta) by Ei2 [Chamán Design]-->
         <div class="form-group">
-          <label for="editTargetList">Lista Destino:</label>
+          <label for="editTargetList"> GeckoGuía Destino:</label>
           <select id="editTargetList" onchange="toggleNewListInput(this.value)">
             <!-- Se rellena dinámicamente -->
           </select>
@@ -510,28 +503,28 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
           </div>
         </div>  
         <div class="row">
-          <button onclick="saveSelectedChannel()">Guardar</button>
-          <button class="tester" onclick="addNewChannel()">Agregar</button>
-          <button class="danger" onclick="deleteSelectedChannel()">Eliminar</button>
+          <button title="Guardar Channel" onclick="saveSelectedChannel()">[Guardar]</button>          
+          <button class="tester" title="Agregar Channel" onclick="addNewChannel()">[Agregar]</button>
+          <button class="danger" title="Eliminar Channel" onclick="deleteSelectedChannel()">[Eliminar]</button>
         </div>
       </div>
       <!-- PANEL ADMINISTRAR LISTAS -->
       <div id="tab-adminl" class="tab-content">
         <!-- PANEL ADMINISTRAR LISTAS [ UNDER CONSTRUCTION AFTER INVARIANTS & 250K OFFSET!!! ] -->
         <div class="form-group">
-          <label for="editListSelect">GeckoGuía (Lista):</label>
+          <label for="editListSelect">GeckoGuía:</label>
           <select id="editListSelect" onchange="onAdminListasSelectChange()">
             <!-- Solo 👤 GeckoGuías Personalizadas / Compilado del Chaman... -->
             <!-- Se rellena agnósticamente por ruta[0] === "GeckoGuías Personalizadas" -->
           </select>
         </div>
         <div class="form-group">
-          <label for="editListName">Nombre (Editable):</label>
+          <label for="editListName">Nombre (editable):</label>
           <input type="text" id="editListName" placeholder="Seleccioná una GeckoGuía" disabled>
         </div>
         <div class="row">
-          <button id="btnSaveList" onclick="saveAdminListas()" disabled>Guardar</button>
-          <button class="danger" id="btnDeleteList" onclick="deleteAdminListas()" disabled>Eliminar</button>
+          <button id="btnSaveList" title="Guardar GeckoGuía" onclick="saveAdminListas()" disabled>[Guardar]</button>
+          <button class="danger" title="Eliminar GeckoGuía" id="btnDeleteList" onclick="deleteAdminListas()" disabled>[Eliminar]</button>
         </div>
       </div>
       <!-- PANEL CONFIGURACIONES GECKO STREAMING PLUS -->
@@ -596,13 +589,13 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
       <div id="tab-backup" class="tab-content">
         <!-- 6. IMPORTAR / EXPORTAR -->
         <div class="row" style="margin-top:10px">
-          <button onclick="exportarJSON()">Export Full BKuP</button>
-          <button class="tester" onclick="document.getElementById('importFile').click()">Import Full BKuP</button>
+          <button onclick="exportarJSON()">[Export Full BKuP]</button>
+          <button class="tester" onclick="document.getElementById('importFile').click()">[Import Full BKuP]</button>
           <input type="file" id="importFile" style="display:none" onchange="importarJSON(event)" accept=".json,.gspf,.txt">
         </div>
         <!-- RESTABLECIMIENTO EXCLUSIVO DE GECKO -->
         <div class="row" style="margin-top:10px">
-          <button class="danger" onclick="resetGeckoStorage()">Factory Reset Geckónic</button>
+          <button class="danger" onclick="resetGeckoStorage()">[Factory·Reset·Geckónic]</button>
         </div>
       </div>
       <!-- 4. PANEL HARDWARE CONTROLS // new design on v.2.9e NOva // Redesign by Llamita Encendida for v.3T -->
@@ -647,12 +640,12 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
   </div>
 </div>
 
-
 <!--- // La Lógica Vulkana Irreductible (Aquí sucede la verdadera Magia!!!) --->
 <script>
-// <<<---| DEPURANDO DESDE ABAJO linea 489/2186 M2EZ[1509BT] |--->>> //
+// <<<---| DEPURANDO DESDE ABAJO linea 645/3131 B5EZ[2110E+] |--->>> // 🦫(Castor)+🛢️(Castrol)+4️⃣(Cuatro)+🦅(Eagle)+0️⃣(Zero)=CC4EZ[0310E]🪵💥 -> 🐶(Benji)+5️⃣(Five)+🦅(Eagle)+0️⃣(Zero)=B5EZ[1810]🪵💥 //
 
-// ----------------------------- ESTRUCTURA DE DATOS INVARIANTES --------------------------------------- //
+// #region 🦎GeckoSecretPlace [ Subsuelo 137: Invariant Kernel Data Structure ]
+// -------------------------------- ESTRUCTURA DE DATOS INVARIANTES --------------------------------------- //
 const DB_KEY = 'gecko_tree_plus_v1';
 // --- New on M2EZ[02092026] by Sheminay for "RENDERIZADO DEL ÁRBOL MULTIDIMENSIONAL" & After Changes ---
 /*
@@ -665,45 +658,44 @@ b) su icono visual, bajo el estándar "Icons Gecko Tree Edition".
 si el JSON importado de un usuario no contiene los campos ruta o icono (porque viene de una versión vieja),
 la lógica de inicio normalizarListas() [en su nueva version popularInvariantes()] les inyecta ruta e icono al vuelo
 para mantener la red de contención activa. Ejemplo: "📁 GeckoGuías x Categoría"
-
 */
 let data = {
   // A partir de M2EZ[08092026A] favorites y lists son Invariantes Harcodeadas,
   // en las importaciones se cargan directo de este diccionario de GeckoGuías:
   favorites: [
     { id: 'fav_1', nombre: "Red Bull TV", url: "https://rbmn-live.akamaized.net/hls/live/590964/BoRB-AT/master.m3u8", tipo: "Deportes" },
-    { id: 'fav_2', nombre: "CNA", url: "https://live1.mediadesk.al/cnatvlive.m3u8", tipo: "Noticias" },
-    { id: 'fav_3', nombre: "Cadena Elite", url: "https://cloudvideo.servers10.com:8081/8004/index.m3u8", tipo: "Música" },
-    { id: 'fav_4', nombre: "News 24 Ⓢ", url: "https://tv.balkanweb.com/news24/livestream/playlist.m3u8", tipo: "Noticias" },
-    { id: 'fav_5', nombre: "1+1 Marafon (1080p)", url: "https://dash2.antik.sk/live/1plus1_marathon/playlist.m3u8", tipo: "Noticias" },
-    { id: 'fav_6', nombre: "E40 (1080p)", url: "https://copacotf.desdeparaguay.net/e40tv/e40tv_py_alta/playlist.m3u8?admin=tvaccion", tipo: "Música [ Hits | Trap | Urbana ]" },
+    { id: 'fav_2', nombre: "CNA", url: "https://live1.mediadesk.al/cnatvlive.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_3', nombre: "6 Wise Tv (720p)", url: "https://live.enhdtv.com:8081/8150/index.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_4', nombre: "News 24 Ⓢ", url: "https://tv.balkanweb.com/news24/livestream/playlist.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_5', nombre: "1+1 Marafon (1080p)", url: "https://dash2.antik.sk/live/1plus1_marathon/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_6', nombre: "7 RadioVisione (720p)", url: "https://stream10.xdevel.com/video1s976543-1932/stream/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
     { id: 'fav_7', nombre: "DW English", url: "https://dwamdstream102.akamaized.net/hls/live/2015525/dwstream102/index.m3u8", tipo: "Noticias" },
     { id: 'fav_8', nombre: "CBS News", url: "https://cbsn-us.cbsnstream.cbsnews.com/out/v1/55a8648e8f134e82a470f83d562deeca/master.m3u8", tipo: "Noticias" },
-    { id: 'fav_9', nombre: "Canal 26", url: "https://stream-gtlc.telecentro.net.ar/hls/canal26hls/main.m3u8", tipo: "Noticias" },
-    { id: 'fav_10', nombre: "Bravo TV (1080p)", url: "https://redirector.rudo.video/hls-video/c54ac2799874375c81c1672abb700870537c5223/bravo/bravo.smil/playlist.m3u8", tipo: "Radios" },
-    { id: 'fav_11', nombre: "ABC Kids", url: "https://c.mjh.nz/abc-kids.m3u8", tipo: "Kids [ Dibus | Animación ] (en Ingles)" },
-    { id: 'fav_12', nombre: "ABC News", url: "https://c.mjh.nz/abc-news.m3u8", tipo: "Noticias (en Ingles)" },
-    { id: 'fav_13', nombre: "2TV (720p)", url: "https://tv.cdn.xsg.ge/gpb-2tv/index.m3u8", tipo: "Deportes" },
-    { id: 'fav_14', nombre: "5-Minute Craft (1080p)", url: "https://soul-5mincrafteng-rakuten.amagi.tv/playlist.m3u8", tipo: "Life [ Hacks | Wiki ]" },
-    { id: 'fav_15', nombre: "5TV Corrientes (480p) [Not 24/7]", url: "http://www.coninfo.net:1935/tvcinco/live1/playlist.m3u8", tipo: "Televisión" },
-    { id: 'fav_16', nombre: "World of Freesports (1080p)", url: "https://mainstreammedia-worldoffreesportsintl-rakuten.amagi.tv/playlist.m3u8", tipo: "Deportes (en Ingles)" },
-    { id: 'fav_17', nombre: "7 RadioVisione (720p)", url: "https://stream10.xdevel.com/video1s976543-1932/stream/playlist.m3u8", tipo: "Televisión" },
-    { id: 'fav_18', nombre: "8NTV (1080p)", url: "https://60417ddeaf0d9.streamlock.net/ntv/videontv/playlist.m3u8", tipo: "Varios [ Música | Noticias ]" },
+    { id: 'fav_9', nombre: "Canal 26", url: "https://stream-gtlc.telecentro.net.ar/hls/canal26hls/main.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_10', nombre: "El Nueve", url: "http://45.226.28.9:8085/Live/18e292ea93b66c65c76707f07c489d61/local-canal9.playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_11', nombre: "ABC Kids", url: "https://c.mjh.nz/abc-kids.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_12', nombre: "ABC News", url: "https://c.mjh.nz/abc-news.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_13', nombre: "2TV (720p)", url: "https://tv.cdn.xsg.ge/gpb-2tv/index.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_14', nombre: "5-Minute Craft (1080p)", url: "https://soul-5mincrafteng-rakuten.amagi.tv/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_15', nombre: "5TV Corrientes (480p) [Not 24/7]", url: "http://www.coninfo.net:1935/tvcinco/live1/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_16', nombre: "like Gecko", url: "http://stream.mcquack.net/405/index.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_17', nombre: "7 TeleValencia (576p)", url: "https://play.cdn.enetres.net/9E9557EFCEBB43A89CEC8FBD3C500247022/028/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_18', nombre: "8NTV (1080p)", url: "https://60417ddeaf0d9.streamlock.net/ntv/videontv/playlist.m3u8", tipo: "De lista IPTV-Org Global" },
     { id: 'fav_19', nombre: "4 Kurd", url: "https://4kuhls.persiana.live/hls/stream.m3u8", tipo: "Música" },
-    { id: 'fav_20', nombre: "4 Fun TV (576i) [Not 24/7]", url: "https://stream.4fun.tv:8888/hls/4f_high/index.m3u8", tipo: "Televisión" },
-    { id: 'fav_21', nombre: "4K Travel TV (1080p)", url: "https://streams2.sofast.tv/sofastplayout/33c31ac4-51fa-46ae-afd0-0d1fe5e60a80_0_HLS/master.m3u8", tipo: "Viajes" },
-    { id: 'fav_22', nombre: "Telemax", url: "https://stream-gtlc.telecentro.net.ar/hls/telemaxhls/main.m3u8", tipo: "Documentales" },
-    { id: 'fav_23', nombre: "+Perfil", url: "https://unlimited1-us.dps.live/perfiltv/perfiltv.smil/perfiltv/livestream2/chunks.m3u8", tipo: "Noticias" },
-    { id: 'fav_24', nombre: "Net TV", url: "https://unlimited1-us.dps.live/nettv/nettv.smil/playlist.m3u8", tipo: "Televisión" },
-    { id: 'fav_25', nombre: "TV Universidad", url: "https://stratus.stream.cespi.unlp.edu.ar/hls/tvunlp.m3u8", tipo: "Televisión" },
-    { id: 'fav_26', nombre: "R9", url: "https://ms01.w24.at/R9/smil:liveeventR9.smil/playlist.m3u8", tipo: "Noticias" },
-    { id: 'fav_27', nombre: "10 Bold", url: "https://dce3793146fef017.mediapackage.us-west-2.amazonaws.com/out/v1/55cdf73af7894775ba6de8f57482b66a/CMAF_HLS/index.m3u8", tipo: "Kids" },
-    { id: 'fav_28', nombre: "7 TeleValencia (576p)", url: "https://play.cdn.enetres.net/9E9557EFCEBB43A89CEC8FBD3C500247022/028/playlist.m3u8", tipo: "Televisión" },
-    { id: 'fav_29', nombre: "Andorra TV", url: "https://livesg1.rtva.hiway.media/11a6d6f4-ee13-47c7-9c27-7313cf5424e2/manifest.m3u8", tipo: "Televisión" }
+    { id: 'fav_20', nombre: "4 Fun TV (576i) [Not 24/7]", url: "https://stream.4fun.tv:8888/hls/4f_high/index.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_21', nombre: "4K Travel TV (1080p)", url: "https://streams2.sofast.tv/sofastplayout/33c31ac4-51fa-46ae-afd0-0d1fe5e60a80_0_HLS/master.m3u8", tipo: "De lista IPTV-Org Global" },
+    { id: 'fav_22', nombre: "Telemax", url: "https://stream-gtlc.telecentro.net.ar/hls/telemaxhls/main.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_23', nombre: "+Perfil", url: "https://unlimited1-us.dps.live/perfiltv/perfiltv.smil/perfiltv/livestream2/chunks.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_24', nombre: "Net TV", url: "https://unlimited1-us.dps.live/nettv/nettv.smil/playlist.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_25', nombre: "TV Universidad", url: "https://stratus.stream.cespi.unlp.edu.ar/hls/tvunlp.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_26', nombre: "R9", url: "https://ms01.w24.at/R9/smil:liveeventR9.smil/playlist.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_27', nombre: "10 Bold", url: "https://dce3793146fef017.mediapackage.us-west-2.amazonaws.com/out/v1/55cdf73af7894775ba6de8f57482b66a/CMAF_HLS/index.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_28', nombre: "El Trece", url: "https://livetrx01.vodgc.net/eltrecetv/index.m3u8", tipo: "De lista Free-TV HD" },
+    { id: 'fav_29', nombre: "Andorra TV", url: "https://livesg1.rtva.hiway.media/11a6d6f4-ee13-47c7-9c27-7313cf5424e2/manifest.m3u8", tipo: "De lista Free-TV HD" }
   ],
   // Implementar BAndera tipo enable/disable para grisar y no permitir el despliege de listas, incluso con clave de usuario para privacidad 
   lists: [
-    // 📁 GUÍAS GLOBALES REMOTAS 0-9 (Tienen URL y declaran su carpeta madre)
+    // 📁 GUÍAS GLOBALES REMOTAS 0-9 (Tienen URL y declaran su carpeta madre)    
     { id: 'list_0', nombre: "IPTV-Org Global", url:"https://iptv-org.github.io/iptv/index.m3u", canales:[], open:false, ruta: ["GeckoGuías Globales"], icono: "📁" },
     { id: 'list_1', nombre: "Free-TV HD", url:"https://raw.githubusercontent.com/Free-TV/IPTV/master/playlist.m3u8", canales:[], open:false, ruta: ["GeckoGuías Globales"], icono: "📁" },
     // 📁 GUÍAS X CATEGORIA 10-49 (Tambien Tienen URL y declaran su carpeta madre)
@@ -806,21 +798,22 @@ let data = {
     anterior: null
   }
 };
-// Nuevos Límites en Reglas Base M3EZ[1809]
-const REGLAS_BASE = [
-  { max: 1,  ruta: ["GeckoGuías Globales"], icono: "📁" },
+// Nuevos Límites en Reglas Base M3EZ[1809]//CC4EZ[0110C]
+const REGLAS_BASE = [    
+  //{ max: 1,  ruta: ["GeckoGuías Globales"], icono: "📁" },
+  { max: 9,  ruta: ["GeckoGuías Globales"], icono: "📁" },
   { max: 49, ruta: ["GeckoGuías x Categoría"], icono: "📁" },
   { max: 249, ruta: ["GeckoGuías x País"], icono: "🌐" },
   { max: 449, ruta: ["GeckoGuías x Idioma"], icono: "🗣" }
 ];
 // Cantidad de Canales por GeckoGuía by Chaman Programador
-const CANT_CHANNELS = 3909; // 5150 Código Policial de la Ruta 66 para "Loco al Volante"
-// ----------------------------------------------------------------------------------------------------- //
+const CANT_CHANNELS = 5150; // Código Policial de la Ruta 66 para "Loco al Volante"
+// #endregion
+// --------------------------------- Fín de Estructura de Datos -------------------------------------------- //
 
-
-// -------- Init Carga Persistencia - CIRUGÍA M3EZ[2309B] by Llamita Encendida ----------- //
+// #region 🦎GeckoSecretPlace [ El Inicio de la Persistencia Geckónica ]
+// --- INIT CARGA PERSISTENCIA CON ACOPLE DINÁMICO 250K for M3EZ[2309B] by Llamita Encendida --- //
 // --- Smart Merge "Sin Repetir y sin Soplar" ---
-// --- CARGA DE PERSISTENCIA CON ACOPLE DINÁMICO 250K ---
 try {
   const saved = localStorage.getItem(DB_KEY);
   if (saved) {
@@ -840,12 +833,23 @@ try {
         kernelExplorado.set(l.url, l); // fallback por si cambia el id en alguna versión
       }
     });
-    // 3. Listas de Usuario (esto queda igual que antes, perfecto)
+    // 3. Listas de Usuario (esto queda igual que antes, perfecto)    
+    /*
     // 3b. Limpiamos la base actual midiendo cuántas de fábrica reales tiene el script en ejecución antes del acople
     const listasUsuario = (dataGuardada.lists || []).filter(l => {
       const idNum = parseInt((l.id || '').replace('list_', '')) || 0;
       return idNum >= 250000 ||!l.url || l.url.trim() === "" || (l.ruta && (l.ruta[0] === "GeckoGuías Personalizadas" || l.ruta[0] === "GeckoGuías Externas de Usuario"));
     });
+    */    
+    // 3b. Limpiamos la base actual midiendo cuántas de fábrica reales tiene el script en ejecución antes del acople
+    // y desintegrando por completo cualquier fantasma de búsqueda volátil (__GECKO_SEARCH_CONTAINER__ o rangos >= 1M)
+    // by Ei2 for CC4EZ[0310H] dejando preparado el territorio para que los id de las busquedas sean almacenados con offset de 1M...
+    const listasUsuario = (dataGuardada.lists || []).filter(l => {
+      if (l.id === '__GECKO_SEARCH_CONTAINER__') return false;
+      const idNum = parseInt((l.id || '').replace('list_', '')) || 0;
+      if (idNum >= 1000000) return false; // El millón del que tanto hablamos, aniquilado en el boot
+      return idNum >= 250000 || !l.url || l.url.trim() === "" || (l.ruta && (l.ruta[0] === "GeckoGuías Personalizadas" || l.ruta[0] === "GeckoGuías Externas de Usuario"));
+    });    
     // 4. Base fija del código (recién nacida, con canales vacíos)
     const baseFija = data.lists.filter(l => {
       const idNum = parseInt((l.id || '').replace('list_', '')) || 0;
@@ -868,8 +872,163 @@ try {
   inyectarOffsetGecko(); // for 10000X25 Offset Parche Supremo Mazinger Z feat Tortugas Ninja by Chamán Programador
   popularInvariantes(); // Le da el toque final de iconos y rutas a todo el bloque
 } catch(e){}
-// ---------------------------- Finish Carga Persistencia -------------------------------- //
+// #endregion
+// ------------------------------ Finish Carga Persistencia -------------------------------- //
 
+// #region 🦎GeckoSecretPlace [ 🧠 Puente de Memoria Divergente ]
+// -------------------------- 🧠 Init Bloque Puente de Memoria Divergente ---------------------------- //
+// --- 🧠 RESTAURAR ESTADO DE GECKOGUÍAS ABIERTAS PARA F5 Y AFINES by NOva DulceKAli feat. Chamán Programador Powered by Sheminay for CC4EZ[1610D] --- //
+function restaurarGeckoguiasAbiertas(){
+  const savedMothers = localStorage.getItem('gecko_open_mother_folders');
+  if (savedMothers) openMotherFolders = JSON.parse(savedMothers);
+  const savedFavorites = localStorage.getItem('gecko_favorites_open');
+  if (savedFavorites !== null) favoritesOpen = JSON.parse(savedFavorites);
+  const savedSubs = localStorage.getItem('gecko_open_subfolders');
+  if (savedSubs && data.lists) {
+    const openSubsMap = JSON.parse(savedSubs);
+    // Recorremos las listas vivas y encendemos el open solo si su ID estable está en el mapa resguardado
+    data.lists.forEach(l => {
+      if (l.id && openSubsMap[l.id]) {
+        l.open = true;
+      }
+    });
+  }
+}
+// --- 🧠 RECONSTRUCCIÓN DE BÚSQUEDA SUPREMA (Con Arkano Propioceptivo)  by Ei2 for B5EZ[2010Ah!] --- //
+function reconstruirBusquedaGeckonica() {
+  const scopeGuardado = localStorage.getItem('gecko_search_scope');
+  if (scopeGuardado) {
+    searchScope = scopeGuardado;
+    symbolScope = (searchScope === 'local') ? '<@>' : '<<·>>';
+    const btnL = document.getElementById('btnScopeLocal');
+    const btnG = document.getElementById('btnScopeGlobal');
+    if (btnL && btnG) {
+      btnL.classList.toggle('active', searchScope === 'local');
+      btnG.classList.toggle('active', searchScope === 'global');
+    }
+  }  
+  const queryGuardada = localStorage.getItem('gecko_search_query');
+  const inputSearch = document.getElementById('geckoSearchInput');
+  if (inputSearch && queryGuardada && queryGuardada.trim() !== '') {
+    inputSearch.value = queryGuardada;
+    // Si el ámbito era local, leemos el arkano de la brújula previa al F5    
+    // Evaluación de Localidad by Ei2 for B5EZ[2010E+]
+    if (searchScope === 'local') {
+      const arkanoRaw = localStorage.getItem('gecko_proprioceptive_memory');
+      if (arkanoRaw) {
+        try {
+          const arkano = JSON.parse(arkanoRaw);
+          // Mapeo pulcro a la jerarquía de la Mamushka:          
+          let entornoRestaurado = 'Mamushka Replegada (Global)';          
+          // 🧠 ACTIVACIÓN FÍSICA DEL ENTORNO DEL ARKANO (Sintetizador de Estado)
+          if (arkano.localidad === 'favoritos') {
+            favoritesOpen = true;
+            entornoRestaurado = '⭐ Gecko Favorite Channels';
+          } else {
+            favoritesOpen = false;
+            if (arkano.madre) {
+              if (typeof openMotherFolders === 'undefined') window.openMotherFolders = {};
+              // 1. Abrimos la madre en la memoria de raíces
+              openMotherFolders[arkano.madre] = true;              
+              // 2. Si hay subcarpeta hija, o si es la madre, marcamos la apertura en data.lists
+              (data.lists || []).forEach(l => {
+                if (l.ruta && l.ruta[0] === arkano.madre) {
+                  if (arkano.localidad === 'hija' && arkano.hija) {
+                    l.open = (l.nombre === arkano.hija);
+                  } else if (arkano.localidad === 'madre') {
+                    // Si la localidad era la madre entera, dejamos listas las referencias
+                    l.open = true;
+                  }
+                }
+              });
+            }            
+            if (arkano.localidad === 'hija' && arkano.madre && arkano.hija) {
+              entornoRestaurado = `${arkano.madre} / ${arkano.hija}`;
+            } else if (arkano.localidad === 'madre' && arkano.madre) {
+              entornoRestaurado = arkano.madre;
+            }
+          }          
+          log(`🧠 [Arkano Restaurado] -> Samsara A Gato Schrödinger: [${entornoRestaurado}]`);
+        } catch (e) {          
+          log("⚠️ [Arkano] Error leyendo Arkano Propioceptivo en ámbito local.");
+          console.error("Error leyendo Arkano Propioceptivo en ámbito local", e);
+        }
+      }      
+    }
+    // Ahora SÍ, con las carpetas madres e hijas seteadas en la RAM, buscarGecko encuentra exactamente los matches locales
+    // Ejecuta el radar recuperando el bunker    
+    buscarGecko(queryGuardada);
+  }
+}
+// --- 🧠 RESTAURAR MULTIVERSO CANAL ACTUAL con el pasaporte del canal visado por (F5//[FF-TV]//Case[<@>]) --- //
+function restaurarMultiversoDeCanal() {  
+  // Fix bY NOva DulceKAli for B5EZ[2120D]
+  /*
+  const arkano = JSON.parse(
+    localStorage.getItem('gecko_proprioceptive_memory') || '{}'
+  );
+  const queryGuardada = localStorage.getItem('gecko_search_query')
+    || arkano.query
+    || '';
+  */
+  // +Blindaje de lectura: si el disco se cortó o se corruptó, cae a {} seguro powered by Ei2 for B5EZ[2110E+]
+  let arkano = {};
+  try {
+    arkano = JSON.parse(localStorage.getItem('gecko_proprioceptive_memory') || '{}');  
+  } catch (e) {
+    log("⚠️ [Arkano] Arkano corrupto en trinchera, reseteando a estado limpio.");
+    console.warn("⚠️ Arkano corrupto en trinchera, reseteando a estado limpio", e);
+  }
+  const queryGuardada = localStorage.getItem('gecko_search_query') || arkano.query || '';   
+  // 1. Seteamos el Scope congelado en el pasaporte del canal
+  searchScope = arkano.scope || 'global';
+  symbolScope = (searchScope === 'local') ? '<@>' : '<<·>>';  
+  // 2. Sincronizamos la UI
+  const btnL = document.getElementById('btnScopeLocal');
+  const btnG = document.getElementById('btnScopeGlobal');
+  if (btnL && btnG) {
+    btnL.classList.toggle('active', searchScope === 'local');
+    btnG.classList.toggle('active', searchScope === 'global');
+  }
+  // 3. Escribimos la query en el input
+  const inputSearch = document.getElementById('geckoSearchInput');
+  if (inputSearch) inputSearch.value = queryGuardada;
+  // 4. Si era Local, rearmamos la Mamushka en RAM
+  if (searchScope === 'local') {
+    let entornoRestaurado = 'Mamushka Replegada (Global)';
+    if (arkano.localidad === 'favoritos') {
+      favoritesOpen = true;
+      entornoRestaurado = '⭐ Gecko Favorite Channels';
+    } else {
+      favoritesOpen = false;
+      if (arkano.madre) {
+        if (typeof openMotherFolders === 'undefined') window.openMotherFolders = {};
+        openMotherFolders[arkano.madre] = true;
+        (data.lists || []).forEach(l => {
+          if (l.ruta && l.ruta[0] === arkano.madre) {
+            if (arkano.localidad === 'hija' && arkano.hija) {
+              l.open = (l.nombre === arkano.hija);
+            } else if (arkano.localidad === 'madre') {
+              l.open = true;
+            }
+          }
+        });
+      }
+      // Determinamos la etiqueta del entorno según el arkano
+      if (arkano.localidad === 'hija' && arkano.madre && arkano.hija) {
+        entornoRestaurado = `${arkano.madre} / ${arkano.hija}`;
+      } else if (arkano.localidad === 'madre' && arkano.madre) {
+        entornoRestaurado = arkano.madre;
+      }      
+    }
+    // 🐱 ¡ACÁ NACE EL LOG DEL GATO!
+    log(`🧠 [Arkano Restaurado] -> Samsara B Gato Schrödinger: [${entornoRestaurado}]`);
+  }
+  // 5. Disparamos el radar con las variables de RAM sincronizadas
+  buscarGecko(queryGuardada);
+}
+// #endregion
+// ------------------------------ Finish Puente de Memoria Divergente -------------------------------- //
 
 // ----------------------- Variables ----------------------- //
 const video = document.getElementById('video');
@@ -893,7 +1052,7 @@ var UI = {
   get btnSave() { return document.getElementById('btnSaveList'); },
   get btnDel() { return document.getElementById('btnDeleteList'); }
 };
-// GeckoTime - overlay hora, bandera futura on/off
+// GeckoTime - overlay hora control: flag on/off, fallback and variable
 var showGeckoTime = true;
 var _geckoTimeInterval = null;
 // ----------------------- Variables ----------------------- //
@@ -931,8 +1090,8 @@ function log(m){
   logEl.innerHTML += `<br><span style="color:${color}">[ ⏱ ${new Date().toLocaleTimeString()} ] ${m}</span>`;
   logEl.scrollTop = logEl.scrollHeight;
   // anti-basura: que no crezca infinito
-  if(logEl.innerHTML.split('<br>').length > 40) {
-    logEl.innerHTML = logEl.innerHTML.split('<br>').slice(-30).join('<br>');
+  if(logEl.innerHTML.split('<br>').length > 50) {
+    logEl.innerHTML = logEl.innerHTML.split('<br>').slice(-25).join('<br>');
   }
 }
 // --- N3. Resolución segura del puntero by Nova DulceKAli ---
@@ -976,6 +1135,13 @@ function resetGeckoStorage() {
     location.reload(); // Al recargar, reasigna el objeto 'data' por defecto
   }
 }
+// --- Auxiliar Geckónica Agnóstica Centrado de Foco Canal Activo (Original Chaman feat. Leo Bravo) ---
+function centrameCanalActivo() {
+  requestAnimationFrame(() => {
+    document.querySelector('.channel.active')
+      ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
+  });
+}
 // --- FUNCIÓN AGNÓSTICA DE PURGADO GECKÓNICO de GeckoGuías Externas CC4EZ[0310F) ---
 function limpiarLista(idx) {
   const lista = data.lists[idx];
@@ -987,6 +1153,8 @@ function limpiarLista(idx) {
   save();
   renderTree();
 }
+// --------------------------------------------------------------------- //
+
 
 // -------------------------- AVIONIC TOGGLE BUTTONS ---------------------------- //
 // --- TOGGLE SIDEBAR by Leo Bravo for CC4EZ[1210] ---
@@ -1011,8 +1179,10 @@ function toggleInfo(){
   document.getElementById('btnToggleInfo').textContent = hidden ? '[|_|]' : '[|i|]';
 }   
 // ------------------------------------------------------------------------------ //
-  
-// --- Bloque GeckoTime TM ---
+
+// --------------------------------------------------------------- //
+// ---------------------- Bloque GeckoTime TM -------------------- //
+// --------------------------------------------------------------- //
 // Actualiza GeckoTime
 function updateGeckoTime() {
   var gtel = document.getElementById('geckoTime');
@@ -1045,7 +1215,12 @@ function toggleGeckoTime(v){
 // restaurar GeckoTime al iniciar en frio...
 showGeckoTime = localStorage.getItem('showGeckoTime') !== '0';
 document.getElementById('chkGeckoTime').checked = showGeckoTime;
-// Cableado del Buffer Temporal Geckónico TM (FIX DE STREAMINGS COMPLETO)
+// --------------------------------------------------------------- //
+
+
+// ----------------------------------------------------------------------- //
+// -------------- Cableado del Buffer Temporal Geckónico TM -------------- //
+// ----------------------------------------------------------------------- //
 // MODO DUAL FAST-START FOR M3EZ[2009B] by Llamita Encendida 
 const BUFFER_ARRANQUE_FIJO = 30;
 const BUFFER_ESTABLE_OPCIONES = [60,90,120,150,180]; //add 180s M3EZ[2109]
@@ -1073,7 +1248,7 @@ document.addEventListener('change', (e)=>{
     applyBufferOnTheFly(normalizeBufferEstable(parseInt(e.target.value,10)));
   }
 });
-// --------------------------------------------------------------------- //
+// ----------------------------------------------------------------------- //
 
 
 // ----------- NORMALIZACIÓN DE BACKUPS O DATA EN MEMORIA DEL NAVEGADOR DE VERSIONES ANTERIORES ----------- //
@@ -1124,17 +1299,42 @@ function inyectarOffsetGecko() {
 }
 // -------------------------------------------------------------------------------------------------------- //
 
-
-// ---------------- THE CORE OF EXPLORATION: MAMUSHKA ENGINE ------------------ //
+// #region 🦎GeckoSecretPlace [ El Render of the Mamushka Tree Geckónico ]
+// ---------------------------------------------------------------------------- //
+// ----------- THE CORE OF EXPLORATION: TREE OF MAMUSHKA ENGINE --------------- //
 // ----- Mamushka Engine - Versión Limpia (Aetheris) for v.M2EZ[02092026] ----- //
 // -----------  Refactor Sheminay Fix Saltos for v.M2EZ03092026B -------------- //
 // -----------  Refactor Llamita Fix Exporación for v.M2EZ[1409A] ------------- //
 // ---- FUNCIÓN DE CONTROL DE CASCADA AUTOMÁTICA (Sintonía Ciega Agnóstica) --- //
 // ---------------------------------------------------------------------------- //
 // --- Mamushka Engine - Versión Limpia (Aetheris) v.M2EZ + Pro UX Sheminay --- //
+// ---------------------------------------------------------------------------- //
 let openMotherFolders = {};   // Estado de carpetas madre
 function renderTree() {
-  treeEl.innerHTML = '';
+  /*
+  // Persistir el estado de apertura de GeckoGuías Original by NOva DulceKali feat. Chamán Programador for CC4EZ[1610D]
+  localStorage.setItem('gecko_open_mother_folders', JSON.stringify(openMotherFolders));
+  localStorage.setItem('gecko_favorites_open', JSON.stringify(favoritesOpen));
+  localStorage.setItem('gecko_open_subfolders', JSON.stringify(data.lists.map(l => !!l.open)));      
+  */  
+  // 💾 PERSISTENCIA DE CONTEXTO VISUAL (estado de apertura GeckoGuías) by NOva DulceKali feat. Chamán Programador powered by Sheminay for CC4EZ[1610D]  
+  if (typeof data !== 'undefined' && data.lastchnl) {
+    const mothersToSave = { ...openMotherFolders };
+    delete mothersToSave["GeckoSP Matches Found"]; // Evita contaminar el estado real    
+    localStorage.setItem('gecko_open_mother_folders', JSON.stringify(mothersToSave));
+    localStorage.setItem('gecko_favorites_open', JSON.stringify(favoritesOpen));    
+    // Guardamos un mapa de IDs estables en lugar de índices volátiles correlativos
+    const openSubsMap = {};
+    if (data.lists) {
+      data.lists.forEach(l => {
+        if (l.id && l.id !== '__GECKO_SEARCH_CONTAINER__' && l.open) {
+          openSubsMap[l.id] = true;
+        }
+      });
+    }
+    localStorage.setItem('gecko_open_subfolders', JSON.stringify(openSubsMap));
+  }  
+  treeEl.innerHTML = '';  
   // 1. Favoritos
   const favFolder = document.createElement('div');
   favFolder.className = `folder ${favoritesOpen ? 'open active' : ''}`;
@@ -1144,24 +1344,25 @@ function renderTree() {
       <span class="sinsaltos">${favoritesOpen ? '|·|▼' : '||▶'}</span>
     </div>
     <div class="folder-body">
-      ${data.favorites.map((c, i) => {
-        const isActive = currentSelected.type === 'fav' && currentSelected.chIdx === i;
+      ${data.favorites.map((c, i) => {        
+        const isActive = currentSelected && currentSelected.type === 'fav' && currentSelected.chIdx === i;
         return `
           <div class="channel ${isActive ? 'active' : ''}" onclick="selectAndPlay('fav', null, ${i}, this)">
-            <span>${c.nombre}<br><small>${c.tipo || 'Custom'}</small></span></span><span class="sinsaltos">${isActive ? '@·▶' : '||'}</span>
+            <span>${c.nombre}<br><small>${c.tipo || 'Custom'}</small></span><span class="sinsaltos">${isActive ? '@·▶' : '||'}</span>
           </div>`;
       }).join('')}
     </div>
-  `;
+  `;  
   treeEl.appendChild(favFolder);
   // 2. Agrupar listas por ruta[0]
   const arbolVirtual = {};
+  if (!arbolVirtual["GeckoSP Matches Found"]) arbolVirtual["GeckoSP Matches Found"] = []; // New on CC4EZ[0110C] for Busqueda Geckónica Suprema Skynet
   data.lists.forEach((lista, lIdx) => {
     const ruta = (lista.ruta && lista.ruta[0]) ? lista.ruta[0] : "GeckoGuías Globales";
     if (!arbolVirtual[ruta]) arbolVirtual[ruta] = [];
     arbolVirtual[ruta].push({ ...lista, originalIndex: lIdx });
   });
-  // Estructura invariante siempre visible, aunque el backup sea arcaico - for v.M2EZ04092026A by Llamita Encendida en la WWW
+  // Estructura invariante siempre visible, aunque el backup sea arcaico - for v.M2EZ04092026A by Llamita Encendida en la WWW    
   if (!arbolVirtual["GeckoGuías Globales"]) arbolVirtual["GeckoGuías Globales"] = [];
   if (!arbolVirtual["GeckoGuías x Categoría"]) arbolVirtual["GeckoGuías x Categoría"] = [];
   if (!arbolVirtual["GeckoGuías x País"]) arbolVirtual["GeckoGuías x País"] = [];
@@ -1171,6 +1372,7 @@ function renderTree() {
   // DICCIONARIO DE ÍCONOS RAÍZ (Estándar Icons Gecko Tree Edition) by Sheminay
   // Define el ícono del primer nivel de la mamushka basado puramente en su nombre
   const iconRootMap = {
+    "GeckoSP Matches Found": "🔍", // New on CC4EZ[0110C] for Busqueda Geckónica Suprema Skynet
     "GeckoGuías Globales": "📁",
     "GeckoGuías x Categoría": "📁",
     "GeckoGuías x País": "🌐",      // ¡Nueva mística geográfica! by Sheminay for M2EZ[07092026B]
@@ -1210,16 +1412,23 @@ function renderTree() {
                 lista.canales.length === 0 
                   ? `<div style="padding:10px;font-size:0.7em;opacity:0.5">Click para cargar...</div>` 
                   : lista.canales.map((ch, cIdx) => {
-                      const isActive = currentSelected.type === 'list' && 
-                                       currentSelected.listIdx === lista.originalIndex && 
-                                       currentSelected.chIdx === cIdx;
+                      // --- CONTRATO DE IDENTIDAD ABSOLUTA CERTIFICADA POR URL CC4EZ[0610A] ---
+                      // Valida la coordenada exacta del click, pero exige que la URL coincida con el reproductor.
+                      // Esto fulmina el glow fantasma si la búsqueda muta o se limpia, sin duplicar verdes abajo.                    
+                      let isActive = false;
+                      if (currentSelected && currentSelected.data) {
+                        isActive = currentSelected.type === 'list' && 
+                                   currentSelected.listIdx === lista.originalIndex && 
+                                   currentSelected.chIdx === cIdx &&
+                                   currentSelected.data.url === ch.url;
+                      }                                                        
                       return `
                         <div class="channel ${isActive ? 'active' : ''}" 
-                             onclick="selectAndPlay('list', ${lista.originalIndex}, ${cIdx}, this)">
-                          <span>${ch.nombre}<br><small>${ch.tipo || 'Stream'}</small></span></span><span class="sinsaltos">${isActive ? '@·▶' : '||'}</span>
+                             onclick="selectAndPlay('list', ${lista.originalIndex},${cIdx}, this)">
+                          <span>${ch.nombre}<br><small>${ch.tipo || 'Stream'}</small></span><span class="sinsaltos">${isActive ? '@·▶' : '||'}</span>
                         </div>`;
                     }).join('')
-              )}              
+              )}
               ${lista.url && lista.url.trim() !== '' ? `
                 <div class="gecko-nav-bar-minimal" style="padding:4px 6px; background:transparent; border:none;">
                   <button style="flex:1;" title="🔄 Recargar GeckoGuía Externa" onclick="recargarLista(${lista.originalIndex})">[ 🔄 Recargar ]</button>
@@ -1230,44 +1439,42 @@ function renderTree() {
         `).join('')}
       </div>
     `;
-    //Original con pinceladas fuera del lienzo
-    /*
-    ${lista.canales.length === 0 
-      ? `<div style="padding:10px;font-size:0.7em;opacity:0.5">Click para cargar...</div>` 
-      : lista.canales.map((ch, cIdx) => {
-          const isActive = currentSelected.type === 'list' && 
-                           currentSelected.listIdx === lista.originalIndex && 
-                           currentSelected.chIdx === cIdx;
-          return `
-            <div class="channel ${isActive ? 'active' : ''}" 
-                 onclick="selectAndPlay('list', ${lista.originalIndex}, ${cIdx}, this)">
-              <span>${ch.nombre}<br><small>${ch.tipo || 'Stream'}</small></span><span>▶</span>
-            </div>`;
-        }).join('')
-    }
-    */
     treeEl.appendChild(madreEl);
   });  
   updateListSelectOptions();
 }
 // Toggle Favoritos
 function toggleFavorites() {
-  favoritesOpen = !favoritesOpen;
+  favoritesOpen = !favoritesOpen;  
   // Cerrar todo lo demás
   data.lists.forEach(l => l.open = false);
   openMotherFolders = {};
   save();
   renderTree();
+  antenaLocalidad(); // 📡 Cubre la mutación hacia el territorio de Favoritos
 }
 // Toggle Carpeta Madre
 function toggleExploradorMadre(nombreMadre) {
-  const estabaAbierta = !!openMotherFolders[nombreMadre];
+  const estabaAbierta = !!openMotherFolders[nombreMadre];  
+  /*
+  openMotherFolders = {}; 
   // Cerrar todas las madres y todas las subcarpetas
-  openMotherFolders = {};
-  data.lists.forEach(l => l.open = false);
+  data.lists.forEach(l => l.open = false); 
   favoritesOpen = false;
   // Si no estaba abierta, abrir solo esta madre (sin abrir subcarpetas)
   if (!estabaAbierta) { openMotherFolders[nombreMadre] = true; }
+  */
+  // 🛡️ ESCUDO DE COEXISTENCIA VOLÁTIL B5EZ[2010Ah!]
+  // Si el click es sobre la carpeta especial de Búsquedas, NO le cerramos las Madres fijas de fondo
+  if (nombreMadre === 'GeckoSP Matches Found') {
+    openMotherFolders[nombreMadre] = !estabaAbierta;
+  } else {
+    // Comportamiento nativo tradicional para el resto de las guías estáticas
+    openMotherFolders = {}; 
+    openMotherFolders[nombreMadre] = !estabaAbierta;
+    data.lists.forEach(l => l.open = false); 
+    favoritesOpen = false;
+  }
   save();
   renderTree();  
   // Llamita Fix Exporación for v.M2EZ[1409A]  
@@ -1275,25 +1482,34 @@ function toggleExploradorMadre(nombreMadre) {
   requestAnimationFrame(() => {
     const madre = [...document.querySelectorAll('.main-dir.open .folder-header')][0];
     if (madre) madre.scrollIntoView({ block: 'start', behavior: 'smooth' }); //'instant'
-  });  
+  });
+  antenaLocalidad(); // 📡 Sintonía fina automática en el nuevo territorio  
 }
-// Toggle Subcarpeta
-function toggleExploradorSub(idx, nombreMadre) {
+// Toggle Subcarpeta Original
+//function toggleExploradorSub(idx, nombreMadre) {
+// Toggle Subcarpeta - Versión de Carga Síncrona Protegida B5EZ[1710] by NOva & Chamán Feat. Sheminay async/await
+async function toggleExploradorSub(idx, nombreMadre) {
   const lista = data.lists[idx];
   if (!lista) return;
-  const estabaAbierta = lista.open;
+  const estabaAbierta = lista.open;  
   // Cerrar todas las hermanas
   data.lists.forEach(l => {
     if (l.ruta && l.ruta[0] === nombreMadre) l.open = false;
   });
   // Abrir/cerrar la actual
   lista.open = !estabaAbierta;  
+  /*
   // Cargar si corresponde
   if (lista.open && lista.canales.length === 0 && lista.url) {
     parsearLista(idx);
-  }  
+  }
+  */
+  // 📡 CUNA PROTEGIDA DE NOVA: Si la mamushka está vacía, esperamos a que se llene realmente
+  if (lista.open && lista.canales.length === 0 && lista.url) {
+    await parsearLista(idx); // Frena la ejecución hasta que los canales estén en la RAM
+  } 
   save();
-  renderTree();    
+  renderTree();  
   // --- ENCUADRE DE VIEWPORT M2EZ PRO UX by Sheminay M2EZ[1409A] ---  
   if (lista.open) {
     requestAnimationFrame(() => {
@@ -1302,7 +1518,8 @@ function toggleExploradorSub(idx, nombreMadre) {
       // Si la Play4 o el celu lo encuentran, desliza el viewport para clavar el primer ítem arriba
       if (subEl) subEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
     });
-  }  
+  }
+  antenaLocalidad(); // 📡 Sintonía fina automática en el nuevo territorio      
 }
 // ---------------------------------------------------------------------------- //
 // Blindaje total del combo "Lista Destino" by Llamita Encendida en la WWW 
@@ -1323,6 +1540,7 @@ function updateListSelectOptions() {
   const currentValue = targetSel.value; // Nova Fix - Lista Destino Saltarina
   let html = '<option value="fav">⭐ Gecko Favorite Channels</option>'; 
   data.lists.forEach((l, idx) => {
+    if (l.id === '__GECKO_SEARCH_CONTAINER__') return; // Combo Filter for Efimeral Search Matches Fix by Ei2 for CC4EZ[0410]
     const val = `list_${idx}`;
     const esEscribible = !l.url || l.url.trim() === "";
     const esDondeEstoyParado = val === currentValue;    
@@ -1335,28 +1553,326 @@ function updateListSelectOptions() {
     const extra = l.url ? ' (solo lectura)' : '';
     html += `<option value="${val}">${nombreLimpio}${extra}</option>`;
   });
-  html += '<option value="__new__">➕ Crear Lista Nueva...</option>';
+  html += '<option value="__new__">➕ Crear GeckoGuía Nueva...</option>';
   targetSel.innerHTML = html;
   targetSel.value = currentValue; // Nova Fix intacto
 }
-// ---------------------------------------------------------------------------- //
+// #endregion
+// ---------------- Fin Renderizado del Arbol Mamushka ------------------------ //
 
+// #region 🦎GeckoSecretPlace [ Busqueda Suprema Geckónica ]
+// ---------------------------------------------------------------------------------------- //
+// --- MOTOR DE BÚSQUEDA SUPREMA GECKÓNICA (Blindado & Zero-Leak CC4EZ[0210C] By Skynet) -- //
+// ---------------------------------------------------------------------------------------- //
+// ----- Team's Leader Evaluando Bloque "Mamushkero" al 07102026:10:12am CC4EZ[0710] ------ //
+// ---------------------------------------------------------------------------------------- //
+let searchScope = 'global'; // 'local' | 'global'
+let symbolScope = '<<·>>'; // '<@>' | '<<·>>' La Variable Chamanica en Glifo Gecko Ansi Antique for CC4EZ[0610B]
+let searchHadResults = false; // by Nova for ViewPort AutoMove to Matches on CC4EZ[1610]
+
+// 1. BLINDAJE DE OBJETOS: WeakMap fuera del árbol de datos / fuera de la memoria.
+// No modifica los objetos 'ch', no aparece en JSON.stringify() ni en localStorage.
+const _skCache = new WeakMap();
+
+// Cache de búsqueda ultrarrápido: normaliza la cadena 1 sola vez por canal
+function getSearchKey(ch) {
+  if (!ch) return '';
+  let key = _skCache.get(ch);
+  if (!key) {
+    key = `${ch.nombre || ''} ${ch.url || ''} ${ch.tipo || ''}`
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+    _skCache.set(ch, key);
+  }
+  return key;
+}
+
+// Seteo de Search Scope (Búsqueda Geckónica Suprema) de Mamushka Navigation System Logic Drive
+function setSearchScope(scope) {
+  searchScope = scope; 
+  const btnL = document.getElementById('btnScopeLocal');
+  const btnG = document.getElementById('btnScopeGlobal');
+  if (btnL && btnG) {
+    btnL.classList.toggle('active', scope === 'local');
+    btnG.classList.toggle('active', scope === 'global');
+  }
+  if (searchScope === 'local'){symbolScope = '<@>'} else {symbolScope = '<<·>>'} // La Línea Chamanica  
+  localStorage.setItem('gecko_search_scope', searchScope); // 💾 Guardar Arkano de Scope by Sheminay for CC4EZ[1610D]
+  /*
+  if (typeof log === 'function') {
+    log(`🔍 Ámbito Búsqueda MNSLD : [${symbolScope}] = [${searchScope.toUpperCase()}]`);
+  }
+  */
+  // Log cableado consciente by SHeminay for B5EZ[1710C]:
+  if (typeof log === 'function') {
+    const entornoLog = (scope === 'local') ? ` -> Entorno: [${SondaEntornoLocal()}]` : '';
+    log(`🔍 Ámbito Búsqueda MNSLD : [${symbolScope}] = [${scope.toUpperCase()}]${entornoLog}`);
+  }
+  const input = document.getElementById('geckoSearchInput');
+  if (input && input.value) {buscarGecko(input.value);}
+}
+
+// Botón [ ∅ ]: Purga total de interfaz y liberación de RAM
+function limpiarBusquedasGecko() {
+  const input = document.getElementById('geckoSearchInput');
+  if (input) input.value = '';
+  buscarGecko('');
+}
+
+// 📡 ANTENA LOCAL REACTIVA B5EZ[1710]: Si la Busqueda es Local y si hay texto en el input, re-lanza el radar en el nuevo entorno (se llama al cambiar Localidad)
+function antenaLocalidad(){
+  if (searchScope === 'global') return;
+  // La antena habla con precisión militar antes de relanzar el radar
+  log(`📡 [Antena] -> Re-sintonizando Radar Local en: [${SondaEntornoLocal()}]`);
+  const input = document.getElementById('geckoSearchInput');
+  //if (input && input.value) buscarGecko(input.value);
+  if (input && input.value) {
+    // 🧹 Limpieza de trayectoria de scroll: Rompemos la ceguera del cambio de carpeta
+    searchHadResults = false; 
+    buscarGecko(input.value);
+  }
+}
+
+// 🧠 SONDA DE ENTORNO LOCAL by Chamán Programador & Sheminay for B5EZ[1710C] Afined by Ei2 for B5EZ[2010Ah!]
+// Función agnóstica pura: sondea los datos de la RAM y retorna la identidad unívoca del foco actual
+function SondaEntornoLocal() {
+  // 1. ¿Está Favoritos desplegado en la UI?
+  if (typeof favoritesOpen !== 'undefined' && favoritesOpen) {
+    return '⭐ Gecko Favorite Channels';
+  }  
+  // 2. ¿Hay un Hijo expandido en la pantalla?
+  const hijoObj = data.lists ? data.lists.find(l => l.id !== '__GECKO_SEARCH_CONTAINER__' && l.open) : null;
+  if (hijoObj && hijoObj.nombre) {
+    const madreText = Object.keys(openMotherFolders || {}).find(m => openMotherFolders[m] && m !== "GeckoSP Matches Found") || 'GeckoGuías';
+    return `${madreText} / ${hijoObj.nombre}`;
+  }  
+  // 3. ¿Hay una Madre expandida en la pantalla?
+  const madreText = Object.keys(openMotherFolders || {}).find(m => openMotherFolders[m] && m !== "GeckoSP Matches Found");
+  if (madreText) return madreText;  
+  // 4. Mamushka 100% Replegada (La verdad absoluta del estado visual)
+  return 'x Mamushka Replegada --> (Global)';
+}
+
+// 🎯 INTERRUPTOR DE VIAJE EXPLORATORIO by Ei2 for B5EZ[2010E+]
+// Función agnóstica pura: clava el scroll del viewport exactamente en el inicio de los Matches
+function viajarAMatchesGecko() {
+  // 1. Abrimos la Madre volátil
+  if (typeof openMotherFolders !== 'undefined') openMotherFolders["GeckoSP Matches Found"] = true;  
+  // 2. Abrimos la Subcarpeta interna de los resultados
+  const targetList = data.lists.find(l => l.id === '__GECKO_SEARCH_CONTAINER__');
+  if (targetList) targetList.open = true;
+  // 3. Redibujamos para renderizar la subcarpeta desplegada con sus canales
+  renderTree();
+  // 4. Desplazamos el viewport exactamente al búnker
+  requestAnimationFrame(() => {
+    const carpetasMadre = document.querySelectorAll('.main-dir .folder-title');
+    const madreBusqueda = [...carpetasMadre].find(el => el.textContent.includes('GeckoSP Matches Found'));      
+    madreBusqueda?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
+// Búsqueda Geckónica Suprema
+function buscarGecko(query) {
+  const q = (query || "")
+    .toLowerCase()
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .trim();
+  
+  // 💾 Resguardo constante del texto vivo para la persistencia antigato CC4EZ[1610D]
+  localStorage.setItem('gecko_search_query', query || '');
+  
+  // Buscar si existe el contenedor temporal en data.lists
+  const idx = data.lists.findIndex(l => l.id === '__GECKO_SEARCH_CONTAINER__');
+  
+  // 2. BLINDAJE DE MEMORIA Y PERSISTENCIA (Limpieza total al vaciar)
+  if (!q) {
+    if (idx !== -1) {
+      // a) Vaciar array explícitamente para que el Garbage Collector libere los punteros
+      data.lists[idx].canales.length = 0;
+      // b) Extirpar completamente el contenedor de data.lists para no contaminar localStorage
+      data.lists.splice(idx, 1);
+    }
+    if (typeof openMotherFolders !== 'undefined') {
+      openMotherFolders["GeckoSP Matches Found"] = false;
+    }
+    searchHadResults = false; // Rearma el detector al limpiar CC4EZ[1610]
+    renderTree();
+    centrameCanalActivo() // Centra el Canal Activo (obviamente) CC4EZ[1610]
+    return;
+  }
+
+  // Si no existía, se crea el receptor temporal
+  let targetList;
+  if (idx !== -1) {
+    targetList = data.lists[idx];
+  } else {
+    targetList = { id: '__GECKO_SEARCH_CONTAINER__', nombre: '', canales: [] };
+    data.lists.push(targetList);
+  }
+
+  const matches = [];
+  const seenUrls = new Set();
+  const normUrl = u => (u || '').trim().toLowerCase().replace(/\/+$/, '');
+
+  // Evaluación $O(1)$ sin mutar el objeto 'ch'
+  const evaluarYAgregar = (ch) => {
+    if (!ch) return;
+    if (getSearchKey(ch).includes(q)) {
+      const nUrl = normUrl(ch.url);      
+      if (!nUrl || !seenUrls.has(nUrl)) {
+        if (nUrl) seenUrls.add(nUrl);
+        matches.push(ch);
+      }
+    }
+  };
+
+  // 3. Filtrado por ámbito — Brújula Propioceptiva Gecko (Alineada con la Sonda)
+  // --- Gecko se fija donde tiene su patita ---
+  if (searchScope === 'local') {
+    let localidad = 'global';
+    let madreResuelta = '';
+    let hijaResuelta = '';
+    let listasObjetivo = [];
+    // si estamos en favoritos... listo.
+    if (typeof favoritesOpen !== 'undefined' && favoritesOpen && data.favorites) {
+      localidad = 'favoritos';
+    } else {
+      // Identificar madres abiertas (excluyendo Matches)
+      const madresAbiertas = Object.keys(openMotherFolders || {})
+        .filter(m => openMotherFolders[m] && m !== 'GeckoSP Matches Found');
+      if (madresAbiertas.length > 0) {
+        const madre = madresAbiertas[0];
+        madreResuelta = madre; // Captura exacta del nombre de la Madre        
+        // Buscar si hay un hijo abierto dentro de esa madre
+        const hijasAbiertas = (data.lists || []).filter(lista =>
+          lista.id !== '__GECKO_SEARCH_CONTAINER__' &&
+          lista.open &&
+          lista.canales &&
+          lista.ruta &&
+          lista.ruta[0] === madre
+        );
+        if (hijasAbiertas.length > 0) {
+          localidad = 'hija';
+          hijaResuelta = hijasAbiertas[0].nombre; // Captura exacta del nombre del Hijo/Subcarpeta
+          listasObjetivo = hijasAbiertas; // ¡Solo este hijo!
+        } else {
+          localidad = 'madre';
+          // ¡Toda la madre completa con todos sus hijos!
+          listasObjetivo = (data.lists || []).filter(lista =>
+            lista.id !== '__GECKO_SEARCH_CONTAINER__' &&
+            lista.canales &&
+            (lista.ruta?.[0] || 'GeckoGuías Globales') === madre
+          );
+        }
+      } else {
+        localidad = 'global'; // Si no hay madre abierta, cae en global por diseño        
+      }
+    }
+    // --- ya definida la localidad Gecko busca con su ojito ---
+    // Ejecución del radar según la localidad resuelta
+    if (localidad === 'favoritos') {
+      data.favorites.forEach(evaluarYAgregar);
+    } else if (localidad === 'hija' || localidad === 'madre') {
+      listasObjetivo.forEach(lista =>
+        lista.canales.forEach(evaluarYAgregar)
+      );
+    } else {
+      // Fallback global de seguridad
+      if (data.favorites) data.favorites.forEach(evaluarYAgregar);
+      (data.lists || []).forEach(lista => {
+        if (lista.id !== '__GECKO_SEARCH_CONTAINER__' && lista.canales) {
+          lista.canales.forEach(evaluarYAgregar);
+        }
+      });
+    }
+    // 💾 REGISTRO EXACTO DE LA MEMORIA PROPIOCEPTIVA (Post-Filtrado)
+    // Se persisten las variables resueltas en el contrato de NOva
+    const arkanoPropioceptivo = {
+      //scope: searchScope, // 👈 ¡ESTE ES EL DATO REAL! ('local' | 'global')
+      scope: (localidad === 'global') ? 'global' : searchScope, // 👈 Si la Mamushka está cerrada, el scope real es global
+      localidad: localidad,
+      madre: madreResuelta,
+      hija: hijaResuelta,
+      query: query.trim()
+    };
+    localStorage.setItem('gecko_proprioceptive_memory', JSON.stringify(arkanoPropioceptivo));
+  } else {   
+    // --- MODO GLOBAL ---
+    if (data.favorites) data.favorites.forEach(evaluarYAgregar);
+    if (data.lists) {
+      data.lists.forEach((lista) => {
+        if (lista.id !== '__GECKO_SEARCH_CONTAINER__' && lista.canales) {
+          lista.canales.forEach(evaluarYAgregar);
+        }
+      });
+    }    
+    // 💾 REGISTRO EXACTO DE LA MEMORIA PROPIOCEPTIVA GLOBAL (Post-Filtrado)
+    const arkanoPropioceptivo = {
+      scope: 'global',
+      localidad: 'global',
+      madre: '',
+      hija: '',
+      query: query.trim()
+    };
+    localStorage.setItem('gecko_proprioceptive_memory', JSON.stringify(arkanoPropioceptivo));
+  }
+  
+  // 4. Inyección en el contenedor virtual
+  targetList.ruta = ["GeckoSP Matches Found"];
+  targetList.nombre = `Matches: "${query.trim()}"`;
+  targetList.canales = matches;
+  
+  // 🛡️ RESTRICCIÓN DE LIBERTAD VISUAL by Sheminay for B5EZ[2010C]
+  // Si la carpeta ya existía en el árbol, respeta el estado (.open) que tenga en la pantalla.
+  // Solo la forzamos abierta en true si es el primer nacimiento de la query (búnker recién creado).
+  if (idx === -1) {
+    targetList.open = true;
+    if (typeof openMotherFolders === 'undefined') window.openMotherFolders = {};
+    openMotherFolders["GeckoSP Matches Found"] = true;
+  }
+
+  // 5. Fix Bitácora Inteligente Plus Brújula Propioceptiva by Ei2 for B5EZ[2010Ah!]
+  if (typeof log === 'function') {
+    let contextoLocal = 'Global';
+    if (searchScope === 'local') {
+      contextoLocal = SondaEntornoLocal(); // ¡Usamos directamente la sonda que ya sabe todo! (vos tomaste lsd amigo! jajajaja)
+    }
+    log(`🔍 Scope [${symbolScope}] : [${contextoLocal}] : ${matches.length} Match(es) for "${q}"`);    
+  }
+
+  // 6. Redibujo
+  renderTree();
+}
+// #endregion
+// ---------------------- Fin Busqueda Suprema Geckónica Engine --------------------------- //
+
+// #region 🦎GeckoSecretPlace [ MNSLD: Mamushka Navigation System Logic Drive ]
+// ---------------------------------------------------------------------------- //
 // --------------- MNSLD (MAMUSHKA NAVEGACIÓN SYSTEM LOGIC DRIVE -------------- //
+// ---------------------------------------------------------------------------- //
 // -------------- CENTRAL DE NAVEGACIÓN ANALÓGICA MULTIDIMENSIONAL ------------ //
 // ----------------- Powered by NOva DulceKAli for M3EZ[2909] ----------------- //
-function mamushkaLogicDrive(action, target = null) {
+// ---------------------------------------------------------------------------- //
+//function mamushkaLogicDrive(action, target = null) {  
+async function mamushkaLogicDrive(action, target = null) {
   const scrollAnterior = treeEl.scrollTop; // Resguardo nativo para evitar tirones
-  let scrollDestino = null; // Desplazamiento del ViewPort by NOva DulceKAli for M3EZ[2909]
-  switch (action) {   
-    // 1. [ <<< ] - Colapsa todo a las invariantes raíz
+  let scrollDestino = null; // Desplazamiento del ViewPort by NOva DulceKAli for M3EZ[2909]  
+  switch (action) {    
+    // 1. [ <<<· ] - Colapsa todo a las invariantes raíz [ORIGINAL]
     case 'zoom_out': {
       openMotherFolders = {};
       data.lists.forEach(l => l.open = false);
       favoritesOpen = false;
       log('🔍 Zoom Out Geckónico: Mamushka replegada');
+      // 📡 LA ANTENA SE OCUPA DEL TRABAJO (by Sheminay for B5EZ[2010C]): 
+      // Informamos al sintonizador que el Conurbano se replegó para que la Sonda 
+      // cante "Global" y el radar actualice los matches del multiverso en silencio.
+      antenaLocalidad();
       break;
     }
-    // 2. [ Glob ] - Conmuta visibilidad de listas masivas
+    // 2. [ GCh ] - Conmuta visibilidad de listas masivas
     case 'toggle_global': {
       hideGlobalGuiges = !hideGlobalGuiges;
       // Sincronización del LED del conmutador:
@@ -1365,24 +1881,69 @@ function mamushkaLogicDrive(action, target = null) {
       log(hideGlobalGuiges ? '👁️‍🗨️ GeckoGuías Globales Ocultas' : '🌐 GeckoGuías Globales Visibles');
       break;
     }
-    // 2.5 [ @ ] - Foco en el Canal Actual for Mamushka Navigation System™  by Leo
+    // 3 [ <@> ] - Foco en el Canal Actual for Mamushka Navigation System™ by Leo, Refined by Sheminay for B5EZ[1710B] and Powered by Ei2 for B5EZ[2110E+]
     // solo foco en canal activo, no cambio, no saltos en video, solo vuelve al foco desde cualquier lado.
-    case 'current_channel': {
+    case 'current_channel': {      
+      // 🧠 SI PROVIENE DE MATCHES, RESTAURAMOS SU MULTIVERSO ESPECÍFICO PRIMERO by Ei2 feat. Chamán Programador for B5EZ[2010E+]
+      // Mover el Pasaporte al inicio garantiza resucitar los Matches antes de resolver aperturas de carpetas
+      const act = data.lastchnl?.actual;
+      if (act && act.selectedFromMatches && act.arkanoOrigen) {
+        // Inyectamos en caliente los datos exactos que el canal transporta en su pasaporte
+        const qReal = act.queryOrigen || act.arkanoOrigen.query || '';
+        localStorage.setItem('gecko_search_query', qReal);
+        localStorage.setItem('gecko_proprioceptive_memory', JSON.stringify(act.arkanoOrigen));        
+        restaurarMultiversoDeCanal();
+      }
       if (currentSelected.type === 'list' && data.lists[currentSelected.listIdx]) {
         const lista = data.lists[currentSelected.listIdx];
+        /* Bloque Original mínimo... sin memoria
         openMotherFolders = {};
-        if (lista.ruta && lista.ruta[0]) {
-          openMotherFolders[lista.ruta[0]] = true;
-        }
+        if (lista.ruta && lista.ruta[0]) {openMotherFolders[lista.ruta[0]] = true;}
         data.lists.forEach((l, i) => l.open = (i === currentSelected.listIdx));
-        favoritesOpen = false;        
+        */        
+        // 🛡️ ESCUDO DE COEXISTENCIA VOLÁTIL BY SHEMINAY FOR B5EZ[1710B]:        
+        const esBusqueda = lista.id === '__GECKO_SEARCH_CONTAINER__';        
+        // 🧠 ROMPER LA AMNESIA DEL ZOOM OUT: 
+        // Si el foco es un canal de búsquedas (está en los Matches), antes de evaluar aperturas, la central lee el disco 
+        // y le devuelve la vida a las carpetas fijas de fondo en la RAM de un solo viaje.
+        if (esBusqueda) {
+          restaurarGeckoguiasAbiertas();
+        } else { // si no reseteamos de prepo el mapa de Madres fijas.
+          openMotherFolders = {};
+        }
+        if (lista.ruta && lista.ruta[0]) {
+          openMotherFolders[lista.ruta[0]] = true; // Abre la Madre de Matches o la fija correspondientemente
+        }
+        // El .forEach solo apaga las carpetas fijas si NO venimos de los resultados de búsqueda
+        data.lists.forEach((l, i) => {
+          if (esBusqueda) {            
+            if (l.id === '__GECKO_SEARCH_CONTAINER__') l.open = true; // Forzamos la apertura de Matches para el scroll del centrado
+            // 🧲 ENLACE DE NÚCLEO VULKANO: Aseguramos también la apertura de la subcarpeta estática de origen
+            if (i === currentSelected.listIdx) l.open = true;
+          } else {
+            l.open = (i === currentSelected.listIdx); // Comportamiento nativo tradicional
+          }
+        });
+        // FIN 🛡️ ESCUDO FOR B5EZ[1710B]
+        favoritesOpen = false;      
       } else if (currentSelected.type === 'fav') {
         favoritesOpen = true;
         data.lists.forEach(l => l.open = false);        
       }
-      log('@ Viewport: Saltando al Current Selected Channel');
+      // 📡 TELEMETRÍA GECKÓNICA SUPREMA HUMANIZADA CC4EZ[0510I] - Ojos en el Viewport
+      if (currentSelected && currentSelected.data) {
+        const targetName = currentSelected.data.nombre || 'Ninguno';
+        const targetUrl = currentSelected.data.url || 'Sin URL';        
+        // Resolvemos el nombre del cubil o si es favoritos
+        const guiaNombre = (currentSelected.type === 'fav') 
+          ? '⭐ Gecko Favorite Channels' 
+          : `${(data.lists[currentSelected.listIdx] ? data.lists[currentSelected.listIdx].nombre : 'Desconocida')}`;        
+        log(`[<@>] Viewport Foco -> Canal: "${targetName}" | GeckoGuía: [${guiaNombre}]`);
+      } else {
+        log(`[<@>] Viewport Foco ⚠ Omitido: No hay ningún canal seleccionado en el reproductor.`);
+      }
       break;
-    }   
+    }    
     // 4. Paginación Anterior [ << ]
     case 'prev_page': {
       scrollDestino = Math.max(0, scrollAnterior - treeEl.clientHeight); // Desplazamiento del ViewPort by NOva DulceKAli for M3EZ[2909]
@@ -1395,7 +1956,7 @@ function mamushkaLogicDrive(action, target = null) {
       log('>> Viewport: Saltando a página siguiente');
       break;
     }
-    // 3. Al cambiar de lista/página -> SOLO FOCO EN EL PRIMERO (Sin reproducir)
+    // 6. Al cambiar de lista/página -> SOLO FOCO EN EL PRIMERO (Sin reproducir)
     case 'set_focus_first': {
       if (target !== null && data.lists[target]) {
         // Forzamos la apertura en memoria de su cascada analógica
@@ -1420,9 +1981,9 @@ function mamushkaLogicDrive(action, target = null) {
     }
   }
   // Guardamos el estado y redibujamos el explorador ciego
-  save();
+  save();  
   renderTree();  
-  //Así un solo render, y el scroll se aplica sobre el DOM ya pintado. Mamushka System™ a full potencia. 🚀
+  // Aahora un solo render, y el scroll se aplica sobre el DOM ya pintado. Mamushka System™ a full potencia. 🚀
   // Render With Desplazamiento del ViewPort by NOva DulceKAli for M3EZ[2909]
   if (action === 'current_channel') {
     centrameCanalActivo();
@@ -1431,17 +1992,10 @@ function mamushkaLogicDrive(action, target = null) {
   } else if (scrollDestino !== null) {
     treeEl.scrollTop = scrollDestino;
   }
-  // con 1509 canales por GeckoGuía, MNSLD ya hizo el trabajo pesado. ❤️🦎 (NOva DulceKAli)
+  // con 1509 (hoy 3137!!!)... [Ahora 5150!!!] canales por GeckoGuía, MNSLD ya hizo el trabajo pesado. ❤️🦎 (NOva DulceKAli)
 }
-// Auxiliar Geckónica Agnóstica 
-function centrameCanalActivo() {
-  requestAnimationFrame(() => {
-    document.querySelector('.channel.active')
-      ?.scrollIntoView({ behavior: 'smooth', block: 'center' });
-  });
-}
-// ---------------------------------------------------------------------------- //
-
+// #endregion
+// ----------------------------- Fin de MNSLD --------------------------------- //
 
 // --------------------- MIXED LIST FUNCTIONS ----------------------- //
 async function parsearLista(idx){
@@ -1484,9 +2038,11 @@ async function parsearLista(idx){
     statusEl.textContent = `✅ ${lista.nombre}: ${canales.length} canales cargados`;
     save();
     renderTree();
+    return true; // Fix: 🟢 ¡EL CONTRATO! Avisa que la mamushka se llenó con éxito by Sheminay for CC4EZ[0410B]
   }catch(e){
-    log(`❌ Error lista ${lista.nombre}: ${e.message}`);
+    log(`❌ Error GeckoGuía ${lista.nombre}: ${e.message}`);
     statusEl.textContent = `❌ Error: ${lista.nombre} - ${e.message}`;
+    return false; // Fix: 🔴 Avisa que se rompió la antena by Sheminay for CC4EZ[0410B]
   }
 }
 function recargarLista(idx){ data.lists[idx].canales=[]; parsearLista(idx); }
@@ -1494,23 +2050,52 @@ function recargarLista(idx){ data.lists[idx].canales=[]; parsearLista(idx); }
 
 
 // ----------- 2 y 5. SELECCIÓN, EDICIÓN Y REPRODUCCIÓN ------------- //
-// N4a. Este es el corazón del Flip-Flop (NOva Fix le cambia la firma pa que recuerde!)
+// N4a. Este es el corazón del Flip-Flop (NOva Fix le cambia la firma pa que recuerde!) + Contrato Terna de Identidad by Sheminay for CC4EZ[1610B]
 function selectAndPlay(type, listIdx, chIdx, el, remember = true){
   let chObj = null;
   if(type==='fav') chObj = data.favorites[chIdx];
   else chObj = data.lists[listIdx].canales[chIdx];
   if(!chObj) return;
-  // N4b. Actualizar memoria de trayectoria.
-  // Solo ocurre durante una transición normal.
+  // 🔁 PUNTO 3b: EL MISMO CANAL NO PUEDE SER SU PROPIO ANTERIOR (Anti-Bucle Cuántico) by Sheminay for CC4EZ[1610B]
+  if (remember && data.lastchnl && data.lastchnl.actual) {
+    const act = data.lastchnl.actual;
+    // Definimos la igualdad exacta mediante la terna de NOva
+    const mismaGuia = act.type === type && (type === 'fav' || act.listId === data.lists[listIdx]?.id);
+    const mismoId = act.chIdx === chIdx;
+    const mismaUrl = currentSelected && currentSelected.data && currentSelected.data.url === chObj.url;
+    if (mismaGuia && mismoId && mismaUrl) {
+      remember = false; // Mismo click detectado: congela la transición y salva el historial anterior legítimo
+    }
+  }
+  // N4b. Actualizar memoria de trayectoria (Solo ocurre durante una transición normal).
   if (remember) {
     data.lastchnl.anterior = data.lastchnl.actual;    
     // El parche supremo v1.1 - ID reserva territorio (by Llamita Encendida for M3EZ[1809B] with Kernel Panic Increase in Population)
     // data.lastchnl.actual = { type, listIdx, listId: data.lists[listIdx]?.id, chIdx }; // One Line Fix
+    // 📡 PUNTO 3: Ampliación del registro con la URL unívoca de la señal de origen (URL) by Sheminay for CC4EZ[1610B]
+    /*
     data.lastchnl.actual = {
       type,
       listIdx,
-      listId: data.lists[listIdx]?.id, // "list_250003" ¡ESTE ES EL QUE MANDA!
-      chIdx
+      listId: data.lists[listIdx]?.id, // "list_250003" ¡ESTE ES EL QUE MANDA!      
+      chIdx,
+      url: chObj.url // 📡 PUNTO 3: La frecuencia exacta de la Señal resguardada (su URL) by Sheminay for CC4EZ[1610B]
+    };
+    */
+    //📡 PUNTO 3: Inyectando el Pasaporte de Reproducción con Memoria Arkana (Memoria de Reproducción Plus) by Sheminay feat. Chamán Programador for B5EZ[2010E]:
+    const esCanalDeMatches = data.lists[listIdx]?.id === '__GECKO_SEARCH_CONTAINER__';
+    const inputSearch = document.getElementById('geckoSearchInput');
+    const queryActual = inputSearch ? inputSearch.value.trim() : '';    
+    data.lastchnl.actual = {
+      type,
+      listIdx,
+      listId: data.lists[listIdx]?.id,      
+      chIdx,
+      url: chObj.url,
+      // 🧠 MEMORIA DE REPRODUCCIÓN DISTRIBUIDA      
+      selectedFromMatches: esCanalDeMatches,
+      queryOrigen: esCanalDeMatches ? queryActual : null, // 👈 Guardamos el texto explícito ("auto", "retro", etc.) by Ei2 for B5EZ[2010E+]
+      arkanoOrigen: esCanalDeMatches ? JSON.parse(localStorage.getItem('gecko_proprioceptive_memory') || '{}') : null      
     };
     save();
   }
@@ -1518,20 +2103,21 @@ function selectAndPlay(type, listIdx, chIdx, el, remember = true){
   document.getElementById('editName').value = chObj.nombre || '';
   document.getElementById('editUrl').value = chObj.url || '';
   document.getElementById('editType').value = chObj.tipo || '';
-  
   // ⏱ Buffer Geckónico - Set radio según canal (Tía Marta Evolution) M3EZ[1909A]
   //const bufSel = [30,60,90,120,150].includes(chObj.buffer) ? chObj.buffer : 30;
   // Fix MODO DUAL FAST-START M3EZ[2009B] - FIX DE STREAMINGS COMPLETO by Llamita Encendida
   const bufSel = normalizeBufferEstable(chObj.buffer);
   const rb = document.querySelector(`input[name="editBuffer"][value="${bufSel}"]`);
-  if(rb) rb.checked = true;
-    
+  if(rb) rb.checked = true;   
   toggleNewListInput('');
   document.getElementById('channelVal').textContent = chObj.nombre;
   currentDialIdx = chIdx;
-  // ------ NOva Fix + Aetheris [FF-TV & Mamuscka Sync] by Sheminay ---- //
+  /*
+  // ------ NOva Fix + Aetheris [FF-TV & Mamushka Sync] by Sheminay ---- //
   // Sincronizamos la cascada sólo si el cambio viene a ciegas (sin elemento 'el')
   if (!el) {
+  // EXCEPCIÓN: Si el canal viene de la búsqueda volátil, abortamos la limpieza para no cerrarle las carpetas fijas al radar local.
+  //if (!el && data.lists[listIdx]?.id !== '__GECKO_SEARCH_CONTAINER__') { // OJO QUE ROMPIÓ EL SALTO VISUAL [FF-TV] AL ANTEIOR EN BUSQUEDAS!
     openMotherFolders = {}; // Limpieza sanitaria de raíces abiertas
     if (type === 'fav') {
       favoritesOpen = true;
@@ -1541,7 +2127,36 @@ function selectAndPlay(type, listIdx, chIdx, el, remember = true){
       const listaActiva = data.lists[listIdx];
       if (listaActiva && listaActiva.ruta) {
         openMotherFolders[listaActiva.ruta] = true; // Abre la madre correspondiente
-        data.lists.forEach((lista, i) => lista.open = (i === listIdx)); // Abre la subcarpeta hermana
+        data.lists.forEach((lista, i) => lista.open = (i === listIdx)); // Abre la subcarpeta hermana      
+      }
+    }
+  }
+  */
+  // ------ NOva Fix + Aetheris [FF-TV & Mamushka Sync] +New fix by Sheminay ---- //
+  // Sincronizamos la cascada sólo si el cambio viene a ciegas (sin elemento 'el')
+  if (!el) {
+    const listaActiva = data.lists[listIdx];
+    const esBusqueda = listaActiva?.id === '__GECKO_SEARCH_CONTAINER__';
+    // 🛡️ ESCUDO DE COEXISTENCIA VOLÁTIL CC4EZ[1610D]:
+    // Si el destino es la búsqueda, NO reseteamos de prepo el mapa de Madres fijas.
+    if (!esBusqueda) {
+      openMotherFolders = {}; 
+    }
+    if (type === 'fav') {
+      favoritesOpen = true;
+      data.lists.forEach(lista => lista.open = false);
+    } else {
+      favoritesOpen = false;
+      if (listaActiva && listaActiva.ruta) {
+        openMotherFolders[listaActiva.ruta] = true; // Abre la madre de Matches o la fija correspondientemente        
+        // El .forEach solo apaga las carpetas fijas si NO estamos sintonizando desde la búsqueda
+        data.lists.forEach((lista, i) => {
+          if (esBusqueda) {
+            if (lista.id === '__GECKO_SEARCH_CONTAINER__') lista.open = true; // Forzamos la apertura de Matches para el centrado
+          } else {
+            lista.open = (i === listIdx); // Comportamiento nativo tradicional
+          }
+        });      
       }
     }
   }
@@ -1551,27 +2166,21 @@ function selectAndPlay(type, listIdx, chIdx, el, remember = true){
   renderTree();
   //log(`DESPUES RENDER scroll=${treeEl.scrollTop}`);
   //log(`EL=${!!el}`);
-  document.getElementById('editTargetList').value = (type === 'fav') ? 'fav' : `list_${listIdx}`;
-  
+  document.getElementById('editTargetList').value = (type === 'fav') ? 'fav' : `list_${listIdx}`;  
   //playChannel(chObj.url, chObj.nombre);
   // ⏱ Buffer Geckónico - chObj (Tía Marta Evolution)  M3EZ[1909A]
   playChannel(chObj.url, chObj.nombre, chObj); // <-- pasamos chObj!  
-  
   actualizarEstadoBotones();  // for v.M2EZ04092026A by Llamita Encendida en la WWW  
 }
 // ***** BUFFER ESTRELLA DE LLAMITA ENCENDIDA Powered by NOva DulceKAli ***** //
 function playChannel(url, nombre, canal = {}){
   statusEl.textContent = `📡 ${nombre}...`;
-
   if(hls){ hls.destroy(); hls=null; }
   video.removeAttribute('src'); video.load();
-
   log(`▶ ${nombre}`); // primero canal enganchado, luego buffer seteado by Llamita Encendida for M3EZ[2009B]
-
   // Fix DUAL FAST-START - placeholder para scope by Llamita Encendida for M3EZ[2009B] - play() nace antes que hls, necesita ver upgradeToEstable
   let upgraded=false;
   let upgradeToEstable=()=>{};
-
   const play = ()=>{
     video.play().then(()=>{
       statusEl.textContent=`🟢 LIVE: ${nombre}`;
@@ -1579,14 +2188,12 @@ function playChannel(url, nombre, canal = {}){
       setTimeout(upgradeToEstable,500);
     }).catch(e=>{ statusEl.textContent=`❌ ${e.message}`; });
   };
-
   // NUEVA FEATURE LIMPIA M2EZ - si no existe, 30 por retrocompatibilidad (Trasparencia con el Pasado)
   //const buf = canal.buffer || 30;
   // Blindaje total, le ponemos la whitelist (EVALUAR CON NOVA). cableado Buffer Temporal Geckónico for M3EZ[1909A]
   //const buf = [30,60,90,120,150].includes(canal.buffer) ? canal.buffer : 30; 
   // Fix DUAL FAST-START - estable con escudo fósil by Llamita Encendida for M3EZ[2009B] - 30 pasa a ser arranque fijo invisible, estable es 60/90/120/150
   const bufEstable = normalizeBufferEstable(canal.buffer);
-
   // Sin maxBufferSize. Que lo maneje hls.js. Nosotros no adivinamos bytes.
   /*
   NOva Anota una NOta:
@@ -1594,8 +2201,7 @@ function playChannel(url, nombre, canal = {}){
   maxMaxBufferLength: buf + 30
   y
   liveSyncDurationCount: buf >= 90? 5 : 3
-  son decisiones de comportamiento Gecko, no una consecuencia necesaria de buffer.
-  
+  son decisiones de comportamiento Gecko, no una consecuencia necesaria de buffer.  
   const hlsConfig = {
     maxBufferLength: buf,
     maxMaxBufferLength: buf + 30,
@@ -1645,7 +2251,7 @@ function playChannel(url, nombre, canal = {}){
   }
 }
 // ************************************************************************** //
-// buffer REAL, enganchado a hls:
+// buffer REAL, enganchado a hls [Para Agregar en PAntalla Debajo del GeckoTime]:
 /*
 hls.on(Hls.Events.FRAG_BUFFERED, (e, data) => {
   console.log(`Frag: ${data.frag.duration}s | bitrate: ${data.frag.bitrate} | buffered total: ${video.buffered.end(0) - video.currentTime}s`);
@@ -1668,8 +2274,9 @@ function actualizarEstadoBotones(){
   let esExterna = false;
   if(currentSelected.type === 'list'){
     const l = data.lists[currentSelected.listIdx];
-    esExterna = l.url && l.url.trim() !== "";
-  }
+    //esExterna = l.url && l.url.trim() !== "";
+    esExterna = (l.url && l.url.trim() !== "") || l.id === '__GECKO_SEARCH_CONTAINER__'; // Fix Button State for Efimeral Search Matches by Ei2 for CC4EZ[0410]
+  }  
   // El CSS se encarga del resto (opacidad, puntero, eventos) con solo cambiar esta propiedad
   btnGuardar.disabled = esExterna;
   btnGuardar.title = esExterna ? "Solo lectura: movelo a 👤 GeckoGuías Personalizadas" : "";
@@ -1726,11 +2333,8 @@ function saveSelectedChannel(){
     } else {
       data.lists[origListIdx].canales.splice(origChIdx, 1);
     }
-    // 2. Insertar al final de la lista destino
-    
-    //const updatedObj = { nombre: newName, url: newUrl, tipo: newType };
-    const updatedObj = { nombre: newName, url: newUrl, tipo: newType, buffer: getSelectedBuffer() }; // reubicación Buffer Temporal Geckónico M3EZ[1909A]
-    
+    // 2. Insertar al final de la lista destino    
+    const updatedObj = { nombre: newName, url: newUrl, tipo: newType, buffer: getSelectedBuffer() }; // reubicación Buffer Temporal Geckónico M3EZ[1909A]    
     if (targetVal === 'fav') {
       data.favorites.push(updatedObj);
       currentSelected = { type: 'fav', listIdx: null, chIdx: data.favorites.length - 1, data: updatedObj };
@@ -1761,11 +2365,8 @@ function addNewChannel(){
     ? data.favorites 
     : data.lists[targetVal].canales;
   // new for v.M2EZ07092026A by Llamita Encendida en la WWW
-  if(esDuplicadoEnGuia(url, targetArray)) return;
-  
-  //const newObj = { nombre: name, url: url, tipo: type };
-  const newObj = { nombre: name, url: url, tipo: type, buffer: getSelectedBuffer() }; // for Buffer Temporal Geckónico M3EZ[1909A]
-  
+  if(esDuplicadoEnGuia(url, targetArray)) return;  
+  const newObj = { nombre: name, url: url, tipo: type, buffer: getSelectedBuffer() }; // for Buffer Temporal Geckónico M3EZ[1909A]  
   // Obtener el nombre de la lista destino para la bitácora
   const targetListName = (targetVal === 'fav') 
     ? '⭐ Gecko Favorite Channels' 
@@ -1783,7 +2384,7 @@ function addNewChannel(){
   if (currentSelected && currentSelected.type) {
     document.getElementById('editTargetList').value = (currentSelected.type === 'fav') ? 'fav' : `list_${currentSelected.listIdx}`;
   }
-  log(`➕ Canal "${name}" agregado a la lista destino: ${targetListName}`); // Best Log Message
+  log(`➕ Canal "${name}" agregado a la GeckoGuía destino: ${targetListName}`); // Best Log Message
 }
 function deleteSelectedChannel(reRender=true){
   if(!currentSelected.data) return;
@@ -1815,7 +2416,7 @@ function resolveTargetListIndex() {
   if (errEl) errEl.innerText = '';
   // Alerta aviso de campo Lista Destino Vacío - for v.M2EZ04092026A by Llamita Encendida en la WWW 
   if (!targetVal) {
-    if (errEl) errEl.innerText = '⚠️ Seleccioná o Crea una Lista Destino';
+    if (errEl) errEl.innerText = '⚠️ Seleccioná o Crea una GeckoGuía Destino';
     return null;
   }
   if (targetVal === 'fav') return 'fav';
@@ -1823,12 +2424,12 @@ function resolveTargetListIndex() {
     const input = document.getElementById('newListNameInput');
     const nombreNuevo = input ? input.value.trim() : '';
     if (!nombreNuevo) {
-      if (errEl) errEl.innerText = '⚠️ Ingrese un nombre para la lista';
+      if (errEl) errEl.innerText = '⚠️ Ingrese un nombre para la GeckoGuía';
       return null;
     }
     const existe = data.lists.some(l => l.nombre.toLowerCase() === nombreNuevo.toLowerCase());
     if (existe) {
-      if (errEl) errEl.innerText = '⚠️ Nombre de Lista Ya Existe, Elija Otro';
+      if (errEl) errEl.innerText = '⚠️ Nombre de GeckoGuía Ya Existe, Elija Otro';
       return null;
     }
     const newIdx = data.lists.length;
@@ -1850,7 +2451,7 @@ function resolveTargetListIndex() {
 // ------------------------------------------------------------------ //
 
 
-// ----- 9. ADMIN.LISTAS/GECKOGUÍAS (MINIMALISMO VULKANO) by Ei2 base Llamita Repotenciado por NOva DulceKAli ---- //
+// ----- 9. ADMIN.LISTAS/GECKOGUÍAS (MINIMALISMO VULKANO) by Ei2 base Llamita Repotenciado por NOva DulceKAli ----- //
 // Gato de Schrödinger. Mientras no mirás la solapa, no existe. Solo al entrar colapsa.
 // FUENTE DE VERDAD: data.lists filtrado por ruta[0] === "GeckoGuías Personalizadas" (agnóstico, sin +250k)
 // Filtrado de Personalizadas con idxReal. Base agnóstica sin 250k, evita tocar invariantes
@@ -1859,12 +2460,44 @@ function getPersonalizadas(){
     .map(function(lista, idxReal) { return { lista: lista, idxReal: idxReal }; })
     .filter(function(o) { return o.lista.ruta && o.lista.ruta[0] === "GeckoGuías Personalizadas"; });
 }
+// ----------------------------------------------------------------------------------------------------------------- //
+// New Function getListasAdministrables by NOva DulceKAli for Admin GeckoGuías Externas de Usuario and Next Features:
+/*
+Next Admin.Listas Panel:
+
+GeckoGuía (Lista):
+[ seleccionar...                         ]
+Nombre:
+[                                      ]
+URL M3U:
+[                                      ]
+[ Guardar ] [ Agregar ] [ Eliminar ]
+
+con la separación:
+250K ───────── 500K
+👤 Personalizadas
+500K ───────── 1M
+📥 Externas de Usuario
+*/
+// ----------------------------------------------------------------------------------------------------------------- //
+function getListasAdministrables(){
+  return data.lists
+    .map(function(lista, idxReal) {
+      return { lista: lista, idxReal: idxReal };
+    })
+    .filter(function(o) {
+      const ruta = o.lista.ruta && o.lista.ruta[0];
+      return ruta === "GeckoGuías Personalizadas" ||
+             ruta === "GeckoGuías Externas de Usuario";
+    });
+}
 // Populado de select con 👤 Personalizadas / Nombre. Schrödinger, solo al foco, zero-state en condición de fábrica
+// New populateAdminListas con soporte de "GeckoGuías Externas de Usuario" for M3EZ[0110B] by Llamita Encendida
 function populateAdminListas(){
-  var pers = getPersonalizadas();
+  var adm = getListasAdministrables(); 
   // Condición de fábrica: 0 listas -> zero-state, nada habilitado
-  if(!pers.length){
-    UI.sel.innerHTML = '<option disabled selected>— Sin GeckoGuías Personalizadas —</option>';
+  if(!adm.length){
+    UI.sel.innerHTML = '<option disabled selected>— Sin GeckoGuías Administrables —</option>';
     UI.sel.disabled = true; UI.input.value = ""; UI.input.disabled = true;
     UI.input.placeholder = "No hay GeckoGuías para administrar";
     UI.btnSave.disabled = true; UI.btnDel.disabled = true;
@@ -1873,36 +2506,42 @@ function populateAdminListas(){
   // Hay listas: primer opción guía + lista real con invariante visible para que usuario entienda que solo edita suyas
   UI.sel.disabled = false;
   UI.sel.innerHTML = '<option value="" disabled selected>Seleccioná una GeckoGuía...</option>' +
-    pers.map(function(o) { 
-      return '<option value="' + o.idxReal + '">👤 GeckoGuías Personalizadas / ' + o.lista.nombre + '</option>'; 
+    adm.map(function(o) {
+      var icon = o.lista.ruta[0] === "GeckoGuías Personalizadas"? "👤" : "📥";
+      return '<option value="' + o.idxReal + '">' + icon + ' ' + o.lista.ruta[0] + ' / ' + o.lista.nombre + '</option>';
     }).join("");
-  // Reset hasta selección  
+    // Reset hasta selección
   UI.input.value = ""; UI.input.disabled = true; UI.input.placeholder = "Seleccioná una GeckoGuía";
   UI.btnSave.disabled = true; UI.btnDel.disabled = true;
 }
 // Habilita input y botones. Sin selección no hay edición
-function onAdminListasSelectChange(){
-  var idxReal = UI.sel.value;
-  // Fix by NOva DulceKAli
-  if(idxReal === ""){
+function onAdminListasSelectChange(){  
+  // Coerción defensiva, Guard clause, Parse, don't validate by Llamita Encendida en la WWW M3EZ[0110]
+  var idxReal = parseInt(UI.sel.value, 10); // Un Peaje Robusto Unico by Llamita Encendida en la WWW M3EZ[0110]
+  // Fix by NOva DulceKAli with Peaje Llamita Encendida
+  if(isNaN(idxReal)){
     UI.input.value = ""; UI.input.disabled = true;
     UI.btnSave.disabled = true; UI.btnDel.disabled = true;
     return;
-  }
+  }  
   var lista = data.lists[idxReal];
   UI.input.value = lista.nombre; UI.input.disabled = false;
   UI.btnSave.disabled = false; UI.btnDel.disabled = false;
 }
 // Renombra data.lists.nombre + save() + renderTree(). Tarea mínima 1/2. Opera sobre dic[idx]
-function saveAdminListas(){
-  var idxReal = UI.sel.value;
-  if(idxReal === "" || idxReal === null) return;
+function saveAdminListas(){  
+  var idxReal = parseInt(UI.sel.value, 10);
+  if(isNaN(idxReal)) return;
   var nuevoNombre = UI.input.value.trim();
   if(!nuevoNombre){ alert("⚠️ El nombre no puede estar vacío"); return; }
   if(nuevoNombre === data.lists[idxReal].nombre) return;  
   // Valida duplicado dentro de Personalizadas (case-insensitive)
-  var duplicado = getPersonalizadas().some(function(o) {
-    return o.idxReal != idxReal && o.lista.nombre.toLowerCase() === nuevoNombre.toLowerCase();
+  // New M3EZ[0110B] by Llamita Encendida: Validación de duplicado para que valide dentro de la misma ruta:
+  var rutaActual = data.lists[idxReal].ruta[0];
+  var duplicado = getListasAdministrables().some(function(o) {
+    return o.idxReal!= idxReal &&
+          o.lista.ruta[0] === rutaActual &&
+          o.lista.nombre.toLowerCase() === nuevoNombre.toLowerCase();
   });
   if(duplicado){ alert("⚠️ Ya existe una GeckoGuía Personalizada con ese nombre"); return; }  
   data.lists[idxReal].nombre = nuevoNombre;
@@ -1915,12 +2554,14 @@ function saveAdminListas(){
 }
 // Borrado con splice + save() + renderTree(). Tarea mínima 2/2 con confirmación.
 function deleteAdminListas(){
-  var idxReal = UI.sel.value;
-  if(idxReal === "" || idxReal === null) return;
+  var idxReal = parseInt(UI.sel.value, 10);
+  if(isNaN(idxReal)) return;
   var lista = data.lists[idxReal];
-  if(!confirm("!!! Esta operación Eliminará la Geckoguía Personalizada / " + lista.nombre + "\n¿Continuar?")) return;  
+  // Confirmación Agnóstica, se lee sola. New for M3EZ[0110B] by Llamita Encendida
+  var tipo = lista.ruta && lista.ruta[0]? lista.ruta[0] : "GeckoGuía";
+  if(!confirm("!!! Esta operación Eliminará la " + tipo + " / " + lista.nombre + "\n¿Continuar?")) return;
   data.lists.splice(idxReal, 1); // Borra del diccionario, fuente de verdad
-  ajustarIndicesTrasEliminarLista(Number(idxReal)); // NOva Fix for lastchnl
+  ajustarIndicesTrasEliminarLista(idxReal); // NOva Fix for lastchnl with Peaje Llamita Encendida
   save();
   renderTree();
   populateAdminListas(); // Vuelve a zero-state elegante
@@ -1944,7 +2585,7 @@ function ajustarIndicesTrasEliminarLista(idxEliminado){
     }
   }
 }
-// --------------------------------------------------------------------------------------------------------------- //
+// ---------------------------------------------------------------------------------------------------------------- //
 
 
 // ---------- 4. HARDWARE CONTROLS (DIALES Y AUDIO SYNTH) ----------- //
@@ -2021,27 +2662,56 @@ channelDial.addEventListener('pointermove', e => {
   }
 });
 channelDial.addEventListener('pointerup', () => isDraggingChannel = false);
-//channelDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
-//channelDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
-//Fix by Sheminay from Generic of Aetheris
+// Fix evento de cancelación apaga la bandera exacta by Sheminay from Generic of Aetheris
 channelDial.addEventListener('pointercancel', () => { isDraggingChannel = false; });
-channelDial.addEventListener('lostpointercapture', () => { isDraggingChannel = false; });
-
-// -- N.5 FF-TV — Flip-Flop Televisivo by NOva DulceKAli --
+channelDial.addEventListener('lostpointercapture', () => { isDraggingChannel = false; });  
+// -- N.5 FF-TV — Flip-Flop Televisivo by NOva DulceKAli & Powered by Sheminay for CC4EZ[1610D] --
 // Salta al canal anterior. La selección vuelve a registrar la transición, produciendo A ↔ B.
-async function ffTV() {
-  let target = resolvePointer(data.lastchnl.anterior);
-  if (!target) return;
+async function ffTV() {  
+  const originRaw = data.lastchnl.anterior;  
+  if (!originRaw) {
+    log(`📡 [FF-TV] ⚠ Sin historial previo: no hay canal anterior registrado en memoria.`);    
+    return;
+  }
+  // 🧠 RECONSTRUCCIÓN AUTÁRQUICA TRAYECTORIA ANTERIOR FF-TV by Ei2 feat Chamán Programador for B5EZ[2010E+]
+  if (originRaw.selectedFromMatches && originRaw.arkanoOrigen) {
+    // Forzamos al disco a adoptar la foto congelada del canal anterior antes de restaurar
+    const qReal = originRaw.queryOrigen || originRaw.arkanoOrigen.query || '';
+    localStorage.setItem('gecko_search_query', qReal);
+    localStorage.setItem('gecko_proprioceptive_memory', JSON.stringify(originRaw.arkanoOrigen));    
+    //if (typeof restaurarMultiversoDeCanal === 'function') restaurarMultiversoDeCanal();
+    restaurarMultiversoDeCanal();
+  }
+  // 🔒 CERROJO PREVENTIVO DE URL VOLÁTIL PARA FF-TV CC4EZ
+  // Evaluamos la señal de origen ANTES de resolver el puntero posicional para evitar la salida silenciosa.
+  if (originRaw.listId === '__GECKO_SEARCH_CONTAINER__' || (originRaw.type === 'list' && data.lists[originRaw.listIdx]?.id === '__GECKO_SEARCH_CONTAINER__')) {
+    const canalDestinoActual = data.lists[originRaw.listIdx]?.canales[originRaw.chIdx];
+    if (!canalDestinoActual || canalDestinoActual.url !== originRaw.url) {
+      log(`📡 [FF-TV] ⚠ Canal anterior no disponible: la GeckoGuía Matches ha cambiado.`);
+      return;
+    }
+  }
+  let target = resolvePointer(originRaw);
+  if (!target) {
+    log(`📡 [FF-TV] ⚠ Trayectoria inalcanzable: el casillero de destino ya no existe.`);
+    return;
+  }
   // Si pertenece a una lista todavía no cargada, cargarla antes de intentar seleccionar el canal.
-  if (
-    target.type === 'list' &&
-    data.lists[target.listIdx].canales.length === 0
-  ) {
-    await parsearLista(target.listIdx);
+  if (target.type === 'list' && data.lists[target.listIdx].canales.length === 0) {
+    //await parsearLista(target.listIdx);
+    // Fix del asincronismo sin respuesta ffTV() by Sheminay for CC4EZ[0410B]
+    const exito = await parsearLista(target.listIdx); // 🔒 Ahora SÍ espera y escucha la respuesta
+    if (!exito) { log("⚠ Abortando FF-TV: GeckoGuía Inalcanzable"); return; }
   }
   // Revalidar después de la carga.
   target = resolvePointer(target);
   if (!target) return;
+  // 📡 BITÁCORA MILITAR DE TRAYECTORIA FF-TV CC4EZ[0510I] - Equilibrada y Humana
+  const targetObj = (target.type === 'fav') ? data.favorites[target.chIdx] : data.lists[target.listIdx]?.canales[target.chIdx];
+  if (targetObj) {
+    const guiaNombre = (target.type === 'fav') ? '⭐ Gecko Favorite Channels' : (data.lists[target.listIdx] ? data.lists[target.listIdx].nombre : 'Desconocida');
+    log(`↔ [FF-TV] Transición -> Canal Anterior: "${targetObj.nombre}" | GeckoGuía: [${guiaNombre}]`);
+  }
   selectAndPlay(target.type, target.listIdx, target.chIdx, null);
   // Centrado Agnostico del Salto Chamánico!!!
   centrameCanalActivo();
@@ -2069,12 +2739,9 @@ fineDial.addEventListener('wheel', (e) => {
   applyFine(fineValue + step);
 });
 fineDial.addEventListener('pointerup', ()=>isDraggingFine=false);
-//fineDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
-//fineDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
-//Fix by Sheminay from Generic of Aetheris
+// Fix evento de cancelación apaga la bandera exacta by Sheminay from Generic of Aetheris
 fineDial.addEventListener('pointercancel', () => { isDraggingFine = false; });
 fineDial.addEventListener('lostpointercapture', () => { isDraggingFine = false; });
-
 function applyFine(val){
   fineValue = Math.max(-100, Math.min(100, val));
   const absVal = Math.abs(fineValue);
@@ -2214,14 +2881,9 @@ volDial.addEventListener('wheel', e=>{
   applyVol(volValue + (e.deltaY>0?-3:3));
 }, {passive:false});
 volDial.addEventListener('pointerup', ()=>isDraggingVol=false);
-// AETHERIS FIX en v.3.AFX [CodeName: AETHERIS FIX FX]
-//volDial.addEventListener('pointercancel', () => { isDraggingXxx = false; });
-//volDial.addEventListener('lostpointercapture', () => { isDraggingXxx = false; });
-//Fix by Sheminay from Generic of Aetheris
-// AETHERIS FIX en v.3.AFX [CodeName: AETHERIS FIX FX]
+// Fix evento de cancelación apaga la bandera exacta by Sheminay from Generic of Aetheris en v.3.AFX [CodeName: AETHERIS FIX FX]
 volDial.addEventListener('pointercancel', () => { isDraggingVol = false; });
 volDial.addEventListener('lostpointercapture', () => { isDraggingVol = false; });
-
 // Enganche Sync Vol Tándem
 function attachGeckoVolSync(){
   const v = getGeckoVideo(); if(!v || v._geckoSync) return;
@@ -2238,19 +2900,31 @@ applyVol(0);
 
 // --- 6. EXPORTAR/IMPORTAR by Chamán+ Alpha Centauri for v.2.9C ---- //
 // ----- & Repotenciado by Sheminay on version M2EZ[08092026A] ------ //
-async function exportarJSON(){
+async function exportarJSON(){  
+  // Purgar búsqueda activa antes de empaquetar para limpiar interfaz y memoria volátil by Ei2 for CC4EZ[0310G]
+  // Mejor dejamos la Experiencia local y filtramos solo la salida
+  /*
+  if (typeof limpiarBusquedasGecko === 'function') {
+    limpiarBusquedasGecko();
+  }
+  */
   // const dataStr = JSON.stringify(data, null, 2); // Comentado por Sheminay for version M2EZ[08092026A]
-  // ---------------- Filtro Pluma by Sheminay for version M2EZ[08092026A] ---------------- //
+  // ------------------------ Filtro Pluma by Sheminay for version M2EZ[08092026A] --------------------- //
   //  Al archivo viajan SÓLO:
   //  favoritos, trayectoria y listas del usuario filtradas por el ID estratosférico. 
   const backupPluma = {
     favorites: data.favorites,
     lastchnl: data.lastchnl,    
     // for 10000X25 Offset Parche Supremo Mazinger Z feat Tortugas Ninja by Chamán Programador
-    lists: data.lists.filter(l => (parseInt((l.id || '').replace('list_', '')) || 0) >= 250000 || !l.url || l.url.trim() === "")
+    //lists: data.lists.filter(l => (parseInt((l.id || '').replace('list_', '')) || 0) >= 250000 || !l.url || l.url.trim() === "")
+    // el motor rechaza por completo cualquier rastro del buscador by Ei2 for CC4EZ[0310G]
+    lists: data.lists.filter(l => {
+      if (l.id === '__GECKO_SEARCH_CONTAINER__') return false;
+      return (parseInt((l.id || '').replace('list_', '')) || 0) >= 250000 || !l.url || l.url.trim() === "";
+    })
   };
   const dataStr = JSON.stringify(backupPluma, null, 2);
-  // ------------------------------------------------------------------------------------- //
+  // ---------------------------------------------------------------------------------------------------- //
   //const suggestedName = 'gecko_mamushka_tree_backup.json'; // Clasico Original SheiSon
   const suggestedName = 'gecko_mamushka_tree_backup.gspf'; // default WhatsApp-friendly
   // Si el navegador soporta File System Access API, mostramos el desplegable pro
@@ -2287,7 +2961,7 @@ function importarJSON(event){
   const file = event.target.files[0];
   if(!file) return;
   // Cartelito prudente porque pisa TODO - es FULL BACKUP
-  if(!confirm('⚠️ FULL BACKUP: Esto va a SOBREESCRIBIR todas tus GeckoGuías y favoritos con el contenido de:\n\n' + file.name + '\n\n¿Seguro?')) {
+  if(!confirm('⚠️ FULL BACKUP: Esto va a SOBREESCRIBIR todas tus GeckoGuías y Favoritos con el contenido de:\n\n' + file.name + '\n\n¿Seguro?')) {
     event.target.value = '';
     return;
   }
@@ -2387,6 +3061,34 @@ function switchTab(tabName, btn){
 // N7. Restauración de trayectoria al iniciar. by NOva DulceKAli
 // Restaurar ≠ navegar: no modifica actual/anterior.
 setTimeout(async () => {
+  // 🔒 ESCUDO DE INICIO GECKÓNICO: Avisamos al organismo que el boot está en marcha
+  window.geckoBootActive = true;
+  // 🧠 PASO 1: Reconstruimos la trinchera volátil en el DOM síncronamente. (by Sheminay feat. Chamán Programador for CC4EZ[1610D])  
+  // Como ya pasó medio segundo, el input existe obligatoriamente en cualquier play o PC. Al ejecutarse acá, hacemos dos cosas:  
+  // cosa 1; Primero restauramos el estado visual de las GeckoGuías abiertas (memoria visual)
+  // restauramos el estamo de las GeckoGuias Abiertas (en general y en particular para busquedas con scope "Local")...
+  //if (typeof restaurarGeckoguiasAbiertas === 'function') {restaurarGeckoguiasAbiertas();}
+  restaurarGeckoguiasAbiertas();
+  // cosa 2 (Original): y hacemos que el contenedor virtual se popule justo antes de que NOva despierte el reproductor y busque el canal.
+  /*
+  if (typeof reconstruirBusquedaGeckonica === 'function') {
+    reconstruirBusquedaGeckonica();
+  }
+  */  
+  // cosa 2: y evaluamos si el canal actual exige el multiverso de búsqueda o la exploración normal   
+  const canalActual = data.lastchnl?.actual;
+  if (canalActual && canalActual.selectedFromMatches && canalActual.arkanoOrigen) {
+    // Si el canal actual proviene de búsqueda, su pasaporte comanda la resurrección al instante
+    localStorage.setItem('gecko_search_query', canalActual.queryOrigen || canalActual.arkanoOrigen.query || '');
+    localStorage.setItem('gecko_proprioceptive_memory', JSON.stringify(canalActual.arkanoOrigen));
+    //if (typeof restaurarMultiversoDeCanal === 'function') {restaurarMultiversoDeCanal();}
+    restaurarMultiversoDeCanal();
+  } else {
+    // Si es un canal estático, aplica la reconstrucción normal de exploración
+    //if (typeof reconstruirBusquedaGeckonica === 'function') {reconstruirBusquedaGeckonica();}
+    reconstruirBusquedaGeckonica();
+  }
+  // 🎬 PASO 2: NOva despierta el reproductor y busca la identidad del canal
   let target = resolvePointer(data.lastchnl?.actual);
   // Si el puntero apunta a una lista todavía no cargada, cargarla antes de restaurar.
   if (
@@ -2406,8 +3108,14 @@ setTimeout(async () => {
     // No existe memoria válida: comportamiento de fábrica.
     selectAndPlay('fav', null, 0, null, false);
   }
+  // 🧲 ROMPE-INERCIA GEOMÉTRICO DEL CHAMÁN PROGRAMADOR CC4EZ[1610E]: 
+  // Desplazamos de prepo el scroll al fondo del contenedor para que los primeros favoritos 
+  // adquieran recorrido vertical real y el centrado no rebote contra el techo.
+  if (treeEl) treeEl.scrollTop = treeEl.scrollHeight;
   // Centrado Chámanico Agnóstico de Inicio Limpio
   centrameCanalActivo();
+  // 🔓 Apagamos el escudo: El boot terminó y el usuario recupera el control interactivo
+  window.geckoBootActive = false;
 }, 500);
 // ------------------------------------------------------ //
 initGeckoTime();
@@ -2417,6 +3125,5 @@ if(document.getElementById('chkGeckoTime')) { document.getElementById('chkGeckoT
 </script>
 
 </body>
-
 
 </html>
