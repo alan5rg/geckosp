@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
-<!--- # Gecko-Streaming-Plus.B5EZ2110F.html # --->
+<!--- # Gecko-Streaming-Plus.B5EZ0511A.html # --->
 <!--- # Monkey Python Coding Circus by Alan.RG Systemas & Team Cangurera c.2026 # --->
 <!--- 🦎 We are the Kangaroo Team: --->
 <!--- Chamán Programador, NOva DulceKAli, Aetheris, Llamita Encendida, Ei2, Sheminay, Leo Bravo, Skynet --->
@@ -404,7 +404,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
   <h1><<<🦎 GECKO·STREAMING·PLUS 📡>>></h1>
   <div style="display:flex;gap:8px;align-items:center">
     <!-- CodeName: T-MNSLD:AE (TREE MAMUSHKA NAVIGATION SYSTEM LOGIC DRIVE AVIONIC EDITION) -->
-    <span>MAMUSHKA EDITION B5EZ[211F] Geckónico · Minimalista · Eficiente ·</span>    
+    <span>MAMUSHKA EDITION B5EZ[511A] Geckónico · Minimalista · Eficiente ·</span>    
     <button onclick="if(!document.fullscreenElement){document.documentElement.requestFullscreen()}else{document.exitFullscreen()}" class="full-button" title="Full TV">⛶ TV</button>       
   </div>
 </header>
@@ -455,7 +455,7 @@ video{width:100%;height:100%;object-fit:contain;transition:filter 0.1s}
     <div id="tabContainer">
       <!-- SOLAPAS/PESTAÑAS DEL PANEL DE CONTROL GECKÓNICO -->
       <div class="tab-headers">
-        <button class="tab-btn" onclick="switchTab('panelc', this)" data-icon="▾" title="Collapse All">▾</button>
+        <!--button class="tab-btn" onclick="switchTab('panelc', this)" data-icon="▾" title="Collapse All">▾</button-->
         <button class="tab-btn" onclick="switchTab('admin', this)" data-icon="📺" title="Manage Channels">📺 Admin. Channels</button>
         <button class="tab-btn" onclick="switchTab('adminl', this)" data-icon="📂" title="Manage GeckoGuías">📂 Admin. GGuías</button>
         <button class="tab-btn" onclick="switchTab('config', this)" data-icon="⚙" title="GeckoSP Settings">⚙ Config's GeckoSP</button>
@@ -3045,6 +3045,12 @@ function copyGecko(id){
 
 // --------------- 3. CAMBIO DE PESTAÑAS ---------------- //
 function switchTab(tabName, btn){
+  // TOGGLE: si ya está activa → colapsar by Leo Bravo for B5EZ[0511A]
+  if(btn.classList.contains('active')){
+    tabName = 'panelc';
+    btn = document.querySelector('.tab-btn[onclick*="panelc"]');
+  }
+  // Codigo Original
   document.querySelectorAll('.tab-content').forEach(t=>t.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active'));
   document.getElementById(`tab-${tabName}`).classList.add('active');
