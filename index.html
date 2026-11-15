@@ -2380,6 +2380,12 @@ function addNewChannel(){
   const url = document.getElementById('editUrl').value.trim();
   const type = document.getElementById('editType').value.trim() || 'Custom';
   if(!url){ alert('Ingresá una URL válida'); return; }
+  // Alertar si no hay GeckoGuía Destino by Llamita & Chaman for B6EZ[1511D]
+  const targetValCheck = document.getElementById('editTargetList').value;
+  if(!targetValCheck){
+    alert('⚠ Seleccioná o Crea una GeckoGuía Destino');
+    return;
+  }
   // Resolver destino (si es lista nueva la crea y devuelve su índice)
   const targetVal = resolveTargetListIndex();
   if (targetVal === null) return;
